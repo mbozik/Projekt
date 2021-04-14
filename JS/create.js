@@ -15,8 +15,8 @@
             choice_c++;
             $("#newq").append("<input type='text' class='form-control qchoice' name='radiochoice"+choice_c+"_q"+i+"' id='radiochoice"+choice_c+"' title='q"+i+"' style='display: none'/>");
             choice_c++;
-            $("#newq").append("<button id='radiobtn"+i+"' type='button' class='btn btn-primary add-radio-choice' style='display: none'><span class='glyphicon glyphicon-plus'></span>Add choices</button>");
-            $("#newq").append("<button id='checkbtn"+i+"' type='button' class='btn btn-primary add-checkbox-choice' style='display: none'><span class='glyphicon glyphicon-plus'></span>Add choices</button>");
+            $("#newq").append("<button id='radiobtn"+i+"' type='button' class='btn btn-primary add-radio-choice' style='display: none'><span class='glyphicon glyphicon-plus'></span>Dodatkowa odpowiedź</button>");
+            $("#newq").append("<button id='checkbtn"+i+"' type='button' class='btn btn-primary add-checkbox-choice' style='display: none'><span class='glyphicon glyphicon-plus'></span>Dodatkowa odpowiedź</button>");
         });
         $(document.body).on('change', '.choices' ,function() {
             if ($(".radiobox").is(":checked")) {
