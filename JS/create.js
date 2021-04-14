@@ -1,5 +1,3 @@
-<script>
-
     $(document).ready(function(){
     var i=0;
     var numOfQuestions=0;
@@ -46,4 +44,3 @@
             $("#choicenum").attr("value", choice_c);
         });
 });
-</script>
