@@ -17,31 +17,31 @@ body {
 
 }
 .nag-tab {
-padding:4px 5px 3px 5px;
-margin:0 0 0 4px;
-text-decoration:none;
-background:#f0f0f0 url(images/rog2.gif) top right no-repeat;
-color:#808080;
-border-bottom:1px solid #e0e0e0;
+    padding:4px 5px 3px 5px;
+    margin:0 0 0 4px;
+    text-decoration:none;
+    background:#f0f0f0 url(images/rog2.gif) top right no-repeat;
+    color:#808080;
+    border-bottom:1px solid #e0e0e0;
 }
 
 .nag-tab:hover {
-background:#fafafa url(images/rog2.gif) top right no-repeat;
-border-bottom:1px solid #eaeaea;
-color:#505050;
-text-decoration:none;
+    background:#fafafa url(images/rog2.gif) top right no-repeat;
+    border-bottom:1px solid #eaeaea;
+    color:#505050;
+    text-decoration:none;
 }
 
 .nag-tab-aktywny {
-padding:4px 5px 3px 5px;
-margin:0 0 0 4px;
-color:#505050;
-text-decoration:none;
-background:#ffffff url(images/rog2.gif) top right no-repeat;
-border-bottom:1px solid #ffffff;
+    padding:4px 5px 3px 5px;
+    margin:0 0 0 4px;
+    color:#505050;
+    text-decoration:none;
+    background:#ffffff url(images/rog2.gif) top right no-repeat;
+    border-bottom:1px solid #ffffff;
 }
 
 .nag-tab-aktywny:hover {
-text-decoration:none;
-border-bottom:1px solid #ffffff;
+    text-decoration:none;
+    border-bottom:1px solid #ffffff;
 }
