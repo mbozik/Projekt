@@ -1,3 +1,7 @@
+<?php
+
+session_start();
+?>
 <!DOCTYPE html>
 	<html lang="pl">
 	<head>
@@ -54,3 +58,4 @@
         </div>
 	</body>
 </html>
+
