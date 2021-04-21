@@ -1,3 +1,3 @@
 <?php
 define('USERNAME', 'admin');
-define('PASSWORD', 'xyz');W
+define('PASSWORD', 'xyz');
