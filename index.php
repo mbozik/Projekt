@@ -27,6 +27,7 @@ session_start();
       <input type="password" id="password" name="password" />
       <br/>
       <input type="submit" value="Login">
+      <input type="submit" value="Login">
     </form>
     <?php else : ?>
         <p>Hi, <?=$_SESSION['user']?></p>
