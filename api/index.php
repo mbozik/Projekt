@@ -26,7 +26,7 @@ session_start();
       <label for="password">Hasło:</label>
       <input type="password" id="password" name="password" />
       <br/>
-      <a href="signup.php"><button id="rejestr" type="button">Rejestracja!</button></a>
+      <a href="api/signup.php"><button id="rejestr" type="button">Rejestracja!</button></a>
       <input type="submit" value="Login">
     </form>
     <?php else : ?>
