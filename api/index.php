@@ -20,7 +20,7 @@ session_start();
     <?php if (empty($_SESSION['user'])) : ?>
      <div id="panel">
      <label for="username">Nazwa użytkownika:</label>
-      <form action="PHP/login.php" method="post">
+      <form action="login.php" method="post">
       <input type="text" id="username" name="login" /> 
       <br/> 
       <label for="password">Hasło:</label>
