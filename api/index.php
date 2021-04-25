@@ -7,7 +7,7 @@ session_start();
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="api/css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>login tutorial</title>
 </head> 
@@ -20,7 +20,7 @@ session_start();
     <?php if (empty($_SESSION['user'])) : ?>
      <div id="panel">
      <label for="username">Nazwa użytkownika:</label>
-      <form action="login.php" method="post">
+      <form action="api/login.php" method="post">
       <input type="text" id="username" name="login" /> 
       <br/> 
       <label for="password">Hasło:</label>
@@ -31,7 +31,7 @@ session_start();
     </form>
     <?php else : ?>
         <p>Hi, <?=$_SESSION['user']?></p>
-        <a href="logout.php">logout</a>
+        <a href="api/logout.php">logout</a>
     <?php endif; ?>
     </div>
     </div>
