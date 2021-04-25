@@ -20,13 +20,13 @@ session_start();
     <?php if (empty($_SESSION['user'])) : ?>
      <div id="panel">
      <label for="username">Nazwa użytkownika:</label>
-      <form action="api/login.php" method="post">
+      <form action="login.php" method="post">
       <input type="text" id="username" name="login" /> 
       <br/> 
       <label for="password">Hasło:</label>
       <input type="password" id="password" name="password" />
       <br/>
-      <a href="api/signup.php"><button id="rejestr" type="button">Rejestracja!</button></a>
+      <a href="signup.php"><button id="rejestr" type="button">Rejestracja!</button></a>
       <input type="submit" value="Login">
     </form>
     <?php else : ?>
