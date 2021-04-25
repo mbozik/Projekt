@@ -31,7 +31,7 @@ session_start();
     </form>
     <?php else : ?>
         <p>Hi, <?=$_SESSION['user']?></p>
-        <a href="PHP/logout.php">logout</a>
+        <a href="logout.php">logout</a>
     <?php endif; ?>
     </div>
     </div>

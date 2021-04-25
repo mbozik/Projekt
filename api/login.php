@@ -14,4 +14,4 @@ if (!empty($_POST['login']) && !empty($_POST['password']))
         }
     }
 }
-header("Location: http://localhost/projekt/index.php");      
+header("Location: https://projekt-wine.vercel.app/api/index.php");      
