@@ -52,10 +52,10 @@ label {
 	padding: 5px;
 }
 input[type="submit"] {
-	width: 70px;
+    width: 95px;
     padding: 5px 13px;
     position: relative;
-    left: 224px;
+    left: 192px;
     margin-bottom: 3px;
 }
 
@@ -114,7 +114,7 @@ body {
 		width: 95px;
 		padding: 5px 12px;
 		position: relative;
-		left: 9px;
+		left: 14px;
 		margin-bottom: 3px;
 	}
 #menu{
