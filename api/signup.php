@@ -17,6 +17,7 @@ session_start();
 <script type="text/javascript"
         src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
 </script>
+<link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Rejestracja</title>
 </head> 
@@ -55,6 +56,26 @@ session_start();
     
     </header>
     <div id="center">
+    <div id="panel">
+    <?php if (empty($_SESSION['user'])) : ?>
+     <label for="username">Email:</label>
+      <form action="rejestracja.php" method="post">
+      <input type="text" id="username" name="login" /> 
+      <br/> 
+      <label for="password">Hasło:</label>
+      <input type="password" id="password" name="password" />
+      <br/>
+      <label for="password">Powtórz hasło:</label>
+      <input type="password" id="password" name="password" />
+      <br/>
+      <input type="sumbit" id="rejestruj" class="btn btn-info" value="Zarejestruj">
+    </form>
+    <?php else : ?>
+        <p>Hi, <?=$_SESSION['user']?></p>
+        <a href="api/logout.php">logout</a>
+    <?php endif; ?>
+    
+   <!-- </div>
       <div id="panel">
       <form method="POST" action="php/rejestracja.php">
         <label for="username">Nazwa użytkownika:</label>
@@ -67,7 +88,7 @@ session_start();
         <input type="text" name="email"><br>
         <input type="submit" value="Utwórz konto" name="rejestruj">
     </form>
-    </div>
+    </div>-->
     </div>
 </body>
 </html>

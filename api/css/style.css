@@ -59,6 +59,13 @@ input[type="submit"] {
     margin-bottom: 3px;
 }
 
+#rejestruj{
+    width: 95px;
+    padding: 5px 13px;
+    position: relative;
+    left: 19px;
+    margin-bottom: 3px;
+}
 
 
 body {
