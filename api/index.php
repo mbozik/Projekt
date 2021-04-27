@@ -36,10 +36,10 @@ session_start();
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <li class="nav-item active">
-                      <a id="nav-login" class="nav-link" href="login.html">Login</a>
+                      <a id="nav-login" class="nav-link" href="login.php">Login</a>
                   </li>
                   <li class="nav-item">
-                      <a id="nav-register" class="nav-link" href="register.html">Register</a>
+                      <a id="nav-register" class="nav-link" href="signup.php">Register</a>
                   </li>
                   <li class="nav-item">
                       <a id="logout" class="nav-link logout" onclick="logout()">Logout</a>
