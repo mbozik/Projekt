@@ -41,9 +41,9 @@ session_start();
                   <li class="nav-item">
                       <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                   </li>
-                  <li class="nav-item">
+          <!--       <li class="nav-item">
                       <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
-                  </li>
+                  </li>  -->
                   <li class="nav-item">
                       <a id="profile" class="nav-link" href="profile.html">Profil</a>
                   </li>
