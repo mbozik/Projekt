@@ -63,8 +63,8 @@ session_start();
       <label for="password">Hasło:</label>
       <input type="password" id="password" name="password" />
       <br/>
-      <a href="signup.php"><button id="rejestr" type="button">Rejestracja!</button></a>
-      <input type="submit" value="Login">
+      <a href="signup.php"><button id="rejestr" class="btn btn-info" type="button">Rejestracja!</button></a>
+      <input type="submit" class="btn btn-info" value="Login">
     </form>
     <?php else : ?>
         <p>Hi, <?=$_SESSION['user']?></p>
