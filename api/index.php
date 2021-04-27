@@ -47,7 +47,7 @@ session_start();
     <div id="center">
     <?php if (empty($_SESSION['user'])) : ?>
      <div id="panel">
-     <label for="username">Nazwa użytkownika:</label>
+     <label for="username">Email:</label>
       <form action="login.php" method="post">
       <input type="text" id="username" name="login" /> 
       <br/> 
