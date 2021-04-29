@@ -13,16 +13,32 @@
     -moz-box-shadow: 0 0 2px silver; 
     box-shadow: 0 0 2px silver; 
 }
+#send{
+    width: 105px;
+    padding: 5px 13px;
+    position: relative;
+    left: 14px;
+    margin-bottom: 3px;
+    
+}
 form {margin: 0;}
 label {
 	display: block;
 	width: 260px;
 	padding: 10px 20px;
-	color: #696969;
+	color: #000000;
 	font-size: 16px;
-	text-shadow: 0 0 1px silver;
 }
 #username, #password {
+	font-size: 22px;
+    display: block;
+    width: 360px;
+    margin: 0 auto;
+    padding: 10px 5px;
+    border: 1px solid #f6f7f7;
+    outline: 5px solid #1c8c98;
+}
+#username, #password2 {
 	font-size: 22px;
     display: block;
     width: 360px;
