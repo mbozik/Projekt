@@ -55,23 +55,38 @@ input[type="submit"] {
     width: 95px;
     padding: 5px 13px;
     position: relative;
-    left: 192px;
+    left: 14px;
     margin-bottom: 3px;
 }
 
 #rejestruj{
-    width: 95px;
+    width: 105px;
     padding: 5px 13px;
     position: relative;
-    left: 19px;
+    left: 14px;
+    margin-bottom: 3px;
+}
+#centerI{
+    width: 50%;
+    height: 60%;
+    padding:1%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2%;
+    background-color: white;
+}
+#opis_index{
+    text-align: left;
+}
+
+#rejestr{
+    width: 95px;
+    padding: 5px 12px;
+    position: relative;
+    left: 192px;
     margin-bottom: 3px;
 }
 
-.bt-info{
-    color: #fff;
-    background-color: #476165;
-    border-color: #17a2b8;
-}
 
 body {
     padding:0 0 0 0;
@@ -122,13 +137,6 @@ body {
 }
 
 
-	#rejestr{
-		width: 95px;
-		padding: 5px 12px;
-		position: relative;
-		left: 14px;
-		margin-bottom: 3px;
-	}
 #menu{
     margin:10px auto -13px auto;
     font-size:0.8em;

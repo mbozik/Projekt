@@ -18,7 +18,7 @@ session_start();
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
+  <title>HOME</title>
 </head> 
 <body>
     <header>
@@ -36,7 +36,7 @@ session_start();
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <li class="nav-item active">
-                      <a id="nav-login" class="nav-link" href="index.php">Logowanie</a>
+                      <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
                   </li>
                   <li class="nav-item">
                       <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
@@ -45,7 +45,7 @@ session_start();
                       <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                   </li>  -->
                   <li class="nav-item">
-                      <a id="profile" class="nav-link" href="profile.html">Profil</a>
+                      <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li>
               </ul>
           </div>
@@ -53,23 +53,19 @@ session_start();
   </div>
     
     </header>
-    <div id="center">
-    <?php if (empty($_SESSION['user'])) : ?>
-     <div id="panel">
-     <label for="username">Email:</label>
-      <form action="login.php" method="post">
-      <input type="text" id="username" name="login" /> 
-      <br/> 
-      <label for="password">Hasło:</label>
-      <input type="password" id="password" name="password" />
-      <br/>
-      <a href="signup.php"><button id="rejestr" class="btn btn-info" type="button">Rejestracja</button></a>
-      <input type="submit" class="btn btn-info" value="Logowanie">
-    </form>
-    <?php else : ?>
-        <p>Hi, <?=$_SESSION['user']?></p>
-        <a href="api/logout.php">logout</a>
-    <?php endif; ?>
+    <div id="centerI">
+        <h1>Projekt Inżynierski</h1>
+    <div id="opis_index">
+    Projekt i implemetacja systemu webowego umożliwiającego głosowanie (lub ankietowanie)
+    w sposób umożliwiający zachowanie anonimowości użytkowników.
+    System zrealizowany w formie aplikacji webowej powinien uwzględniać możliwość oddania głosu lub wyrażenia opinii w taki sposób, aby realizować następujące funkcje:
+    <ul><li> informacje przechowywane w bazie danych </li>
+    <li>reprezentacja nie umożliwia powiązania użytkownika z konkretnymi danymi,</li>
+    <li>reprezentacja umożliwia sprawdzenie czy dana osoba przekazała dane,</li>
+    <li>reprezentacja umożliwia sprawdzenie przez użytkownika czy jego dane są zapisane w bazie.</li></ul>
+    Implementacja powinna uzględniać responsywny interfejs. Do zapewnienia anonimowości należy wykorzystać techniki kryptograficzne (funkcje skrótu) oraz metody generowania tokenów.
+    Rekomedowane jest wykorzystanie ogólnodostępnych bibliotek programistycznych.
+
     </div>
     </div>
 </body>

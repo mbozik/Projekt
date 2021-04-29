@@ -68,7 +68,7 @@ session_start();
       <label for="password">Powtórz hasło:</label>
       <input type="password" id="password" name="password" />
       <br/>
-      <input type="sumbit" id="rejestruj" class="btn btn-info" value="Zarejestruj">
+      <input type="sumbit" id="rejestruj" class="btn btn-dark" value="Zarejestruj">
     </form>
     <?php else : ?>
         <p>Hi, <?=$_SESSION['user']?></p>
