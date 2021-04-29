@@ -24,7 +24,7 @@ session_start();
     <header>
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="index.php">Ankiety</a>
+          <a class="navbar-brand active" href="index.php">Ankiety</a>
 
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent"
@@ -35,7 +35,7 @@ session_start();
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <li class="nav-item active">
+                  <li class="nav-item">
                       <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
                   </li>
                   <li class="nav-item">
@@ -55,17 +55,17 @@ session_start();
     </header>
     <div id="centerI">
         <h1>Projekt Inżynierski</h1>
-    <div id="opis_index">
+        <hr>
+    <div id="opis_index"><p>
     Projekt i implemetacja systemu webowego umożliwiającego głosowanie (lub ankietowanie)
     w sposób umożliwiający zachowanie anonimowości użytkowników.
-    System zrealizowany w formie aplikacji webowej powinien uwzględniać możliwość oddania głosu lub wyrażenia opinii w taki sposób, aby realizować następujące funkcje:
+    System zrealizowany w formie aplikacji webowej powinien uwzględniać możliwość oddania głosu lub wyrażenia opinii w taki sposób, aby realizować następujące funkcje:</p>
     <ul><li> informacje przechowywane w bazie danych </li>
     <li>reprezentacja nie umożliwia powiązania użytkownika z konkretnymi danymi,</li>
     <li>reprezentacja umożliwia sprawdzenie czy dana osoba przekazała dane,</li>
     <li>reprezentacja umożliwia sprawdzenie przez użytkownika czy jego dane są zapisane w bazie.</li></ul>
-    Implementacja powinna uzględniać responsywny interfejs. Do zapewnienia anonimowości należy wykorzystać techniki kryptograficzne (funkcje skrótu) oraz metody generowania tokenów.
-    Rekomedowane jest wykorzystanie ogólnodostępnych bibliotek programistycznych.
-
+    <p>Implementacja powinna uzględniać responsywny interfejs. Do zapewnienia anonimowości należy wykorzystać techniki kryptograficzne (funkcje skrótu) oraz metody generowania tokenów.
+    Rekomedowane jest wykorzystanie ogólnodostępnych bibliotek programistycznych.</p>    
     </div>
     </div>
 </body>

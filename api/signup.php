@@ -37,7 +37,7 @@ session_start();
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <li class="nav-item active">
-                      <a id="nav-login" class="nav-link" href="index.php">Logowanie</a>
+                      <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
                   </li>
                   <li class="nav-item">
                       <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>

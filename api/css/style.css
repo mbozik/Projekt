@@ -69,14 +69,17 @@ input[type="submit"] {
 #centerI{
     width: 50%;
     height: 60%;
-    padding:1%;
+    padding: 1%;
     text-align: center;
     margin: 0 auto;
     margin-top: 2%;
+    font-family: math;
+    font-size: large;
     background-color: white;
 }
 #opis_index{
     text-align: left;
+    
 }
 
 #rejestr{
