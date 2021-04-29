@@ -67,12 +67,17 @@ input[type="submit"] {
     margin-bottom: 3px;
 }
 
+.bt-info{
+    color: #fff;
+    background-color: #476165;
+    border-color: #17a2b8;
+}
 
 body {
     padding:0 0 0 0;
     margin:0;
     font:76% tahoma, verdana, sans-serif;
-	background: #c9f0fc;
+	background: #366d7e;
     color:#303030;
     }
 #menu{
