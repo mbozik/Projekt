@@ -57,7 +57,7 @@
       <label for="password">Hasło:</label>
       <input type="password" id="password" name="password" />
       <br/>
-      <input type="submit" class="btn btn-dark" onclick="login(send)" value="Logowanie">
+      <button type="submit" class="btn btn-dark" name="login_user">Logowanie</button>
       <a href="signup.php"><button id="rejestr" class="btn btn-dark" type="button">Rejestracja</button></a>
     </form>
 <!--        <p>Hi, </p>
@@ -67,12 +67,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    $("#password").keypress(function (event) {
-        if (event.keyCode === 13) {
-            $("#send").click();
-        }
-    });
-
-</script>

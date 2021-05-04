@@ -74,6 +74,13 @@ input[type="submit"] {
     left: 14px;
     margin-bottom: 3px;
 }
+button[type="submit"] {
+    width: 95px;
+    padding: 5px 13px;
+    position: relative;
+    left: 14px;
+    margin-bottom: 3px;
+}
 
 #rejestruj{
     width: 105px;
