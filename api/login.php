@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
     <header>
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="index.html">Ankiety</a>
+          <a class="navbar-brand" href="index.php">Ankiety</a>
 
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent"
@@ -31,16 +32,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <li class="nav-item active">
-                      <a id="nav-login" class="nav-link" href="login.html">Logowanie</a>
+                      <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
                   </li>
                   <li class="nav-item">
-                      <a id="nav-register" class="nav-link" href="signup.html">Rejestracja</a>
+                      <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                   </li>
           <!--       <li class="nav-item">
                       <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                   </li>  -->
                   <li class="nav-item">
-                      <a id="profile" class="nav-link" href="profile.html">Profil</a>
+                      <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li>
               </ul>
           </div>
@@ -51,7 +52,7 @@
     <div id="center">
      <div id="panel">
      <label for="username">Email:</label>
-      <form action="" method="post">
+      <form action="php/server.php" method="post">
       <input type="text" id="username" name="login" /> 
       <br/> 
       <label for="password">Hasło:</label>

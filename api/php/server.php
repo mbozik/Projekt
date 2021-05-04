@@ -34,7 +34,7 @@ $errors = array();
     mysqli_query($db, $query);
     $_SESSION['email'] = $login;
     $_SESSION['success'] = "You are now logged in";
-    header('location: /projekt/api/php/loguj.php');
+    header('location: /projekt/api/profile.php');
 
 }}
 
@@ -57,11 +57,11 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['email'] = $login;
           $_SESSION['success'] = "You are now logged in";
-          header('location: index.html');
+          header('location: /projekt/api/profile.php');
         }else {
             array_push($errors, "Wrong username/password combination");
         }
     }
   }
-header("Location: http://localhost/projekt/api/profile.html");      
+header("Location: http://localhost/projekt/api/profile.php");      
 ?>

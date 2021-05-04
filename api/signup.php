@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,13 +37,13 @@
                       <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
                   </li>
                   <li class="nav-item">
-                      <a id="nav-register" class="nav-link" href="signup.html">Rejestracja</a>
+                      <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                   </li>
           <!--       <li class="nav-item">
                       <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                   </li>  -->
                   <li class="nav-item">
-                      <a id="profile" class="nav-link" href="profile.html">Profil</a>
+                      <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li>
               </ul>
           </div>
@@ -55,7 +56,7 @@
     <div id="panel">
     
      <label for="username">Email:</label>
-      <form action="php/rejestracja.php" method="post">
+      <form action="php/server.php" method="post">
       <input type="text" id="username" name="login" /> 
       <br/> 
       <label for="password">Hasło:</label>

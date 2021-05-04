@@ -1,7 +1,7 @@
 <?php 
   session_start(); 
 
-  if (!isset($_SESSION['username'])) {
+  if (!isset($_SESSION['login'])) {
   	$_SESSION['msg'] = "You must log in first";
   	header('location: login.php');
   }
@@ -48,16 +48,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a id="nav-login" class="nav-link" href="login.html">Logowanie</a>
+                    <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-register" class="nav-link" href="signup.html">Rejestracja</a>
+                    <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                 </li>
         <!--       <li class="nav-item">
                     <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                 </li>  -->
                 <li class="nav-item">
-                    <a id="profile" class="nav-link" href="profile.html">Profil</a>
+                    <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
             </ul>
         </div>
@@ -67,6 +67,13 @@
         <div class="right-panel">
             <label class="lead" for="email-profile">Witaj </label>
             <!--<p class="lead" id="email-profile">No data.</p>-->
+            <?php if (isset($_SESSION['success'])) : ?>
+                <div class="error success" >
+                    <h3>
+                    <?php 
+                        echo $_SESSION['success']; 
+                        unset($_SESSION['success']);
+          ?>
         </div>
     </div>
 
@@ -74,6 +81,13 @@
         <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label>
         <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
     </div>
+    <?php endif ?>
+
+    <!-- logged in user information -->
+    <?php  if (isset($_SESSION['username'])) : ?>
+    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+    <?php endif ?>
     <button type="button" class="btn btn-dark" onclick="">Pobierz ankiete</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

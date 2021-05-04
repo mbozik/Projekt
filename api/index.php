@@ -1,6 +1,17 @@
 <?php
 
 session_start();
+
+
+if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,16 +47,16 @@ session_start();
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <li class="nav-item">
-                      <a id="nav-login" class="nav-link" href="login.html">Logowanie</a>
+                      <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
                   </li>
                   <li class="nav-item">
-                      <a id="nav-register" class="nav-link" href="signup.html">Rejestracja</a>
+                      <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                   </li>
           <!--       <li class="nav-item">
                       <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                   </li>  -->
                   <li class="nav-item">
-                      <a id="profile" class="nav-link" href="profile.html">Profil</a>
+                      <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li>
               </ul>
           </div>
