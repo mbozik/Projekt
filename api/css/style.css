@@ -38,6 +38,16 @@ label {
     border: 1px solid #f6f7f7;
     outline: 5px solid #1c8c98;
 }
+#email {
+	font-size: 22px;
+    display: block;
+    width: 360px;
+    margin: 0 auto;
+    padding: 10px 5px;
+    border: 1px solid #f6f7f7;
+    outline: 5px solid #1c8c98;
+}
+
 #username, #password2 {
 	font-size: 22px;
     display: block;

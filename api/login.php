@@ -1,4 +1,7 @@
-
+<?php 
+session_start();
+include('php/db.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,9 +54,9 @@
     </header>
     <div id="center">
      <div id="panel">
-     <label for="username">Email:</label>
-      <form action="php/server.php" method="post">
-      <input type="text" id="username" name="login" /> 
+     <label for="email">Email:</label>
+      <form id="login_form"  method="post"><!--action="php/server.php"-->
+      <input type="text" id="email" name="email" /> 
       <br/> 
       <label for="password">Hasło:</label>
       <input type="password" id="password" name="password" />
@@ -67,4 +70,35 @@
     </div>
     </div>
 </body>
+<script>
+	$('#login-form').submit(function(e){
+		e.preventDefault()
+		$('#login-form button[type="button"]').attr('disabled',true).html('Logging in...');
+		if($(this).find('.alert-danger').length > 0 )
+			$(this).find('.alert-danger').remove();
+		$.ajax({
+			url:'ajax.php?action=login',
+			method:'POST',
+			data:$(this).serialize(),
+			error:err=>{
+				console.log(err)
+		$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
+
+			},
+			success:function(resp){
+				if(resp == 1){
+					location.href ='profile.php';
+				}else{
+					$('#login-form').prepend('<div class="alert alert-danger">Username or password is incorrect.</div>')
+					$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
+				}
+			}
+		})
+	})
+	$('.number').on('input',function(){
+        var val = $(this).val()
+        val = val.replace(/[^0-9 \,]/, '');
+        $(this).val(val)
+    })
+</script>	
 </html>
