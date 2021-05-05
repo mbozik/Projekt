@@ -97,7 +97,7 @@ session_start();
       <div class="form-group" align="center">
        <input type="submit" name="login" class="btn btn-primary" value="Login" />
        <br />
-       <input type="button" name="register_link" class="btn btn-primary btn-link" ng-click="showRegister()" value="Register" />
+       <input type="button" name="register_link" class="btn btn-primary" ng-click="showRegister()" value="Register" />
       </div>
      </form>
     </div>
