@@ -1,14 +1,14 @@
 <?php
 
-//login.php
+//register.php
 
 include('php/db.php');
 
-session_start();
-
 $form_data = json_decode(file_get_contents("php://input"));
 
+$message = '';
 $validation_error = '';
+
 
 if(empty($form_data->email))
 {
@@ -30,34 +30,20 @@ if(empty($form_data->password))
 {
  $error[] = 'Password is Required';
 }
+else
+{
+ $data[':password'] = password_hash($form_data->password, PASSWORD_DEFAULT);
+}
 
 if(empty($error))
 {
  $query = "
- SELECT * FROM users WHERE email = :email
+ INSERT INTO users (email, password) VALUES (:email, :password)
  ";
  $statement = $connect->prepare($query);
  if($statement->execute($data))
  {
-  $result = $statement->fetchAll();
-  if($statement->rowCount() > 0)
-  {
-   foreach($result as $row)
-   {
-    if(password_verify($form_data->password, $row["password"]))
-    {
-     $_SESSION["name"] = $row["email"];
-    }
-    else
-    {
-     $validation_error = 'Wrong Password';
-    }
-   }
-  }
-  else
-  {
-   $validation_error = 'Wrong Email';
-  }
+  $message = 'Registration Completed';
  }
 }
 else
@@ -66,9 +52,11 @@ else
 }
 
 $output = array(
- 'error' => $validation_error
+ 'error'  => $validation_error,
+ 'message' => $message
 );
 
 echo json_encode($output);
+
 
 ?>
