@@ -47,6 +47,13 @@ label {
     border: 1px solid #f6f7f7;
     outline: 5px solid #1c8c98;
 }
+#sub {
+    width: 78px;
+    padding: 5px 13px;
+    position: relative;
+    left: 0;
+    margin-bottom: 3px;
+}
 
 #username, #password2 {
 	font-size: 22px;

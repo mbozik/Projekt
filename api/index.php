@@ -95,7 +95,7 @@ session_start();
        <input type="password" name="password" ng-model="loginData.password" class="form-control" />
       </div>
       <div class="form-group" align="center">
-       <input type="submit" name="login" class="btn btn-primary" value="Login" />
+       <input id="sub" type="submit" name="login" class="btn btn-primary" value="Login" />
        <br />
        <input type="button" name="register_link" class="btn btn-primary" ng-click="showRegister()" value="Register" />
       </div>
