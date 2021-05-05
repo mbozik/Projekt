@@ -9,8 +9,7 @@ session_start();
 <html>
  <head>
   <title>Projekt inżynierski ankiety</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
   <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript"
         src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
@@ -18,11 +17,10 @@ session_start();
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <style>
   <style>
   .form_style
   {
@@ -57,10 +55,10 @@ session_start();
                   </li> -->
                  <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
-                  </li>   <?php }?>
-            <!--      <li class="nav-item">
+                  </li>   
+                 <li class="nav-item">
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
-                  </li> -->
+                  </li> <?php }?>
               </ul>
           </div>
       </nav>
