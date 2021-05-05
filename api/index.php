@@ -42,7 +42,10 @@ session_start();
                   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
-
+          <?php
+   if(isset($_SESSION["name"]))
+   {
+   ?>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -52,9 +55,9 @@ session_start();
                   <li class="nav-item">
                       <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                   </li> -->
-          <!--       <li class="nav-item">
-                      <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
-                  </li>  -->
+                 <li class="nav-item">
+                      <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
+                  </li>   <?php }?>
             <!--      <li class="nav-item">
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li> -->
