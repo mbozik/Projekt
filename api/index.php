@@ -6,8 +6,8 @@ session_start();
 
 ?>
 <!DOCTYPE html>
-<html>
- <head>
+<html id="tlo">
+ <head  id="tlo" >
   <title>Projekt inżynierski ankiety</title>
 
   <link rel="stylesheet" href="css/style.css">
@@ -29,11 +29,11 @@ session_start();
   }
   </style>
  </head>
- <body>
- <header>
-    <div class="menu">
+ <body  id="tlo">
+ <header id="tlo">
+    <div class="menu" id="menu1">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="index.php">Ankiety</a>
+          <a id="rama1" class="navbar-brand" href="index.php">Ankiety</a>
 
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent"
@@ -54,10 +54,10 @@ session_start();
                       <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                   </li> -->
                  <li class="nav-item">
-                      <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
+                      <a id="rama" id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
                   </li>   
                  <li class="nav-item">
-                      <a id="profile" class="nav-link" href="profile.php">Profil</a>
+                      <a id="rama" id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li> <?php }?>
               </ul>
           </div>
@@ -67,7 +67,7 @@ session_start();
     
     </header>
   <br />
-   <h3 align="center">Projekt inżynierski ankiety</h3>
+   <h3 id="tytul" align="center">Projekt inżynierski ankiety</h3>
   <br />
 
   <div ng-app="login_register_app" ng-controller="login_register_controller" class="container form_style">
@@ -80,51 +80,51 @@ session_start();
     {{alertMessage}}
    </div>
 
-   <div class="panel panel-default" ng-show="login_form">
+   <div class="panel panel-primary" ng-show="login_form">
     <div class="panel-heading">
-     <h3 class="panel-title">Login</h3>
+     <h3  id="txt" class="panel-title">Login</h3>
     </div>
     <div class="panel-body">
      <form method="post" ng-submit="submitLogin()">
-      <div class="form-group">
-       <label>Enter Your Email</label>
+      <div id="txt" class="form-group">
+       <label >Enter Your Email</label>
        <input type="text" name="email" ng-model="loginData.email" class="form-control" />
       </div>
       <div class="form-group">
-       <label>Enter Your Password</label>
+       <label id="txt">Enter Your Password</label>
        <input type="password" name="password" ng-model="loginData.password" class="form-control" />
       </div>
       <div class="form-group" align="center">
        <input type="submit" name="login" class="btn btn-primary" value="Login" />
        <br />
-       <input type="button" name="register_link" class="btn btn-primary btn-link" ng-click="showRegister()" value="Register" />
+       <input id="txt" type="button" name="register_link" class="btn btn-primary btn-link" ng-click="showRegister()" value="Register" />
       </div>
      </form>
     </div>
    </div>
 
-   <div class="panel panel-default" ng-show="register_form">
+   <div class="panel panel-primary" ng-show="register_form">
     <div class="panel-heading">
      <h3 class="panel-title">Register</h3>
     </div>
     <div class="panel-body">
      <form method="post" ng-submit="submitRegister()">
       <div class="form-group">
-       <label>Podaj Email</label>
+       <label id="txt">Podaj Email</label>
        <input type="text" name="email" ng-model="registerData.email" class="form-control" />
       </div>
       <div class="form-group">
-       <label>Podaj hasło</label>
+       <labeli d="txt">Podaj hasło</label>
        <input type="password" name="password" ng-model="registerData.password" class="form-control" />
       </div>
       <div class="form-group">
-       <label>Podaj hasło ponownie:</label>
+       <label id="txt">Podaj hasło ponownie:</label>
        <input type="password" name="password2" ng-model="registerData.password2" class="form-control" />
       </div>
       <div class="form-group" align="center">
        <input type="submit" name="register" class="btn btn-primary" value="Register" />
        <br />
-       <input type="button" name="login_link" class="btn btn-primary btn-link" ng-click="showLogin()" value="Login" />
+       <input id="txt" type="button" name="login_link" class="btn btn-primary btn-link" ng-click="showLogin()" value="Login" />
       </div>
      </form>
     </div>
@@ -134,13 +134,13 @@ session_start();
    else
    {
    ?>
-   <div class="panel panel-default">
+   <div class="panel panel-primary">
     <div class="panel-heading">
-     <h3 class="panel-title">Welcome to system</h3>
+     <h3 id="txt" class="panel-title">Welcome to system</h3>
     </div>
     <div class="panel-body">
-     <h1>Welcome - <?php echo $_SESSION["name"];?></h1>
-     <a href="logout.php">Logout</a>
+     <h1 id="txt">Welcome - <?php echo $_SESSION["name"];?></h1>
+     <a id="txt" href="logout.php">Logout</a>
     </div>
    </div>
    <?php
