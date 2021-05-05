@@ -13,6 +13,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
 <script src="js/signup.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -55,8 +58,9 @@
     <div id="center">
     <div id="panel">
     
-     <label for="username">Email:</label>
+     
       <form action="php/server.php" method="post">
+      <label for="username">Email:</label>
       <input type="text" id="username" name="login" /> 
       <br/> 
       <label for="password">Hasło:</label>

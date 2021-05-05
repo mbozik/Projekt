@@ -29,8 +29,7 @@ $errors = array();
   if (count($errors) == 0) {
     $password = md5($password);//encrypt the password before saving in the database
 
-    $query = "INSERT INTO users (email, password) 
-              VALUES('$login', '$password')";
+    $query = "INSERT INTO users (email, password) VALUES('$login', '$password')";
     mysqli_query($conn, $query);
     $_SESSION['email'] = $login;
     $_SESSION['success'] = "You are now logged in";
