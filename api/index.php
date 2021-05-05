@@ -122,9 +122,9 @@ session_start();
        <input type="password" name="password2" ng-model="registerData.password2" class="form-control" />
       </div>
       <div class="form-group" align="center">
-       <input type="submit" name="register" class="btn btn-primary" value="Register" />
+       <input id="sub" type="submit" name="register" class="btn btn-primary" value="Register" />
        <br />
-       <input type="button" name="login_link" class="btn btn-primary btn-link" ng-click="showLogin()" value="Login" />
+       <input id="sub" type="button" name="login_link" class="btn btn-primary" ng-click="showLogin()" value="Login" />
       </div>
      </form>
     </div>
@@ -140,7 +140,7 @@ session_start();
     </div>
     <div class="panel-body">
      <h1>Welcome - <?php echo $_SESSION["name"];?></h1>
-     <a href="logout.php">Logout</a>
+     <a class="btn btn-primary" href="logout.php">Logout</a>
     </div>
    </div>
    <?php
