@@ -28,11 +28,21 @@ else
 
 if(empty($form_data->password))
 {
- $error[] = 'Password is Required';
+ $error[] = 'Hasło jest wymagane';
+}
+else
+if(empty($form_data->password2))
+{
+ $error[] = 'Hasło jest wymagane';
+}
+else
+if($form_data->password2==$form_data->password)
+{
+ $data[':password'] = password_hash($form_data->password, PASSWORD_DEFAULT);
 }
 else
 {
- $data[':password'] = password_hash($form_data->password, PASSWORD_DEFAULT);
+    $error[] = 'Hasła nie są takie same';
 }
 
 if(empty($error))

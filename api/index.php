@@ -109,12 +109,16 @@ session_start();
     <div class="panel-body">
      <form method="post" ng-submit="submitRegister()">
       <div class="form-group">
-       <label>Enter Your Email</label>
+       <label>Podaj Email</label>
        <input type="text" name="email" ng-model="registerData.email" class="form-control" />
       </div>
       <div class="form-group">
-       <label>Enter Your Password</label>
+       <label>Podaj hasło</label>
        <input type="password" name="password" ng-model="registerData.password" class="form-control" />
+      </div>
+      <div class="form-group">
+       <label>Podaj hasło ponownie:</label>
+       <input type="password" name="password2" ng-model="registerData.password2" class="form-control" />
       </div>
       <div class="form-group" align="center">
        <input type="submit" name="register" class="btn btn-primary" value="Register" />
