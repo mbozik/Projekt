@@ -8,7 +8,7 @@ session_start();
 <!DOCTYPE html>
 <html>
  <head>
-  <title>AngularJS Register Login Script using PHP Mysql</title>
+  <title>Projekt inżynierski ankiety</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
@@ -46,18 +46,18 @@ session_start();
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <li class="nav-item active">
+           <!--       <li class="nav-item active">
                       <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
                   </li>
                   <li class="nav-item">
                       <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
-                  </li>
+                  </li> -->
           <!--       <li class="nav-item">
                       <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                   </li>  -->
-                  <li class="nav-item">
+            <!--      <li class="nav-item">
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
-                  </li>
+                  </li> -->
               </ul>
           </div>
       </nav>
@@ -66,7 +66,7 @@ session_start();
     
     </header>
   <br />
-   <h3 align="center">AngularJS Register Login Script using PHP Mysql</h3>
+   <h3 align="center">Projekt inżynierski ankiety</h3>
   <br />
 
   <div ng-app="login_register_app" ng-controller="login_register_controller" class="container form_style">
