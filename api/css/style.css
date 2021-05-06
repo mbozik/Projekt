@@ -178,7 +178,9 @@ body {
     text-decoration:none;
     border-bottom:1px solid #ffffff;
 }
-
+#logout{
+margin-left:25%;
+}
 
 #menu{
     margin:10px auto -13px auto;
