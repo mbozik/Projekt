@@ -71,7 +71,7 @@ session_start();
    <h3 align="center">Projekt inżynierski ankiety</h3>
   <br />
 
-  <div ng-app="login_register_app" ng-controller="login_register_controller" class="container form_style">
+  <div id="l_r" ng-app="login_register_app" ng-controller="login_register_controller" class="container form_style">
    <?php
    if(!isset($_SESSION["name"]))
    {

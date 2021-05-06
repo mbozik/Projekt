@@ -48,8 +48,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                    <a id="logout" class="nav-link logout" onclick="php/logout.php">Wyloguj</a>
-                </li> 
+                      <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
+                  </li> 
           <!--      <li class="nav-item">
                     <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                 </li>
@@ -60,7 +60,7 @@
                     <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
                 <?php  if (isset($_SESSION['name'])) : ?>
-                    <li class="nav-item" style="text-align:right;"> 
+                    <li class="nav-item" style="text-align:right;margin:auto"> 
                         Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
                         </li>
                  <?php endif ?>
@@ -68,8 +68,9 @@
         </div>
     </nav>
 </div>
+
     <div class="profile">
-        <div class="right-panel">          
+        <div id="r_p" class="right-panel">          
             <!--<p class="lead" id="email-profile">No data.</p>-->
             <?php if (isset($_SESSION['success'])) : ?>
                 <div class="error success" >
@@ -82,13 +83,14 @@
         </div>
     </div>
     <?php endif ?>
-
-    <div class="form-group">
-        <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label>
-        <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
+    <div  id="panel2" >
+        <div class="form-group">
+            <!-- <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label> -->
+            <h3 id="txt" class="panel-title">Aby uzyskać odpowiedzi podaj klucz:</h3>
+            <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
+        </div>
+        <button type="button" class="btn btn-dark" onclick="">Pobierz ankiete</button>
     </div>
-    <button type="button" class="btn btn-dark" onclick="">Pobierz ankiete</button>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
