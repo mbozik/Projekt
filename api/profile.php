@@ -59,6 +59,11 @@
                 <li class="nav-item">
                     <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
+                <?php  if (isset($_SESSION['name'])) : ?>
+                    <li class="nav-item" style="text-align:right;"> 
+                        Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+                        </li>
+                 <?php endif ?>
             </ul>
         </div>
     </nav>
@@ -76,9 +81,6 @@
           ?>
         </div>
     </div>
-    <?php endif ?>
-    <?php  if (isset($_SESSION['name'])) : ?>
-    	<p>Witaj <strong><?php echo $_SESSION['name']; ?></strong></p>
     <?php endif ?>
 
     <div class="form-group">
