@@ -53,12 +53,13 @@ session_start();
                   <li class="nav-item">
                       <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                   </li> -->
-                 <li class="nav-item">
-                      <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
-                  </li>   
+                   
                  <li class="nav-item">
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
-                  </li> <?php }?>
+                  </li>
+                  <li class="nav-item">
+                      <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
+                  </li>    <?php }?>
               </ul>
           </div>
       </nav>
@@ -140,7 +141,7 @@ session_start();
     </div>
     <div class="panel-body">
      <h1>Welcome - <?php echo $_SESSION["name"];?></h1>
-     <a class="btn btn-primary" href="logout.php">Logout</a>
+     <a class="btn btn-primary" href="php/logout.php">Logout</a>
     </div>
    </div>
    <?php
@@ -196,7 +197,7 @@ app.controller('login_register_controller', function($scope, $http){
  $scope.submitLogin = function(){
   $http({
    method:"POST",
-   url:"login.php",
+   url:"php/login.php",
    data:$scope.loginData
   }).success(function(data){
    if(data.error != '')

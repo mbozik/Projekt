@@ -47,47 +47,46 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
-                </li>
-                <li class="nav-item">
+            <li class="nav-item">
+                    <a id="logout" class="nav-link logout" onclick="php/logout.php">Wyloguj</a>
+                </li> 
+          <!--      <li class="nav-item">
                     <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                 </li>
-        <!--       <li class="nav-item">
+               <li class="nav-item">
                     <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                 </li>  -->
                 <li class="nav-item">
                     <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
+                <?php  if (isset($_SESSION['name'])) : ?>
+                    <li class="nav-item" style="text-align:right;"> 
+                        Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+                        </li>
+                 <?php endif ?>
             </ul>
         </div>
     </nav>
 </div>
     <div class="profile">
-        <div class="right-panel">
-            <label class="lead" for="email-profile">Witaj </label>
+        <div class="right-panel">          
             <!--<p class="lead" id="email-profile">No data.</p>-->
             <?php if (isset($_SESSION['success'])) : ?>
                 <div class="error success" >
                     <h3>
                     <?php 
+                    
                         echo $_SESSION['success']; 
                         unset($_SESSION['success']);
           ?>
         </div>
     </div>
+    <?php endif ?>
 
     <div class="form-group">
         <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label>
         <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
     </div>
-    <?php endif ?>
-
-    <!-- logged in user information -->
-    <?php  if (isset($_SESSION['username'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-    <?php endif ?>
     <button type="button" class="btn btn-dark" onclick="">Pobierz ankiete</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
