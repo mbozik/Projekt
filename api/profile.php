@@ -59,12 +59,15 @@
                 <li class="nav-item">
                     <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
-                <?php  if (isset($_SESSION['name'])) : ?>
+            </ul>
+            
+            <?php  if (isset($_SESSION['name'])) : ?>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style=" margin-left: 69%;">
                     <li class="nav-item" style="text-align:right;margin:auto"> 
                         Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
                         </li>
+                        </ul>
                  <?php endif ?>
-            </ul>
         </div>
     </nav>
 </div>

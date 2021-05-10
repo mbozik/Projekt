@@ -27,6 +27,13 @@ session_start();
    width: 600px;
    margin: 0 auto;
   }
+  body{
+    background:#366d7e;
+  }
+  .panel-body{
+    padding: 15px;
+    padding-bottom: 0px;
+  }
   </style>
  </head>
  <body>
