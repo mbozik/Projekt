@@ -59,6 +59,9 @@
                 <li class="nav-item">
                     <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
+                <li class="nav-item">
+                    <a id="create" class="nav-link" href="create.php">Stwórz</a>
+                </li>
             </ul>
             
             <?php  if (isset($_SESSION['name'])) : ?>

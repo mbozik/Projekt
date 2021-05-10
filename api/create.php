@@ -22,6 +22,32 @@ session_start();
           <!--<script src="js/create.js"></script>-->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="JS/create.js"></script>
+  <style>
+    label {
+  margin: 10px 0;
+}
+.question-container .question-label {
+  border: none;
+  
+}
+.answer-option {
+  width: 200px;
+}
+input[type=radio], input[type=checkbox] {
+  width: 25px;
+  float: left;
+}
+
+.radio-answer-options {
+  background-color: #fcc;
+}
+.checkbox-answer-options {
+  background-color: #fcf;
+}
+.text-answer-options {
+  background-color: #cff;
+}
+    </style>
 <header>
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,7 +105,7 @@ session_start();
       <div class="panel panel-default">
         <div class="panel-heading">Create New Survey:</div>
         <div class="panel-group">
-          <form  method="POST" class="form-control" style="height: 700px; border: none" id="survey-form">
+          <form  method="POST" action="php/insert.php" class="form-control" style="height: 700px; border: none" id="survey-form">
             <label>Nazwa ankiety: </label>
             <input name="survey_title" id="survey_title" type="text" class="form-control input-group" />
             <input name="qnum" id="qnum" type="hidden" value="" />
@@ -92,7 +118,7 @@ session_start();
             <div id="questions">
             </div>
             <button class="btn btn-primary" type="button" style="display: block; margin-top: 5px;" id="addq"><span class="glyphicon glyphicon-plus"></span>Add a question</button>
-            <button class="btn btn-success" type="submit" id="uploadsurvey" name="uploadsurvey" style="display: block; margin-top: 10px">Stwórz ankietę</button>
+            <button class="btn btn-success" type="submit" id="uploadsurvey" ng-click="uploadSurvey()" name="uploadsurvey" style="display: block; margin-top: 10px">Stwórz ankietę</button>
           </form>
         </div>
       </div>

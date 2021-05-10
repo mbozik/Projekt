@@ -1,47 +1,240 @@
-    $(document).ready(function(){
-    var i=0;
-    var numOfQuestions=0;
-    var choice_c = 1;
-    $("#addq").click(function(){
-            numOfQuestions++;
-            i++;
-            $("#questions").append("<div id='newq' style='margin-top: 5px; margin-bottom: 5px'></div>");
-            $("#newq").append("Question: <input type='text' name='q"+i+"' class='form-control' style='display: inline-block' id='q"+i+"'/>");
-            $("#qnum").attr("value", numOfQuestions);
-            $("#newq").append("<label><input type='radio' name='radio"+i+"' value='radio' class='choices radiobox' id='radiobox"+i+"'/>&nbsp;Radiobox&nbsp;&nbsp;</label>");
-            $("#newq").append("<label><input type='radio' name='radio"+i+"' value='check' class='choices checkbox' id='checkbox"+i+"'/>&nbsp;Checkbox&nbsp;&nbsp;</label>");
-            $("#newq").append("<label><input type='radio' name='radio"+i+"' value='text' class='choices textbox' id='textbox"+i+"'/>&nbsp;Text&nbsp;&nbsp;</label>");
-            $("#newq").append("<input type='text' class='form-control qchoice' name='radiochoice"+choice_c+"_q"+i+"' id='radiochoice"+choice_c+"' title='q"+i+"' style='display: none'/>");
-            choice_c++;
-            $("#newq").append("<input type='text' class='form-control qchoice' name='radiochoice"+choice_c+"_q"+i+"' id='radiochoice"+choice_c+"' title='q"+i+"' style='display: none'/>");
-            choice_c++;
-            $("#newq").append("<button id='radiobtn"+i+"' type='button' class='btn btn-primary add-radio-choice' style='display: none'><span class='glyphicon glyphicon-plus'></span>Add choices</button>");
-            $("#newq").append("<button id='checkbtn"+i+"' type='button' class='btn btn-primary add-checkbox-choice' style='display: none'><span class='glyphicon glyphicon-plus'></span>Add choices</button>");
+
+$(document).ready(function() {
+    // Handle the user clicking on "Add a question"
+    $("#addq").click(function() {
+      // a nested function creates the HTML DOM structure.
+      smLib.surveyForms.addQuestion( $("#questions") );
+    });
+  });
+  
+  
+  $(function() {
+    window.smLib = window.smLib || {};
+    smLib.forms = smLib.forms || {
+      anchorEl: $("<a>"),
+      buttonEl: $("<input>").prop("type", "button"),
+      checkboxEl: $("<input>").prop("type", "checkbox"),
+      radioEl: $("<input>").prop("type", "radio"),
+      textEl: $("<input>").prop("type", "text"),
+      textareaEl: $("<textarea>"),
+      fieldsetEl: $("<fieldset>"),
+      labelEl: $("<label>"),
+      spanEl: $("<span>"),
+      divEl: $("<div>")
+    };
+    smLib.icons = smLib.icons || {
+      addEl: smLib.forms.spanEl.clone().prop({
+        "class": "glyphicon glyphicon-plus"
+      }),
+      removeEl: smLib.forms.spanEl.clone().prop({
+        "class": "glyphicon glyphicon-minus"
+      })
+    };
+  
+    smLib.surveyForms = smLib.surveyForms || {
+  
+      /**
+       * This handles the HTML DOM creation. I don't want to clog up
+       *   the main routine with all the ugly, so I've moved it here.
+       *   Purely cosmetic. The functioning is the same as the former
+       *   append() functions with the element completely spelled out.
+       **/
+      addQuestion: function(container) {
+        var that = this;
+        this.container = container;
+        var i = this.container.find(".question-container").length + 1;
+        /***
+         * When the question is  being created, it will be contained in its own element,
+         *   and the answer portion will also be contained. The answer pane will contain the
+         *   three options for an answer, whether text, radio or checkbox, as well as allowing
+         *   the creation of labels for the radio/checkbox options.
+         ***/
+  
+        // First we create the question element, simply a text input wrapped in a label.
+        var newQuestionEl = smLib.forms.textEl.clone().prop({
+          "name": "q" + i,
+          "id": "q" + i,
+          "class": "form-control"
         });
-        $(document.body).on('change', '.choices' ,function() {
-            if ($(".radiobox").is(":checked")) {
-                $(".add-radio-choice").show();
-                $(".qchoice").show();
-                $(".add-checkbox-choice").hide();
-            }
-            else if ($(".checkbox").is(":checked")) {
-                $(".add-checkbox-choice").show();
-                $(".add-radio-choice").hide();
-                $(".qchoice").show();
-            }
-            else if($(".textbox").is(":checked")){
-                $(".add-checkbox-choice").hide();
-                $(".add-radio-choice").hide();
-                $(".qchoice").hide();
-            }
+        var newQuestion = smLib.forms.divEl.clone().prop({
+          "class": "question-pane"
+        }).append("Question #"+i+": ", newQuestionEl);
+  
+        // Next, we create an array of options to determine what type of question this is:
+        //  radio, checkbox or text.
+        var newQTypeArr = [];
+        var newQTypeRadioEl = smLib.forms.radioEl.clone().prop({
+          name: "qType" + i,
+          id: "qType" + i,
+          value: "radio",
+          class: "choices radiobox"
+        }).on("click", function() {
+          smLib.surveyForms.showOptionsPane(radioOptions);
         });
-        $(document.body).on('click', '.add-radio-choice' ,function(){
-            $("#newq").append("Choice: <input type='text' name='radiochoice"+choice_c+"_q"+i+"' title='q"+i+"' class='form-control qchoice' id='radiochoice"+choice_c+"'/>");
-            $("#choicenum").attr("value", choice_c);
+        newQTypeArr[0] = smLib.forms.labelEl.clone().append(newQTypeRadioEl, " Radio");
+  
+        var newQTypeCheckEl = smLib.forms.radioEl.clone().prop({
+          name: "qType" + i,
+          id: "qType" + i,
+          value: "checkbox",
+          class: "choices radiobox"
+        }).on("click", function() {
+          smLib.surveyForms.showOptionsPane(checkboxOptions);
         });
-        $(document.body).on('click', '.add-checkbox-choice' ,function(){
-            $("#newq").append("<input type='text' name='radiochoice"+choice_c+"_q"+i+"' title='q"+i+"' class='form-control qchoice' id='checkboxchoice"+choice_c+"'>");
-            $("#choicenum").attr("value", choice_c);
+        newQTypeArr[1] = smLib.forms.labelEl.clone().append(newQTypeCheckEl, "Checkbox");
+  
+        var newQTypeTextEl = smLib.forms.radioEl.clone().prop({
+          name: "qType" + i,
+          id: "qType" + i,
+          value: "text",
+          class: "choices radiobox"
+        }).on("click", function() {
+          smLib.surveyForms.showOptionsPane(textOptions);
         });
+        newQTypeArr[2] = smLib.forms.labelEl.clone().append(newQTypeTextEl, "Text");
+  
+        var addRadioChoiceButton = smLib.forms.buttonEl.clone().prop({
+          "class": "btn btn-primary add-radio-choice answer-option",
+          "value": "Add Radio button"
+        }).append(smLib.icons.addEl.clone(), "Add choices").on("click", function() {
+          that.addRadioOptions(radioOptions);
+        });
+  
+        var radioOptions = smLib.forms.divEl.clone().prop({
+          class: "radio-answer-options"
+        }).append(addRadioChoiceButton).on("change", function(){
+          that.updatePreview(newQuestionEl, newAnswerEl, previewContainerEl); 
+        }).hide();
+        this.addRadioOptions(radioOptions);
+  
+        var addCheckboxChoiceButton = smLib.forms.buttonEl.clone().prop({
+          "class": "btn btn-primary add-checkbox-choice answer-option",
+          "value": "Add Checkbox"
+        }).append(smLib.icons.addEl.clone(), "Add choices").on("click", function() {
+          that.addCheckboxOptions(checkboxOptions);
+        });
+        var checkboxOptions = smLib.forms.divEl.clone().prop({
+          class: "checkbox-answer-options"
+        }).append(addCheckboxChoiceButton).on("change", function(){
+          that.updatePreview(newQuestionEl, newAnswerEl, previewContainerEl); 
+        }).hide();
+        this.addCheckboxOptions(checkboxOptions);
+  
+        var textOptions = smLib.forms.divEl.clone().prop({
+          class: "text-answer-options"
+        }).on("change", function(){
+          that.updatePreview(newQuestionEl, newAnswerEl, previewContainerEl); 
+        }).hide();
+        this.addTextOptions(textOptions);
+  
+        // Now we create the answer options pane. containing this separately from the
+        //  answers will allow them to be manipulated as needed.
+        var newAnswerEl = smLib.forms.divEl.clone().prop({
+          class: "answer-options-pane"
+        }).append(radioOptions, checkboxOptions, textOptions);
+  
+        // Just as we wrapped the question in a label, we're going to wrap the answer options
+        //   in an answer pane. This is where all of the answer work will happen.
+        var newAnswer = smLib.forms.divEl.clone().prop({
+          class: "answer-pane"
+        }).append(newQTypeArr, newAnswerEl);
         
-});
+        var previewQuestion = smLib.forms.divEl.clone().prop({
+          class: "preview-question"
+        });
+        var previewAnswer = smLib.forms.divEl.clone().prop({
+          class: "preview-answer"
+        })
+        var previewContainerEl = smLib.forms.divEl.clone().prop({
+          class: "preview-pane"
+        }).append(previewQuestion, previewAnswer).hide()
+  
+        // The question container pane will contain both the question and the answer container.
+        //   The whole point of this is to create a logical structure for the entire question,
+        //   making it a discrete logical piece.
+        var newQContainerEl = smLib.forms.divEl.clone().prop({
+          class: "question-container",
+        }).append(newQuestion, newAnswer, previewContainerEl);
+  
+        this.container.append(newQContainerEl);
+  
+      }, //end addQuestion()
+      addRadioOptions: function(radioPane) {
+        /***
+         * Another DOM element creation function. This creates the radio
+         *   button text option, and if it's the first, a button to add
+         *   more options. 
+         ***/
+  
+        // We want to get the length of the current choices, 
+        //  as this will give us an index for the new option
+  
+        var radioChoice = radioPane.find(".radio-choice");
+        var choice_c = radioChoice.length;
+  
+        var radioTempEl = smLib.forms.radioEl.clone().prop({
+          "class": "answer-option radio-choice"
+        });
+  
+        var radioChoiceTextEl = smLib.forms.textEl.clone().prop({
+          "class": "form-control answer-option radio-choice radiochoice"+choice_c,
+          "name": "radiochoice" + choice_c,
+        });
+  
+        var radioChoiceEl = smLib.forms.labelEl.clone().append(radioTempEl, radioChoiceTextEl);
+        // Make sure to add the new text element BEFORE the 
+        //    add more button.
+        radioPane.find(".add-radio-choice").before(radioChoiceEl);
+      },
+      addTextOptions: function(textPane) {
+        this.textPane = textPane;
+  
+        var textChoiceTextEl = smLib.forms.textEl.clone().prop({
+          "class": "form-control answer-option text-choice",
+          "name": "text-placeholder",
+        });
+  
+        var textChoiceEl = smLib.forms.labelEl.clone().append("Placeholder text: ", textChoiceTextEl);
+        textPane.append(textChoiceEl);
+      },
+      addCheckboxOptions: function(checkboxPane) {
+        // We want to get the length of the current choices, 
+        //  as this will give us an index for the new option
+  
+        var checkboxChoice = checkboxPane.find(".checkbox-choice");
+        var choice_c = checkboxChoice.length;
+  
+        var checkboxTempEl = smLib.forms.checkboxEl.clone().prop({
+          "class": "answer-option checkbox-choice"
+        });
+        var checkboxChoiceTextEl = smLib.forms.textEl.clone().prop({
+          "class": "form-control answer-option checkbox-choice checkboxchoice"+choice_c,
+          "name": "checkboxchoice" + choice_c,
+        });
+  
+        var checkboxChoiceEl = smLib.forms.labelEl.clone().append(checkboxTempEl, checkboxChoiceTextEl);
+        // Make sure to add the new text element BEFORE the 
+        //    add more button.
+        checkboxPane.find(".add-checkbox-choice").before(checkboxChoiceEl);
+      },
+      showOptionsPane: function(optionsPane) {
+        if (optionsPane.not(":visible")) optionsPane.slideDown().siblings().slideUp();
+      },
+      updatePreview: function(questionPane, answerPane, previewPane){
+        console.log(questionPane);
+        console.log(answerPane);
+        var question = questionPane.find("input").val();
+        var answer = answerPane.find(":visible input[type='text']").val();
+        
+        previewPane.find(".preview-question").text(question);
+        previewPane.find(".preview-answer").html(answer);
+      },
+      togglePreview: function(previewPane){
+        if(previewPane.not(":visible") ) {
+          previewPane.show().siblings().hide();
+        } else {
+          previewPane.hide().siblings().show();
+        }
+      }
+    };
+  });
