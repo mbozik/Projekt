@@ -147,7 +147,7 @@ session_start();
      <h3 class="panel-title">Welcome to system</h3>
     </div>
     <div class="panel-body">
-     <h1>Welcome - <?php echo $_SESSION["name"];?></h1>
+     <h1>Welcome - </h1><?php echo $_SESSION["name"];?>
      <a class="btn btn-primary" href="php/logout.php">Logout</a>
     </div>
    </div>
