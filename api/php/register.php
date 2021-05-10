@@ -2,7 +2,7 @@
 
 //register.php
 
-include('php/db.php');
+include('db.php');
 
 $form_data = json_decode(file_get_contents("php://input"));
 

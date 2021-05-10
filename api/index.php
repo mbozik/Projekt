@@ -183,7 +183,7 @@ app.controller('login_register_controller', function($scope, $http){
  $scope.submitRegister = function(){
   $http({
    method:"POST",
-   url:"register.php",
+   url:"php/register.php",
    data:$scope.registerData
   }).success(function(data){
    $scope.alertMsg = true;
