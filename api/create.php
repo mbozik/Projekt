@@ -105,20 +105,20 @@ input[type=radio], input[type=checkbox] {
       <div class="panel panel-default">
         <div class="panel-heading">Create New Survey:</div>
         <div class="panel-group">
-          <form  method="POST" action="php/insert.php" class="form-control" style="height: 700px; border: none" id="survey-form">
+          <form  method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
             <label>Nazwa ankiety: </label>
-            <input name="survey_title" id="survey_title" type="text" class="form-control input-group" />
+            <input name="survey_title" id="survey_title" ng-model="createData.survey_title" type="text" class="form-control input-group" />
             <input name="qnum" id="qnum" type="hidden" value="" />
             <input name="choicenum" id="choicenum" type="hidden" value="" />
             <label>Opis ankiety: </label>
-            <input name="survey_opis" id="survey_opis" type="text" class="form-control input-group" />
+            <input name="survey_opis" id="survey_opis" ng-model="createData.survey_opis" type="text" class="form-control input-group" />
             <input name="qnum" id="qnum" type="hidden" value="" />
             <input name="choicenum" id="choicenum" type="hidden" value="" />
             <label>Survey Questions:</label>
             <div id="questions">
             </div>
             <button class="btn btn-primary" type="button" style="display: block; margin-top: 5px;" id="addq"><span class="glyphicon glyphicon-plus"></span>Add a question</button>
-            <button class="btn btn-success" type="submit" id="uploadsurvey" ng-click="uploadSurvey()" name="uploadsurvey" style="display: block; margin-top: 10px">Stwórz ankietę</button>
+            <button class="btn btn-success" type="submit" id="uploadsurvey"  name="uploadsurvey" value="Upload" style="display: block; margin-top: 10px">Stwórz ankietę</button>
           </form>
         </div>
       </div>
@@ -126,3 +126,35 @@ input[type=radio], input[type=checkbox] {
   </div>
 </div>
 </div>
+<script>
+var app = angular.module('create_survey_app', []);
+app.controller('create_survey_controller', function($scope, $http){
+  $scope.closeMsg = function(){
+  $scope.alertMsg = false;
+ };
+
+ $scope.login_form = true;
+
+ $scope.submitUpload = function(){
+  $http({
+   method:"POST",
+   url:"php/insert.php",
+   data:$scope.createData
+  }).success(function(data){
+   $scope.alertMsg = true;
+   if(data.error != '')
+   {
+    $scope.alertClass = 'alert-danger';
+    $scope.alertMessage = data.error;
+   }
+   else
+   {
+    $scope.alertClass = 'alert-success';
+    $scope.alertMessage = data.message;
+    $scope.registerData = {};
+   }
+  });
+ };
+
+});
+</script>

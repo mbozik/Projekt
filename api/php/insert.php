@@ -29,7 +29,7 @@ if(empty($error))
  $statement = $connect->prepare($query);
  if($statement->execute($data))
  {
-  $message = 'Registration Completed';
+  $message = 'Dane wysłane';
  }
 }
 else
