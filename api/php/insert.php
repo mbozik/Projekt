@@ -29,7 +29,7 @@ if(empty($error))
  $statement = $connect->prepare($query);
  if($statement->execute($data))
  {
-  $message = 'Dane wysłane';
+  $message = 'Registration Completed';
  }
 }
 else
@@ -44,5 +44,5 @@ $output = array(
 
 echo json_encode($output);
 
-
+echo 'elo';
 ?>

@@ -105,7 +105,7 @@ input[type=radio], input[type=checkbox] {
       <div class="panel panel-default">
         <div class="panel-heading">Create New Survey:</div>
         <div class="panel-group">
-          <form  method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
+          <form action="insert.php" method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
             <label>Nazwa ankiety: </label>
             <input name="survey_title" id="survey_title" ng-model="createData.survey_title" type="text" class="form-control input-group" />
             <input name="qnum" id="qnum" type="hidden" value="" />
