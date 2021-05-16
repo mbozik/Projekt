@@ -47,8 +47,10 @@ input[type=radio], input[type=checkbox] {
 .text-answer-options {
   background-color: #cff;
 }
+
     </style>
 <header>
+
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="index.php">Ankiety</a>
@@ -98,13 +100,17 @@ input[type=radio], input[type=checkbox] {
           </div>
       </nav>
   </div>
-    
+  <?php
+  // var zmienna='elo';
+  // echo zmienna;
+
+?>
 <div class="container" style="margin-top: 5%">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">Create New Survey:</div>
-        <div class="panel-group">
+        <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
           <form action="php/insert.php" method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
             <label>Nazwa ankiety: </label>
             <input name="survey_title" id="survey_title" ng-model="createData.survey_title" type="text" class="form-control input-group" />
@@ -126,8 +132,20 @@ input[type=radio], input[type=checkbox] {
   </div>
 </div>
 </div>
-<script>
+<!-- <script>
+ $(document).ready(function(){
+   $("input").keyup(function(){
+     var survey_title = $("input").val();
+     $.post("create.js",{
+     create: survey_title
+     }, function(data, status) {
+     });
+   });
+ });
+</script> -->
+<!-- <script>
 var app = angular.module('create_survey_app', []);
+// app.controller('create_survey_controller', function($scope, $http){
 app.controller('create_survey_controller', function($scope, $http){
   $scope.closeMsg = function(){
   $scope.alertMsg = false;
@@ -157,4 +175,4 @@ app.controller('create_survey_controller', function($scope, $http){
  };
 
 });
-</script>
+</script> -->

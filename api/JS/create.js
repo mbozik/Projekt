@@ -20,7 +20,9 @@ $(document).ready(function() {
       fieldsetEl: $("<fieldset>"),
       labelEl: $("<label>"),
       spanEl: $("<span>"),
-      divEl: $("<div>")
+      divEl: $("<div>"),
+      divElName: $("<div name='question'>"),
+
     };
     smLib.icons = smLib.icons || {
       addEl: smLib.forms.spanEl.clone().prop({
@@ -56,7 +58,7 @@ $(document).ready(function() {
           "id": "q" + i,
           "class": "form-control"
         });
-        var newQuestion = smLib.forms.divEl.clone().prop({
+        var newQuestion = smLib.forms.divElName.clone().prop({
           "class": "question-pane"
         }).append("Question #"+i+": ", newQuestionEl);
   
