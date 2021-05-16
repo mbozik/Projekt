@@ -8,11 +8,12 @@ session_start();
 <!DOCTYPE html>
 <html>
  <head>
+
   <title>Projekt inżynierski ankiety</title>
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/create.css">
 <script type="text/javascript"
         src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
 </script>
@@ -26,6 +27,9 @@ session_start();
     label {
   margin: 10px 0;
 }
+body{
+   background-color: #366d7e;
+ }
 .question-container .question-label {
   border: none;
   

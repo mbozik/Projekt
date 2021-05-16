@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -47,9 +47,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                      <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
-                  </li> 
+        
           <!--      <li class="nav-item">
                     <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                 </li>
@@ -62,6 +60,9 @@
                 <li class="nav-item">
                     <a id="create" class="nav-link" href="create.php">Stwórz</a>
                 </li>
+                <li class="nav-item">
+                      <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
+                  </li> 
             </ul>
             
             <?php  if (isset($_SESSION['name'])) : ?>

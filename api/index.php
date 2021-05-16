@@ -65,6 +65,9 @@ session_start();
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li>
                   <li class="nav-item">
+                    <a id="create" class="nav-link" href="create.php">Stwórz</a>
+                </li>
+                  <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
                   </li>    <?php }?>
               </ul>
@@ -144,11 +147,19 @@ session_start();
    ?>
    <div class="panel panel-default">
     <div class="panel-heading">
-     <h3 class="panel-title">Welcome to system</h3>
+     <h3 class="panel-title">Witaj w systemie ankiet</h3>
     </div>
     <div class="panel-body">
-     <h1>Welcome - </h1><?php echo $_SESSION["name"];?>
-     <a class="btn btn-primary" href="php/logout.php">Logout</a>
+ 
+       <h1> Nasz system oferuje </h1>
+       <ul>
+       <li>tworzenie ankiet</li>
+       <li>odpowiadanie na ankiety</li>
+       <li>sprawdzanie oddanych odpowiedzi</li>
+       <li>pełną anonimowość</li>
+       </ul>
+
+
     </div>
    </div>
    <?php
