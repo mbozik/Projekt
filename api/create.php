@@ -21,7 +21,7 @@ session_start();
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <!--<script src="js/create.js"></script>-->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <script src="JS/conn.js"></script>
+  <script src="JS/create.js"></script>
   <style>
     label {
   margin: 10px 0;
@@ -47,8 +47,10 @@ input[type=radio], input[type=checkbox] {
 .text-answer-options {
   background-color: #cff;
 }
+
     </style>
 <header>
+
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="index.php">Ankiety</a>
@@ -98,13 +100,17 @@ input[type=radio], input[type=checkbox] {
           </div>
       </nav>
   </div>
-    
+  <?php
+  // var zmienna='elo';
+  // echo zmienna;
+
+?>
 <div class="container" style="margin-top: 5%">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">Create New Survey:</div>
-        <div class="panel-group">
+        <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
           <form action="php/insert.php" method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
             <label>Nazwa ankiety: </label>
             <input name="survey_title" id="survey_title" ng-model="createData.survey_title" type="text" class="form-control input-group" />
@@ -117,7 +123,7 @@ input[type=radio], input[type=checkbox] {
             <label>Survey Questions:</label>
             <div id="questions">
             </div>
-            <button class="btn btn-primary" href='JS/conn.js' type="button" style="display: block; margin-top: 5px;" id="addq"><span class="glyphicon glyphicon-plus"></span>Add a question</button>
+            <button class="btn btn-primary" type="button" style="display: block; margin-top: 5px;" id="addq"><span class="glyphicon glyphicon-plus"></span>Add a question</button>
             <button class="btn btn-success" type="submit" id="uploadsurvey"  name="uploadsurvey" value="Upload" style="display: block; margin-top: 10px">Stwórz ankietę</button>
           </form>
         </div>
@@ -126,8 +132,20 @@ input[type=radio], input[type=checkbox] {
   </div>
 </div>
 </div>
-<script>
+<!-- <script>
+ $(document).ready(function(){
+   $("input").keyup(function(){
+     var survey_title = $("input").val();
+     $.post("create.js",{
+     create: survey_title
+     }, function(data, status) {
+     });
+   });
+ });
+</script> -->
+<!-- <script>
 var app = angular.module('create_survey_app', []);
+// app.controller('create_survey_controller', function($scope, $http){
 app.controller('create_survey_controller', function($scope, $http){
   $scope.closeMsg = function(){
   $scope.alertMsg = false;
@@ -157,4 +175,4 @@ app.controller('create_survey_controller', function($scope, $http){
  };
 
 });
-</script>
+</script> -->
