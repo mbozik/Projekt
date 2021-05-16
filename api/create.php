@@ -21,7 +21,7 @@ session_start();
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <!--<script src="js/create.js"></script>-->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <script src="JS/create.js"></script>
+  <script src="JS/conn.js"></script>
   <style>
     label {
   margin: 10px 0;
@@ -117,7 +117,7 @@ input[type=radio], input[type=checkbox] {
             <label>Survey Questions:</label>
             <div id="questions">
             </div>
-            <button class="btn btn-primary" type="button" style="display: block; margin-top: 5px;" id="addq"><span class="glyphicon glyphicon-plus"></span>Add a question</button>
+            <button class="btn btn-primary" href='JS/conn.js' type="button" style="display: block; margin-top: 5px;" id="addq"><span class="glyphicon glyphicon-plus"></span>Add a question</button>
             <button class="btn btn-success" type="submit" id="uploadsurvey"  name="uploadsurvey" value="Upload" style="display: block; margin-top: 10px">Stwórz ankietę</button>
           </form>
         </div>
