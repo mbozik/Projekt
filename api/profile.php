@@ -55,10 +55,10 @@
                     <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                 </li>  -->
                 <li class="nav-item">
-                    <a id="profile" class="nav-link" href="profile.php">Profil</a>
+                    <a id="profile" class="nav-link active" href="profile.php">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a id="create" class="nav-link" href="create.php">Stwórz</a>
+                    <a id="create" class="nav-link active" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
