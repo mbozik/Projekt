@@ -82,6 +82,9 @@ input[type=radio], input[type=checkbox] {
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li> 
                   <li class="nav-item">
+                    <a id="create" class="nav-link active" href="create.php">Stwórz</a>
+                </li>
+                  <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
                   </li> 
                   <?php }else {
