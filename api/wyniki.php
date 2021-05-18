@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Wyniki</title>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -58,10 +58,10 @@
                     <a id="profile" class="nav-link active" href="profile.php">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a id="create" class="nav-link" href="create.php">Stwórz</a>
+                    <a id="create" class="nav-link active" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
-                      <a id="logout" class="nav-link" href="wyniki.php">Wyniki</a>
+                      <a id="logout" class="nav-link active" href="wyniki.php">Wyniki</a>
                   </li> 
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
@@ -78,28 +78,14 @@
         </div>
     </nav>
 </div>
+    <div id="panel_wyniki">
+                <div id="stworzone">
+                    <h1>Ankiety stworzone przez użytkownika</h1>
+                </div>
+                <div id="glosowane">
+                    <h1>Ankiety na które użytkownik głosował</h1>
+                </div>
 
-    <div class="profile">
-        <div id="r_p" class="right-panel">          
-            <!--<p class="lead" id="email-profile">No data.</p>-->
-            <?php if (isset($_SESSION['success'])) : ?>
-                <div class="error success" >
-                    <h3>
-                    <?php 
-                    
-                        echo $_SESSION['success']; 
-                        unset($_SESSION['success']);
-          ?>
-        </div>
-    </div>
-    <?php endif ?>
-    <div  id="panel2" >
-        <div class="form-group">
-            <!-- <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label> -->
-            <h3 id="txt" class="panel-title">Aby uzyskać odpowiedzi podaj klucz:</h3>
-            <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
-        </div>
-        <button type="button" class="btn btn-dark" onclick="">Pobierz ankiete</button>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

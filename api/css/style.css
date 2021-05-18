@@ -142,7 +142,15 @@ button[type="submit"] {
     left: 192px;
     margin-bottom: 3px;
 }
+#panel_wyniki{
 
+    width:80%;
+    background-color: white;
+    border:solid black 1px;
+    border-radius: 1%;
+    margin:0 auto;
+    height: 100%;
+}
 
 body {
     padding:0 0 0 0;

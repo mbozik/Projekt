@@ -84,6 +84,9 @@ input[type=radio], input[type=checkbox] {
                   <li class="nav-item">
                     <a id="create" class="nav-link active" href="create.php">Stwórz</a>
                 </li>
+                <li class="nav-item">
+                      <a id="logout" class="nav-link" href="wyniki.php">Wyniki</a>
+                  </li> 
                   <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
                   </li> 
