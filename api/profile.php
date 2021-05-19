@@ -29,7 +29,7 @@ if(empty($error))
   {
    foreach($result as $row)
    {
-     $_SESSION["temat"] = $row["a_temat"];
+    echo $row["a_temat"];
    }
   }
  }
@@ -103,11 +103,35 @@ if(empty($error))
         </div>
     </nav>
 </div>
+<?php
+include('php/db.php');
 
-<?php  if (isset($_SESSION['temat'])) : ?>
-    <strong><?php echo $_SESSION['temat']; ?></strong>
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "baza";
 
-    <?php endif ?>
+// Create connection
+$connect = new mysqli($servername, $username, $password, $dbname);
+
+
+$sql = "SELECT * from ankieta";
+$result = $connect->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["a_id"]. " - Temat: " . $row["a_temat"]. " " . $row["a_opis"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$connect->close();
+?>
+
+  
+
+
     <div class="profile">
         <div id="r_p" class="right-panel">          
             <!--<p class="lead" id="email-profile">No data.</p>-->
