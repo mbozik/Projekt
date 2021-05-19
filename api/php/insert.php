@@ -4,20 +4,12 @@ $title = $_POST['survey_title'];
 $description = $_POST['survey_opis'];
 
 
-function create_id($ids = array())
-{
-  $id = md5(mt_rand());
-  if(in_array($id, $ids))
-  {
-    return create_id($ids);
-  }
-  return $id;
-}
+
+$query = "SELECT a_id FROM ankieta";
 
 
-$query = "SELECT * FROM users WHERE email = :email";
 
-$sql = "INSERT INTO ankieta(a_id, a_temat, a_opis) VALUES ('','$title','$description')";
+$sql = "INSERT INTO ankieta(a_id, a_temat, a_opis) VALUES ('$gid','$title','$description')";
 $result = $connect->query($sql);
 
 // session_start();

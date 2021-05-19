@@ -10,6 +10,31 @@
   	unset($_SESSION['username']);
   	header("location: login.php");
   }
+
+
+
+  include('php/db.php');
+
+
+
+
+if(empty($error))
+{
+ $query = "
+ SELECT * FROM ankieta WHERE a_id = '1'
+ ";
+ $statement = $connect->prepare($query);
+  $result = $statement->fetchAll();
+  if($statement->rowCount() > 0)
+  {
+   foreach($result as $row)
+   {
+     $_SESSION["temat"] = $row["a_temat"];
+   }
+  }
+ }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +104,10 @@
     </nav>
 </div>
 
+<?php  if (isset($_SESSION['temat'])) : ?>
+    <strong><?php echo $_SESSION['temat']; ?></strong>
+
+    <?php endif ?>
     <div class="profile">
         <div id="r_p" class="right-panel">          
             <!--<p class="lead" id="email-profile">No data.</p>-->
