@@ -167,7 +167,7 @@ $(document).ready(function() {
         $.post('process.php', {
           'i': resp
          });
-         window.alert(licznik);
+        //  window.alert(licznik);
   
       }, //end addQuestion()
       addRadioOptions: function(radioPane) {
