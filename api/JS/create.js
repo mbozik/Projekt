@@ -164,7 +164,7 @@ $(document).ready(function() {
         var licznik = 'q'+i;
         
         var resp = document.getElementById(licznik).value;
-        $.post('process.php', {
+        $.post('php/insert.php', {
           'i': resp
          });
         //  window.alert(licznik);

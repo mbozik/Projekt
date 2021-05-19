@@ -13,26 +13,7 @@
 
 
 
-  include('php/db.php');
 
-
-
-
-if(empty($error))
-{
- $query = "
- SELECT * FROM ankieta WHERE a_id = '1'
- ";
- $statement = $connect->prepare($query);
-  $result = $statement->fetchAll();
-  if($statement->rowCount() > 0)
-  {
-   foreach($result as $row)
-   {
-    echo $row["a_temat"];
-   }
-  }
- }
 
 
 ?>
