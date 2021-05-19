@@ -81,6 +81,12 @@
     <div id="panel_wyniki">
                 <div id="stworzone">
                     <h1>Ankiety stworzone przez użytkownika</h1>
+                    <?php  if (isset($_SESSION['name'])) : ?>
+                                Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+                                </li>
+                                </ul>
+                 <?php endif ?>
+
                 </div>
                 <div id="glosowane">
                     <h1>Ankiety na które użytkownik głosował</h1>

@@ -113,7 +113,7 @@ input[type=radio], input[type=checkbox] {
   <?php
   // var zmienna='elo';
   // echo zmienna;
-
+ 
 ?>
 <div class="container" style="margin-top: 5%">
   <div class="row">
