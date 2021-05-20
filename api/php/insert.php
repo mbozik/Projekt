@@ -8,13 +8,15 @@ $dbname = "baza";
 // Create connection
 $connect = new mysqli($servername, $username, $password, $dbname);
 
+session_start();
+$user= $_SESSION['name'];
 
 $title = $_POST['survey_title'];
 $description = $_POST['survey_opis'];
 
 $query = "SELECT a_id FROM ankieta";
 
-$sql = "INSERT INTO ankieta(a_id, a_temat, a_opis) VALUES ('','$title','$description')";
+$sql = "INSERT INTO ankieta(a_id, a_temat, a_opis, tworca) VALUES ('','$title','$description','$user')";
 $result = $connect->query($sql);
 
 

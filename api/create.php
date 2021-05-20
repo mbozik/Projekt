@@ -142,6 +142,7 @@ input[type=radio], input[type=checkbox] {
   </div>
 </div>
 </div>
+</html>
 <!-- <script>
  $(document).ready(function(){
    $("input").keyup(function(){

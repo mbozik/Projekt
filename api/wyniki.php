@@ -10,6 +10,8 @@
   	unset($_SESSION['username']);
   	header("location: login.php");
   }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wyniki</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+<style>
+    label {
+  margin: 10px 0;
+}
+body{
+   background-color: #366d7e;
+ }
+.question-container .question-label {
+  border: none;
+  
+}
+.answer-option {
+  width: 200px;
+}
+input[type=radio], input[type=checkbox] {
+  width: 25px;
+  float: left;
+}
+
+.radio-answer-options {
+  background-color: #fcc;
+}
+.checkbox-answer-options {
+  background-color: #fcf;
+}
+.text-answer-options {
+  background-color: #cff;
+}
+
+    </style>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -78,20 +112,36 @@
         </div>
     </nav>
 </div>
-    <div id="panel_wyniki">
-                <div id="stworzone">
-                    <h1>Ankiety stworzone przez użytkownika</h1>
-                    <?php  if (isset($_SESSION['name'])) : ?>
-                                Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
-                                </li>
-                                </ul>
-                 <?php endif ?>
+ 
+        <div class="row">
+            <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Ankiety stworzone przez użytkownika</div>
+                <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
+                <?php
+include('php/db.php');
 
-                </div>
-                <div id="glosowane">
-                    <h1>Ankiety na które użytkownik głosował</h1>
-                </div>
 
+$user= $_SESSION['name'];
+
+$sql = "SELECT * FROM ankieta WHERE tworca = '$user'";
+
+$result = mysqli_query($connect,$sql);
+
+echo '<table><tr><th>Nazwa ankiety</th><th>Opis ankiety</th></tr>';
+ while ($row = $result->fetch_assoc()) {
+    echo "<tr><td>{$row['a_temat']}</td><td>{$row['a_opis']}</td></tr>";
+}
+echo '</table>';
+  
+
+?>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+</div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
