@@ -84,32 +84,6 @@
         </div>
     </nav>
 </div>
-<?php
-include('php/db.php');
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza";
-
-// Create connection
-$connect = new mysqli($servername, $username, $password, $dbname);
-
-
-$sql = "SELECT * from ankieta";
-$result = $connect->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["a_id"]. " - Temat: " . $row["a_temat"]. " " . $row["a_opis"]. "<br>";
-  }
-} else {
-  echo "0 results";
-}
-$connect->close();
-?>
-
   
 
 

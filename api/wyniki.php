@@ -117,23 +117,10 @@ input[type=radio], input[type=checkbox] {
             <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Ankiety stworzone przez użytkownika</div>
-                <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
+                <div class="panel-group">
                 <?php
-include('php/db.php');
+include('php/score.php');
 
-
-$user= $_SESSION['name'];
-
-$sql = "SELECT * FROM ankieta WHERE tworca = '$user'";
-
-$result = mysqli_query($connect,$sql);
-
-echo '<table><tr><th>Nazwa ankiety</th><th>Opis ankiety</th></tr>';
- while ($row = $result->fetch_assoc()) {
-    echo "<tr><td>{$row['a_temat']}</td><td>{$row['a_opis']}</td></tr>";
-}
-echo '</table>';
-  
 
 ?>
                 </div>
