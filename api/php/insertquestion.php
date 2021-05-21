@@ -1,5 +1,5 @@
 <?php
-include('testowe.php');
+// include('insert.php');
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -8,10 +8,10 @@ $dbname = "baza";
 // Create connection
 $connect = new mysqli($servername, $username, $password, $dbname);
   session_start();
-
-  $sql = "SELECT * from ankieta WHERE a_temat='$title'";
+  $user= $_SESSION['name'];
+  $sql = "SELECT a_id from ankieta WHERE tworca='$user'";
   $result = $connect->query($sql);
-
+    
   if ($result->num_rows > 0) {
     // output data of each row
     $i = $_POST['i'];

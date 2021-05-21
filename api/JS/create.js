@@ -207,6 +207,7 @@ $(document).ready(function() {
   
         var textChoiceEl = smLib.forms.labelEl.clone().append("Placeholder text: ", textChoiceTextEl);
         textPane.append(textChoiceEl);
+        
       },
       addCheckboxOptions: function(checkboxPane) {
         // We want to get the length of the current choices, 
@@ -214,7 +215,7 @@ $(document).ready(function() {
   
         var checkboxChoice = checkboxPane.find(".checkbox-choice");
         var choice_c = checkboxChoice.length;
-  
+        
         var checkboxTempEl = smLib.forms.checkboxEl.clone().prop({
           "class": "answer-option checkbox-choice"
         });
@@ -222,6 +223,7 @@ $(document).ready(function() {
           "class": "form-control answer-option checkbox-choice checkboxchoice"+choice_c,
           "name": "checkboxchoice" + choice_c,
         });
+        
   
         var checkboxChoiceEl = smLib.forms.labelEl.clone().append(checkboxTempEl, checkboxChoiceTextEl);
         // Make sure to add the new text element BEFORE the 
