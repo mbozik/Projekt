@@ -196,6 +196,7 @@ $(document).ready(function() {
         // Make sure to add the new text element BEFORE the 
         //    add more button.
         radioPane.find(".add-radio-choice").before(radioChoiceEl);
+        
       },
       addTextOptions: function(textPane) {
         this.textPane = textPane;
