@@ -164,7 +164,7 @@ $(document).ready(function() {
         var licznik = 'q'+i;
         
         var resp = document.getElementById(licznik).value;
-        $.post('php/insert.php', {
+        $.post('php/insertquestion.php', {
           'i': resp
          });
         //  window.alert(licznik);
@@ -251,59 +251,3 @@ $(document).ready(function() {
     };
   });
   
-// window.onload = function(){
-//   document.getElementById("wyslij").onclick = function(){
-//     sprawdzFormularz();
-//   }
-// }
-
-// function sprawdzFormularz(){
-//   zadanie ="";
-//   zadanie=new XMLHttpRequest();
-//   var poleEmail=document.getElementById("email").value;
-//   var poleImie=document.getElementById("name").value;
-//   var zawartosc="email="+poleEmail+"&name="+poleImie;
-//   var url="php/insert.php";
-//   zadanie.onreadystatechange=rejesracjaZakonczona;
-//   zadanie.open("POST", url, true);
-//   zadanie.serRequestHeader("Content-Type","application,x-www-form-urlendecoded");
-//   zadanie.send(zawartosc);
-
-// }
-
-// function rejesracjaZakonczona(){
-//   if(zadanie.readyState==4 &&zadanie.status==200){
-//     document.getElementById("newsletter").innerHTML=zadanie.responseText;
-//   }
-// }
-  // var url="php/insert.php";
-  // var zawartosc = ""
-  // $.ajax({
-  //   type: "POST",
-  //   url: url,
-  //   data: data,
-  //   success: success,
-  //   dataType: dataType
-  // });
-
-  // $(document).ready(function () {
-  //   $("form").submit(function (event) {
-  //     var formData = {
-  //       name: $("#name").val(),
-  //       email: $("#email").val(),
-  //       superheroAlias: $("#superheroAlias").val(),
-  //     };
-  
-  //     $.ajax({
-  //       type: "POST",
-  //       url: "process.php",
-  //       data: formData,
-  //       dataType: "json",
-  //       encode: true,
-  //     }).done(function (data) {
-  //       console.log(data);
-  //     });
-  
-  //     event.preventDefault();
-  //   });
-  // });

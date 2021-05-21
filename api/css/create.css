@@ -26,6 +26,11 @@
     -moz-box-shadow: 0 0 2px silver; 
     box-shadow: 0 0 2px silver; 
 }
+#uploadsurvey{
+    display: none;
+
+}
+
 #send{
     width: 105px;
     padding: 5px 13px;

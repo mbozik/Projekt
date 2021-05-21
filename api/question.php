@@ -119,27 +119,12 @@ input[type=radio], input[type=checkbox] {
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-heading">Create New Survey:</div>
+        <div class="panel-heading">Create New Questions:</div>
         <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
-          <form action="php/insert.php" method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
-            <label>Nazwa ankiety: </label>
-            <input name="survey_title" id="survey_title" ng-model="createData.survey_title" type="text" class="form-control input-group" />
-            <input name="qnum" id="qnum" type="hidden" value="" />
-            <input name="choicenum" id="choicenum" type="hidden" value="" />
-            <label>Opis ankiety: </label>
-            <input name="survey_opis" id="survey_opis" ng-model="createData.survey_opis" type="text" class="form-control input-group" />
-            <input name="qnum" id="qnum" type="hidden" value="" />
-            <input name="choicenum" id="choicenum" type="hidden" value="" />            
-            <button class="btn btn-success" type="submit" id="uploadsurvey"  name="uploadsurvey" value="Upload" style="display: block; margin-top: 10px" href="profile.php">Stwórz ankietę</button>
-            <label>Survey Questions:</label>
             <div id="questions">
             </div>
             <button class="btn btn-primary" type="button" style="display: block; margin-top: 5px;" id="addq"><span class="glyphicon glyphicon-plus"></span>Add a question</button>
-
-          </form>
-
-          <div>
-          
+          <div>        
             </div>
           </div>
         </div>
