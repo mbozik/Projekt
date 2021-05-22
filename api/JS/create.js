@@ -182,16 +182,15 @@ $(document).ready(function() {
   
         var radioChoice = radioPane.find(".radio-choice");
         var choice_c = radioChoice.length;
-  
+        
         var radioTempEl = smLib.forms.radioEl.clone().prop({
           "class": "answer-option radio-choice"
         });
-  
         var radioChoiceTextEl = smLib.forms.textEl.clone().prop({
           "class": "form-control answer-option radio-choice radiochoice"+choice_c,
           "name": "radiochoice" + choice_c,
         });
-  
+        
         var radioChoiceEl = smLib.forms.labelEl.clone().append(radioTempEl, radioChoiceTextEl);
         // Make sure to add the new text element BEFORE the 
         //    add more button.
@@ -224,6 +223,7 @@ $(document).ready(function() {
           "class": "form-control answer-option checkbox-choice checkboxchoice"+choice_c,
           "name": "checkboxchoice" + choice_c,
         });
+        
         
   
         var checkboxChoiceEl = smLib.forms.labelEl.clone().append(checkboxTempEl, checkboxChoiceTextEl);
