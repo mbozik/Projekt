@@ -12,37 +12,90 @@ $connect = new mysqli($servername, $username, $password, $dbname);
 $user = $_SESSION['name'];
 $sql = "SELECT * from ankieta where tworca='$user'";
 $result = $connect->query($sql);
-
-
+$tytul;
 
 
 if ($result->num_rows > 0) {
   // output data of each row
   
   while($row = $result->fetch_assoc()) {
-  
+    $tytul=$row["a_temat"];
+    
     echo "<h1><a href='".$row["a_temat"]. "'>".$row["a_temat"]."</a></h1><br><p> Opis:" . $row["a_opis"]. "</p><br><ul>";
     $id=$row["a_id"];
-    $sql2 = "SELECT * from pytania where p_a_id='$id'";
+    // $sql2 = "SELECT * from pytania where p_a_id='$id'";
+    $sql2 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id and p_a_id='$id'";
     $result2 = $connect->query($sql2);
+    
+    
     if ($result2->num_rows > 0) {
       while($row = $result2->fetch_assoc()) {
-          echo"<li>".$row["pytanie"]."</li>";
-          $sql3 = "SELECT * from polacz where con_a_id='$id'";
-          $result3 = $connect->query($sql3);
-          if ($result3->num_rows > 0) {
-            while($row = $result3->fetch_assoc()) {
-              echo"<li>".$row["con_o_id"]."</li>";
-            }}else
-            {
-              echo "</ul>Brak odpowiedzi.";
-            }
+          
+          echo"<li>"."pytanie: ".$row["pytanie"]."</li>";
+          echo"<li>"."odpowiedz: ".$row["odpowiedz"]."</li>";
+          
+          // $sql3 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id";
+          // $result3 = $connect->query($sql3);
+          // if ($result3->num_rows > 0) {
+          //   while($row = $result3->fetch_assoc()) {
+          //     if($row['o_p_id']===$row['p_id']){
+          //     echo"<li>"."odpowiedz: ".$row["odpowiedz"]."</li>";
+          //     }
+          //   }}else
+          //   {
+          //     echo "</ul>Brak odpowiedzi.";
+          //   }
 
-  } echo "</ul>";}else {
+  }
+  echo "<h1><a href></a></h1><br><p> ODPPWOIEDZI:</p><br><ul>";
+  $sql3="SELECT COUNT(odpowiedz),odpowiedz,pytanie FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id GROUP BY odpowiedz";
+  $result3 = $connect->query($sql3);
+  $tab=[];
+  while($row = $result3->fetch_assoc()) {
+    echo"<li>"."pytanie: ".$row["pytanie"]." odpowiedz :".$row["odpowiedz"]." ile :".$row["COUNT(odpowiedz)"]."</li>";
+    array_push($tab,array("y" => $row["COUNT(odpowiedz)"], "label" => $row["odpowiedz"] ));
+    }
+       echo "</ul>";}else {
     echo "</ul>Brak pytań.";
   }
-}} else {
+  
+  ?>
+  <!DOCTYPE HTML>
+  <html>
+  <head>
+  <script>
+  
+  window.onload = function() {
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+      text: "Gold Reserves"
+    },
+    axisY: {
+      title: "Gold Reserves (in tonnes)"
+    },
+    data: [{
+      type: "column",
+      yValueFormatString: "#,##0.## tonnes",
+      dataPoints: <?php echo json_encode($tab, JSON_NUMERIC_CHECK); ?>
+    }]
+  });
+  chart.render();
+   
+  }
+  </script>
+  </head>
+  <body>
+  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </body>
+  </html>      <?php
+}
+
+} else {
   echo "Brak ankiet.";
 }
 $connect->close();
+
 ?>
