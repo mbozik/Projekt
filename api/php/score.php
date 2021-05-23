@@ -21,18 +21,22 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $tytul=$row["a_temat"];
     
-    echo "<h1><a href='".$row["a_temat"]. "'>".$row["a_temat"]."</a></h1><br><p> Opis:" . $row["a_opis"]. "</p><br><ul>";
+    echo "<h1><a href='".$row["a_temat"]. "'>".$row["a_temat"]."</a></h1><br><p> <h3>Opis</h3>" . $row["a_opis"]. "</p><br><ul>";
     $id=$row["a_id"];
+
     // $sql2 = "SELECT * from pytania where p_a_id='$id'";
     $sql2 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id and p_a_id='$id'";
     $result2 = $connect->query($sql2);
     
-    
+    $zmienna="";
     if ($result2->num_rows > 0) {
+      
       while($row = $result2->fetch_assoc()) {
-          
-          echo"<li>"."pytanie: ".$row["pytanie"]."</li>";
-          echo"<li>"."odpowiedz: ".$row["odpowiedz"]."</li>";
+        
+        if($zmienna!=$row["pytanie"]){
+          echo"<br><p>"."Pytanie: ".$row["pytanie"]."</p>"; 
+        $zmienna=$row["pytanie"];}
+        echo"<li>"." ".$row["odpowiedz"]."</li>";
           
           // $sql3 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id";
           // $result3 = $connect->query($sql3);
@@ -47,18 +51,21 @@ if ($result->num_rows > 0) {
           //   }
 
   }
-  echo "<h1><a href></a></h1><br><p> ODPPWOIEDZI:</p><br><ul>";
+  
+ // echo "<h1><a href></a></h1><br><p> ODPPWOIEDZI:</p><br><ul>";
   $sql3="SELECT COUNT(odpowiedz),odpowiedz,pytanie FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id GROUP BY odpowiedz";
   $result3 = $connect->query($sql3);
   $tab=[];
+  echo "</ul>";
   while($row = $result3->fetch_assoc()) {
-    echo"<li>"."pytanie: ".$row["pytanie"]." odpowiedz :".$row["odpowiedz"]." ile :".$row["COUNT(odpowiedz)"]."</li>";
+   // echo"<li>"."pytanie: ".$row["pytanie"]." odpowiedz :".$row["odpowiedz"]." ile :".$row["COUNT(odpowiedz)"]."</li>";
     array_push($tab,array("y" => $row["COUNT(odpowiedz)"], "label" => $row["odpowiedz"] ));
     }
-       echo "</ul>";}else {
-    echo "</ul>Brak pytań.";
+   //    echo "</ul>";}else {
+  //  echo "</ul>Brak pytań.";
+ 
   }
-  
+  echo "</ul>"
   ?>
   <!DOCTYPE HTML>
   <html>
@@ -70,14 +77,14 @@ if ($result->num_rows > 0) {
     animationEnabled: true,
     theme: "light2",
     title:{
-      text: "Gold Reserves"
+      text: "Ankieta"
     },
     axisY: {
-      title: "Gold Reserves (in tonnes)"
+      title: "Ilość odpowiedzi"
     },
     data: [{
       type: "column",
-      yValueFormatString: "#,##0.## tonnes",
+      yValueFormatString: "#,##0.## odpowiedzi",
       dataPoints: <?php echo json_encode($tab, JSON_NUMERIC_CHECK); ?>
     }]
   });
@@ -87,7 +94,7 @@ if ($result->num_rows > 0) {
   </script>
   </head>
   <body>
-  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+  <div id="chartContainer" style="height: 370px; width: 98%;"></div>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </body>
   </html>      <?php

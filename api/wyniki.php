@@ -22,6 +22,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wyniki</title>
@@ -56,6 +57,14 @@ input[type=radio], input[type=checkbox] {
 .text-answer-options {
   background-color: #cff;
 }
+.row {
+    margin-right: 1%;
+    margin-left: 1%;
+}
+#sedno{
+  margin:0 auto;
+  padding:2%;
+}
 
     </style>
 <body>
@@ -70,7 +79,7 @@ input[type=radio], input[type=checkbox] {
 <script src="js/auth.js"></script>
 <div class="menu">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand active" href="index.php">Ankiety</a>
+    <span class="glyphicon glyphicon-list-alt" aria-hidden ="true"></span><a class="navbar-brand active" href="index.php">Ankiety</a>
 
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
@@ -89,26 +98,27 @@ input[type=radio], input[type=checkbox] {
                     <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                 </li>  -->
                 <li class="nav-item">
-                    <a id="profile" class="nav-link active" href="profile.php">Profil</a>
+                    <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a id="create" class="nav-link active" href="create.php">Stwórz</a>
+                    <a id="create" class="nav-link" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
-                      <a id="logout" class="nav-link active" href="wyniki.php">Wyniki</a>
+                      <a id="score" class="nav-link active" href="wyniki.php">Wyniki</a>
                   </li> 
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
                   </li> 
+                
             </ul>
-            
             <?php  if (isset($_SESSION['name'])) : ?>
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style=" margin-left: 69%;">
-                    <li class="nav-item" style="text-align:right;margin:auto"> 
-                        Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
-                        </li>
-                        </ul>
-                 <?php endif ?>
+      
+      <p class="nav-item" style="text-align:right;margin:auto"> 
+          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+          </p>
+        
+   <?php endif ?>
+      
         </div>
     </nav>
 </div>
@@ -118,12 +128,13 @@ input[type=radio], input[type=checkbox] {
             <div class="panel panel-default">
                 <div class="panel-heading">Ankiety stworzone przez użytkownika</div>
                 <div class="panel-group">
+                 <div id="sedno">
                 <?php
 include('php/score.php');
 
 
 ?>
-                </div>
+                </div></div>
             </div>
             </div>
         </div>

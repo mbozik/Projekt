@@ -107,6 +107,14 @@ input[type=radio], input[type=checkbox] {
                               <a id="profile" class="nav-link" href="profile.php">Profil</a>-->
                               <?php   }?> 
               </ul>
+              <?php  if (isset($_SESSION['name'])) : ?>
+      
+      <p class="nav-item" style="text-align:right;margin:auto"> 
+          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+          </p>
+        
+   <?php endif ?>
+      
           </div>
       </nav>
   </div>

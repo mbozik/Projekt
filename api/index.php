@@ -18,7 +18,7 @@ session_start();
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <style>
   <style>
@@ -67,10 +67,21 @@ session_start();
                   <li class="nav-item">
                     <a id="create" class="nav-link" href="create.php">Stwórz</a>
                 </li>
+                <li class="nav-item">
+                      <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>
+                  </li> 
                   <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
                   </li>    <?php }?>
               </ul>
+              <?php  if (isset($_SESSION['name'])) : ?>
+      
+      <p class="nav-item" style="text-align:right;margin:auto"> 
+          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+          </p>
+        
+   <?php endif ?>
+      
           </div>
       </nav>
   </div>
