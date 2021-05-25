@@ -137,9 +137,9 @@ input[type=radio], input[type=checkbox] {
             <label>Opis ankiety: </label>
             <input name="survey_opis" id="survey_opis" ng-model="createData.survey_opis" type="text" class="form-control input-group" />
             <input name="qnum" id="qnum" type="hidden" value="" />
-            <input name="choicenum" id="choicenum" type="hidden" value="" />            
-            <button class="btn btn-success" type="submit" id="uploadsurvey"  name="uploadsurvey" value="Upload" style="display: block; margin-top: 10px" href="profile.php">Stwórz ankietę</button>
-
+            <input name="choicenum" id="choicenum" type="hidden" value="" />   
+            <button class="btn btn-success" type="submit" id="uploadsurvey"  name="uploadsurvey" value="Upload" style="display: block; margin-top: 10px">Stwórz ankietę</button>
+           
           </form>
 
           <div>
