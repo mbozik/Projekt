@@ -18,6 +18,7 @@ $connect = new mysqli($servername, $username, $password, $dbname);
 
     while($row = $result->fetch_assoc()) {
       $a = $row["a_id"];
+  
       $zp = "INSERT INTO pytania(p_id, pytanie, p_t_id, p_a_id) VALUES ('','$i','1','$a')";
       $result = $connect->query($zp);
     }
