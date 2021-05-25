@@ -14,9 +14,9 @@ $connect = new mysqli($servername, $username, $password, $dbname);
   $description = $_POST['survey_opis'];
   
   $zapytanie = "SELECT a_temat FROM ankieta WHERE a_temat = '$title'";
-  $result2 = $connect->prepare($zapytanie);
-
-  if($result2->num_rows == 0){
+  $result2 = mysqli_query($connect,$zapytanie);
+ 
+  if(mysqli_num_rows($result2) ==NULL){
   $sql = "INSERT INTO ankieta(a_id, a_temat, a_opis, tworca) VALUES ('','$title','$description','$user')";
   $result = $connect->query($sql);
   $connect->close();
