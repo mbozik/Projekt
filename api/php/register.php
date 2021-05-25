@@ -9,6 +9,7 @@ $form_data = json_decode(file_get_contents("php://input"));
 $message = '';
 $validation_error = '';
 
+$query1 = "SELECT  users (email, password) VALUES (:email, :password) ";
 
 if(empty($form_data->email))
 {
