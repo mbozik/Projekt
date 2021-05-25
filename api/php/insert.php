@@ -14,7 +14,7 @@ $connect = new mysqli($servername, $username, $password, $dbname);
   $description = $_POST['survey_opis'];
   if(empty($error))
   {
-  $zapytanie = "SELECT * FROM users WHERE email = '$title'";
+  $zapytanie = "SELECT * FROM ankieta WHERE a_temat = '$title'";
   $result2 = $connect->prepare($zapytanie);
   if($result2==NULL){
   $sql = "INSERT INTO ankieta(a_id, a_temat, a_opis, tworca) VALUES ('','$title','$description','$user')";
