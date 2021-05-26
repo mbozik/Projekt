@@ -12,10 +12,6 @@
   }
 
 
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -25,27 +21,52 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <style>
+    <title>Wyniki</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-.form_style
-  {
-   width: 600px;
-   margin: 0 auto;
-  }
-  body{
-    background:#366d7e;
-  }
-  .panel-body{
-    padding: 15px;
-    padding-bottom: 0px;
-  }
-  </style>
 </head>
+<style>
+    label {
+  margin: 10px 0;
+}
+body{
+   background-color: #366d7e;
+ }
+.question-container .question-label {
+  border: none;
+  
+}
+.answer-option {
+  width: 200px;
+}
+input[type=radio], input[type=checkbox] {
+  width: 25px;
+  float: left;
+}
+
+.radio-answer-options {
+  background-color: #fcc;
+}
+.checkbox-answer-options {
+  background-color: #fcf;
+}
+.text-answer-options {
+  background-color: #cff;
+}
+.row {
+    margin-right: 1%;
+    margin-left: 1%;
+}
+#sedno{
+  margin:0 auto;
+  padding:2%;
+}
+
+    </style>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -77,13 +98,13 @@
                     <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
                 </li>  -->
                 <li class="nav-item">
-                    <a id="profile" class="nav-link active" href="profile.php">Profil</a>
+                    <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
                 <li class="nav-item">
                     <a id="create" class="nav-link" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
-                    <a id="create" class="nav-link" href="odpowiedz.php">Odpowiedz</a>
+                    <a id="create" class="nav-link active" href="odpowiedz.php">Odpowiedz</a>
                 </li>
                 <li class="nav-item">
                       <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>
@@ -91,43 +112,34 @@
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
                   </li> 
+                
             </ul>
-            
             <?php  if (isset($_SESSION['name'])) : ?>
       
-      <p class="nav-item" style="text-align:right;margin:auto"> 
-          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
-          </p>
-        
+
    <?php endif ?>
       
         </div>
     </nav>
 </div>
-  
+ 
+        <div class="row">
+            <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Ankiety udostępnione użytkownikowi do odpowiedzi</div>
+                <div class="panel-group">
+                 <div id="sedno">
+                        <?php
 
+                                include('php/odp.php');
 
-    <div class="profile">
-        <div id="r_p" class="right-panel">          
-            <!--<p class="lead" id="email-profile">No data.</p>-->
-            <?php if (isset($_SESSION['success'])) : ?>
-                <div class="error success" >
-                    <h3>
-                    <?php 
-                    
-                        echo $_SESSION['success']; 
-                        unset($_SESSION['success']);
-          ?>
+                        ?>
+                </div></div>
+            </div>
+            </div>
         </div>
-    </div>
-    <?php endif ?>
-    <div  id="panel2" >
-        <div class="form-group">
-            <!-- <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label> -->
-            <h3 id="txt" class="panel-title">Aby uzyskać odpowiedzi podaj klucz:</h3>
-            <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
         </div>
-        <button type="button" class="btn btn-dark" onclick="">Pobierz ankiete</button>
+</div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

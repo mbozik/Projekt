@@ -85,6 +85,9 @@ input[type=radio], input[type=checkbox] {
                     <a id="create" class="nav-link active" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
+                    <a id="create" class="nav-link" href="odpowiedz.php">Odpowiedz</a>
+                </li>
+                <li class="nav-item">
                       <a id="logout" class="nav-link" href="wyniki.php">Wyniki</a>
                   </li> 
                   <li class="nav-item">
@@ -127,7 +130,7 @@ input[type=radio], input[type=checkbox] {
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-heading">Create New Survey:</div>
+        <div class="panel-heading">Stwórz nową ankietę:</div>
         <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
           <form action="php/insert.php" method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
             <label>Nazwa ankiety: </label>

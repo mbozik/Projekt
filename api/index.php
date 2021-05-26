@@ -68,6 +68,9 @@ session_start();
                     <a id="create" class="nav-link" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
+                    <a id="create" class="nav-link" href="odpowiedz.php">Odpowiedz</a>
+                </li>
+                <li class="nav-item">
                       <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>
                   </li> 
                   <li class="nav-item">
