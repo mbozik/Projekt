@@ -1,5 +1,5 @@
 <?php
-include('php/db.php');
+include('connect.php');
 
 $servername = "localhost";
 $username = "root";

@@ -1,12 +1,6 @@
 <?php
-// include('insert.php');
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza";
+include('connect.php');
 
-// Create connection
-$connect = new mysqli($servername, $username, $password, $dbname);
   session_start();
   $user= $_SESSION['name'];
   $sql = "SELECT a_id from ankieta WHERE tworca='$user'";
