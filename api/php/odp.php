@@ -8,24 +8,13 @@ $dbname = "baza";
 $connect = new mysqli($servername, $username, $password, $dbname);
    // $a=$tab[0];
   $validation_error = '';
-
+  $user = $_SESSION['name'];
   
-  $test ="SELECT odpowiedz FROM mail INNER JOIN ankieta ON mail.m_a_id=ankieta.a_id where mail='bozik.kizob@gmail.com'";
+  $test ="SELECT * FROM mail INNER JOIN ankieta ON mail.m_a_id=ankieta.a_id where mail='$user' AND odpowiedz='0'";
   $result = mysqli_query($connect,$test);
-  while($row1 = mysqli_fetch_array($result)){
-//   $id=$row1[]
-  if($row1['odpowiedz']==NULL){
-    $zapytanie = "SELECT a_temat FROM ankieta INNER JOIN mail ON ankieta.a_id=mail.m_a_id where mail='bozik.kizob@gmail.com'";
-    $result2 = mysqli_query($connect,$zapytanie);
-    while($row = mysqli_fetch_array($result2)){
-            if(mysqli_num_rows($result2)>0)
-            {
-                while($row = mysqli_fetch_array($result2)){
-                    echo "Temat :".$row['a_temat']."<br>";}
-
-            }
-            }
-        } }
+  while($row = mysqli_fetch_array($result)){
+                    echo "Ankieta :<a href='survey.php?name=".$row['a_temat']."'>".$row['a_temat']."</a><br>";}
+      
 
 //   if(mysqli_num_rows($result2)>0)
 //   {
@@ -36,4 +25,9 @@ $connect = new mysqli($servername, $username, $password, $dbname);
  
 
 ?>
+<script>
+function myFunction() {
+  document.getElementById("demo").style.color = "red";
+}
+</script>
 
