@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
                 }
                if($row['o_p_id']===$row['p_id']){
     
-               echo $row["odpowiedz"]."<input type='checkbox'></input><br>";
+               echo $row["odpowiedz"]."<input type='checkbox' value='".$row["odpowiedz"]."'></input><br>";
                }
              }}else
              {

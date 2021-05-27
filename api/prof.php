@@ -124,13 +124,36 @@
     <div  id="panel2" >
         <div class="form-group">
             <!-- <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label> -->
-            <h3 id="txt" class="panel-title">Aby uzyskać odpowiedzi podaj klucz:</h3>
-            <form action="prof.php" method="post">
-            <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
+            <?php
+// include('testowe.php');
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "baza";
+// Create connection
+$connect = new mysqli($servername, $username, $password, $dbname);
+   // $a=$tab[0];
+$validation_error = '';
+$z="";
+$key= $_POST['key'];
+
+$zmienna="SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id INNER JOIN hash WHERE hash.hash='$key'";
+$result = mysqli_query($connect,$zmienna);
+if ($result->num_rows > 0) {
+while($row = mysqli_fetch_array($result)){
+    $z=$row['o_p_id'];
+    $zmienna2="SELECT * FROM pytania where p_id='$z'";
+    $result2 = mysqli_query($connect,$zmienna2);
+    while($row2 = mysqli_fetch_array($result2)){
+        echo "Pytanie ".$row2['pytanie']."<br>";}
+                  echo "Odpowiedz ".$row['odpowiedz']."<br>";}
+    
+}
+else
+echo "<p style='text-align: center;'>Błędny hash lub zostały zmienione odpowiedzi w bazie</p>";
+?>
             
         </div>
-        <button type="submit" class="btn btn-dark" onclick="">Pobierz ankiete</button>
-        </form>
     
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -141,3 +164,5 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
+

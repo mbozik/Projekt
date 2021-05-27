@@ -28,6 +28,8 @@ if ($result->num_rows > 0) {
     $sql2 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id and p_a_id='$id'";
     $result2 = $connect->query($sql2);
     
+//SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_h_id INNER JOIN hash WHERE hash.h_id=ph_id
+
     $zmienna="";
     if ($result2->num_rows > 0) {
       
