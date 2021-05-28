@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odpowiedz</title>
+    <title>Wyniki</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -104,10 +104,10 @@ input[type=radio], input[type=checkbox] {
                     <a id="create" class="nav-link" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
-                    <a id="create" class="nav-link active" href="odpowiedz.php">Odpowiedz</a>
+                    <a id="create" class="nav-link" href="odpowiedz.php">Odpowiedz</a>
                 </li>
                 <li class="nav-item">
-                      <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>
+                      <a id="score" class="nav-link active" href="wyniki.php">Wyniki</a>
                   </li> 
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
@@ -116,7 +116,10 @@ input[type=radio], input[type=checkbox] {
             </ul>
             <?php  if (isset($_SESSION['name'])) : ?>
       
-
+      <p class="nav-item" style="text-align:right;margin:auto"> 
+          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+          </p>
+        
    <?php endif ?>
       
         </div>
@@ -126,14 +129,16 @@ input[type=radio], input[type=checkbox] {
         <div class="row">
             <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Ankieta</div>
+                <div class="panel-heading">Hash</div>
+
                 <div class="panel-group">
                  <div id="sedno">
-                        <?php
+                     <p> Zapisz podany Hash będzie Ci on potrzebny do zobaczenia swoich odpowiedzi. </p>
+                <?php
+        include('php/hash.php');
 
-                                include('php/surv.php');
 
-                        ?>
+?>
                 </div></div>
             </div>
             </div>
@@ -141,6 +146,11 @@ input[type=radio], input[type=checkbox] {
         </div>
 </div>
     </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
