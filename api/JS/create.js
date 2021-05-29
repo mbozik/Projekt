@@ -6,8 +6,9 @@ $(document).ready(function() {
       smLib.surveyForms.addQuestion( $("#questions") );
     });
   });
-  
-  
+  var choiceX = 0;
+  var j = 0;
+  // var k = 0;
   $(function() {
     window.smLib = window.smLib || {};
     smLib.forms = smLib.forms || {
@@ -162,13 +163,43 @@ $(document).ready(function() {
         this.container.append(newQContainerEl);
         i = i -1;
         var licznik = 'q'+i;
-        
+        var zlicz = 'radiochoice' + j;
+        // var zlicz1 = 'checkboxchoice' + k;
+        var z =j+2;
+        // var x =k+2;
         var resp = document.getElementById(licznik).value;
+        var resp1 = document.getElementById(zlicz).value;
+        // var resp2 = document.getElementById(zlicz1).value;
         $.post('php/insertquestion.php', {
-          'i': resp
+          'pyt': resp
          });
-        //  window.alert(licznik);
-  
+
+         while (z < choiceX) {          
+          $.post('php/insertodpRadio.php', {
+            'odp': resp1,
+            'pyt': resp
+           });
+          j=j+2;
+          z=z+2;
+          zlicz='radiochoice' + j;
+          resp1 = document.getElementById(zlicz).value;
+        }
+         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!zabezpieczyc przed takimi samymi pytaniami
+
+        // while (x < choiceX) {          
+        //   window.alert(resp2);
+          
+        //   $.post('php/insertodpRadio.php', {
+        //     'odp': resp2,
+        //     'pyt': resp
+        //    });
+        //   k=k+2;
+        //   x=x+2;
+        //   zlicz1='checkboxchoice' + k;
+        //   resp2 = document.getElementById(zlicz1).value;
+        // }
+
+        
       }, //end addQuestion()
       addRadioOptions: function(radioPane) {
         /***
@@ -179,32 +210,40 @@ $(document).ready(function() {
   
         // We want to get the length of the current choices, 
         //  as this will give us an index for the new option
-  
+        
         var radioChoice = radioPane.find(".radio-choice");
         var choice_c = radioChoice.length;
         
         var radioTempEl = smLib.forms.radioEl.clone().prop({
           "class": "answer-option radio-choice"
         });
+        
         var radioChoiceTextEl = smLib.forms.textEl.clone().prop({
           "class": "form-control answer-option radio-choice radiochoice"+choice_c,
           "name": "radiochoice" + choice_c,
+          "id": "radiochoice" + choiceX,
         });
-        
+        choiceX = choiceX + 2;
         var radioChoiceEl = smLib.forms.labelEl.clone().append(radioTempEl, radioChoiceTextEl);
         // Make sure to add the new text element BEFORE the 
         //    add more button.
         radioPane.find(".add-radio-choice").before(radioChoiceEl);
         
+        // var resp1 = document.getElementById("radiochoice0").value;
+        // $.post('php/insertquestion.php', {
+        //   'i': 'resp'
+        //  });
+        //  window.alert(zlicz);
       },
+      
       addTextOptions: function(textPane) {
         this.textPane = textPane;
-  
+        
         var textChoiceTextEl = smLib.forms.textEl.clone().prop({
           "class": "form-control answer-option text-choice",
           "name": "text-placeholder",
         });
-  
+        
         var textChoiceEl = smLib.forms.labelEl.clone().append("Placeholder text: ", textChoiceTextEl);
         textPane.append(textChoiceEl);
         
@@ -212,17 +251,20 @@ $(document).ready(function() {
       addCheckboxOptions: function(checkboxPane) {
         // We want to get the length of the current choices, 
         //  as this will give us an index for the new option
-  
+        
         var checkboxChoice = checkboxPane.find(".checkbox-choice");
         var choice_c = checkboxChoice.length;
         
         var checkboxTempEl = smLib.forms.checkboxEl.clone().prop({
           "class": "answer-option checkbox-choice"
         });
+        
         var checkboxChoiceTextEl = smLib.forms.textEl.clone().prop({
           "class": "form-control answer-option checkbox-choice checkboxchoice"+choice_c,
           "name": "checkboxchoice" + choice_c,
+          // "id": "checkboxchoice" + choiceX,
         });
+        // choiceX = choiceX + 2;
         
         
   
@@ -231,9 +273,11 @@ $(document).ready(function() {
         //    add more button.
         checkboxPane.find(".add-checkbox-choice").before(checkboxChoiceEl);
       },
+      
       showOptionsPane: function(optionsPane) {
         if (optionsPane.not(":visible")) optionsPane.slideDown().siblings().slideUp();
       },
+      
       updatePreview: function(questionPane, answerPane, previewPane){
         console.log(questionPane);
         console.log(answerPane);
@@ -248,8 +292,9 @@ $(document).ready(function() {
           previewPane.show().siblings().hide();
         } else {
           previewPane.hide().siblings().show();
-        }
+        }        
       }
+      
       
     };
   });
