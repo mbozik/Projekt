@@ -75,7 +75,7 @@ $(document).ready(function() {
         }).on("click", function() {
           smLib.surveyForms.showOptionsPane(radioOptions);
         });
-        newQTypeArr[0] = smLib.forms.labelEl.clone().append(newQTypeRadioEl, " Radio");
+        newQTypeArr[0] = smLib.forms.labelEl.clone().append(newQTypeRadioEl, " Odpowiedź");
   
         var newQTypeCheckEl = smLib.forms.radioEl.clone().prop({
           name: "qType" + i,
@@ -85,7 +85,7 @@ $(document).ready(function() {
         }).on("click", function() {
           smLib.surveyForms.showOptionsPane(checkboxOptions);
         });
-        newQTypeArr[1] = smLib.forms.labelEl.clone().append(newQTypeCheckEl, "Checkbox");
+       // newQTypeArr[1] = smLib.forms.labelEl.clone().append(newQTypeCheckEl, "Checkbox");
   
         var newQTypeTextEl = smLib.forms.radioEl.clone().prop({
           name: "qType" + i,
@@ -95,7 +95,7 @@ $(document).ready(function() {
         }).on("click", function() {
           smLib.surveyForms.showOptionsPane(textOptions);
         });
-        newQTypeArr[2] = smLib.forms.labelEl.clone().append(newQTypeTextEl, "Text");
+        //newQTypeArr[2] = smLib.forms.labelEl.clone().append(newQTypeTextEl, "Text");
   
         var addRadioChoiceButton = smLib.forms.buttonEl.clone().prop({
           "class": "btn btn-primary add-radio-choice answer-option",
