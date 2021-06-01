@@ -123,7 +123,7 @@ input[type=radio], input[type=checkbox] {
         <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
             <div id="questions">
             </div>
-            <button class="btn btn-primary" type="button" style="display: block; margin-top: 5px;" id="addq"><span class="glyphicon glyphicon-plus"></span>Add a question</button>
+            <button  class="btn btn-primary" type="button" style="display: block; margin-top: 5px;" id="addq" onclick="myFunction()" ><span class="glyphicon glyphicon-plus"></span>Add a question</button>
           <div>        
             </div>
           </div>

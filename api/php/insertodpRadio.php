@@ -13,6 +13,7 @@ include('connect.php');
       $sql1 = "INSERT INTO odpowiedzi(o_id, odpowiedz, o_p_id) VALUES ('','$odp','$a')";
       $result1 = $connect->query($sql1);
     }
+    
   $connect->close();
-
+  
 ?>

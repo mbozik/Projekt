@@ -6,6 +6,12 @@ $(document).ready(function() {
       smLib.surveyForms.addQuestion( $("#questions") );
     });
   });
+  // function myFunction() {
+  //   var q = document.getElementById("myDIV");
+  //   q.remove();
+  // }
+  
+  
   var choiceX = 0;
   var j = 0;
   // var k = 0;
@@ -15,15 +21,16 @@ $(document).ready(function() {
       anchorEl: $("<a>"),
       buttonEl: $("<input>").prop("type", "button"),
       checkboxEl: $("<input>").prop("type", "checkbox"),
-      radioEl: $("<input>").prop("type", "radio"),
+      radioEl: $("<input >").prop("type", "radio"),
       textEl: $("<input>").prop("type", "text"),
       textareaEl: $("<textarea>"),
       fieldsetEl: $("<fieldset>"),
       labelEl: $("<label>"),
-      spanEl: $("<span>"),
-      divEl: $("<div>"),
+      spanEl: $("<span >"),
+      divEl: $("<div > "),
+      divElRemove: $("<div id='myDIV'> "),
       divElName: $("<div name='question'>"),
-
+      
     };
     smLib.icons = smLib.icons || {
       addEl: smLib.forms.spanEl.clone().prop({
@@ -106,6 +113,7 @@ $(document).ready(function() {
   
         var radioOptions = smLib.forms.divEl.clone().prop({
           class: "radio-answer-options"
+
         }).append(addRadioChoiceButton).on("change", function(){
           that.updatePreview(newQuestionEl, newAnswerEl, previewContainerEl); 
         }).hide();
@@ -156,7 +164,7 @@ $(document).ready(function() {
         // The question container pane will contain both the question and the answer container.
         //   The whole point of this is to create a logical structure for the entire question,
         //   making it a discrete logical piece.
-        var newQContainerEl = smLib.forms.divEl.clone().prop({
+        var newQContainerEl = smLib.forms.divElRemove.clone().prop({
           class: "question-container",
         }).append(newQuestion, newAnswer, previewContainerEl);
   
