@@ -37,7 +37,7 @@ for($k=1;$k<$wynik+1;$k++){
     $result = $connect->query($sql1);
    //sql3="SELECT * FROM odpowiedzi WHERE odpowiedzi.odpowiedz='$odp' AND odpowiedzi.o_p_id=(SELECT p_id from pytania where p_a_id='$a_id')"
     //$sql = "INSERT INTO polacz(con_id, con_a_id, con_o_id) VALUES ('','$a_id','$o_id')";
-    $sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user'";
+    $sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user' AND m_a_id='$a_id'";
     $result = $connect->query($sql2);
 
 }
