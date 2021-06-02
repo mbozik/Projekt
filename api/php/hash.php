@@ -12,6 +12,7 @@ $wynik=$_POST['wynik'];
 $a_id="";
 $o_id="";
 $user= $_SESSION['name'];
+$hash="";
 
 for($k=1;$k<$wynik+1;$k++){
     $odp=$_POST['q'.$k];
