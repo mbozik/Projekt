@@ -35,67 +35,72 @@ if ($result->num_rows > 0) {
         
         if($zmienna!=$row["pytanie"]){
           echo"<br><p>"."Pytanie: ".$row["pytanie"]."</p>"; 
-        $zmienna=$row["pytanie"];
-        $pyt = $row["pytanie"];
+          $zmienna=$row["pytanie"];
+          $pyt = $row["pytanie"];
 
-        $sql3="SELECT COUNT(odpowiedz),odpowiedz,pytanie FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta ON ankieta.a_id=pytania.p_a_id INNER JOIN polacz ON polacz.con_o_id=odpowiedzi.o_id WHERE tworca='$user' AND a_temat='$tem' AND pytanie='$pyt'";
-        $result3 = $connect->query($sql3);
-        while($row = $result2->fetch_assoc()) {
-          echo"<th>"."Odpowiedz ".$row["odpowiedz"]." ilość ".$row["COUNT(odpowiedz)"]."     "."</th>";
+          $sql3="SELECT COUNT(con_o_id), odpowiedz FROM polacz INNER JOIN odpowiedzi ON odpowiedzi.o_id=polacz.con_o_id INNER JOIN ankieta on ankieta.a_id=polacz.con_a_id INNER JOIN pytania ON pytania.p_a_id=ankieta.a_id WHERE tworca='$user' AND a_temat='$tem' AND pytanie='$pyt' AND odpowiedzi.o_p_id=pytania.p_id GROUP BY con_o_id";
+          $result3 = $connect->query($sql3);
+        
+        while($row = $result3->fetch_assoc()) {
+          $xx = $row["COUNT(con_o_id)"];
+          echo"<li>"." ".$row["odpowiedz"]." Udzielono ".$row["COUNT(con_o_id)"]." takich odpowiedz."."</li>";
         }
       }
-        echo"<li>"." ".$row["odpowiedz"]."</li>";
         
   }
-  
+
  
   
   $tab=[];
   echo "</ul>";
-  // echo"<table style='width:100%'>
-  // <tr>";
+  $sql3="SELECT COUNT(con_o_id), odpowiedz FROM polacz INNER JOIN odpowiedzi ON odpowiedzi.o_id=polacz.con_o_id INNER JOIN ankieta on ankieta.a_id=polacz.con_a_id INNER JOIN pytania ON pytania.p_a_id=ankieta.a_id WHERE tworca='Bozik.kizob@gmail.com' AND a_temat='Motoryzacyjna' AND odpowiedzi.o_p_id=pytania.p_id GROUP BY con_o_id";
+  $result3 = $connect->query($sql3);
   while($row = $result3->fetch_assoc()) {
    // echo"<li>"."pytanie: ".$row["pytanie"]." odpowiedz :".$row["odpowiedz"]." ile :".$row["COUNT(odpowiedz)"]."</li>";
-    array_push($tab,array("y" => $row["COUNT(odpowiedz)"], "label" => $row["odpowiedz"] ));
+    array_push($tab,array("y" => $row["COUNT(con_o_id)"], "label" => $row["odpowiedz"] ));
     }
+    
+    ?>
+    <!DOCTYPE HTML>
+    <html>
+    <head>
+    <script>
+    
+    window.onload = function() {
+    var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2",
+      title:{
+        text: "Ankieta"
+      },
+      axisY: {
+        title: "Ilość odpowiedzi"
+      },
+      data: [{
+        type: "column",
+        yValueFormatString: "#,##0.## odpowiedzi",
+        dataPoints: <?php echo json_encode($tab, JSON_NUMERIC_CHECK); ?>
+      }]
+    });
+    chart.render();
+     
+    }
+    </script>
+    </head>
+    <body>
+    <div id="chartContainer" style="height: 370px; width: 98%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </body>
+    
+    </html>   ";   <?php
+    
   //  echo" </tr>
   //   </table>";
    //    echo "</ul>";}else {
   //  echo "</ul>Brak pytań.";
   }
-  echo "</ul>"
-  ?>
-  <!DOCTYPE HTML>
-  <html>
-  <head>
-  <script>
-  
-  window.onload = function() {
-  var chart = new CanvasJS.Chart("chartContainer", {
-    animationEnabled: true,
-    theme: "light2",
-    title:{
-      text: "Ankieta"
-    },
-    axisY: {
-      title: "Ilość odpowiedzi"
-    },
-    data: [{
-      type: "column",
-      yValueFormatString: "#,##0.## odpowiedzi",
-      dataPoints: <?php echo json_encode($tab, JSON_NUMERIC_CHECK); ?>
-    }]
-  });
-  chart.render();
-   
-  }
-  </script>
-  </head>
-  <body>
-  <div id="chartContainer" style="height: 370px; width: 98%;"></div>
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  </body>
-  </html>      <?php
+  echo "</ul>";
+
 }
 
 } else {
@@ -104,3 +109,4 @@ if ($result->num_rows > 0) {
 $connect->close();
 
 ?>
+
