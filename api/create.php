@@ -23,6 +23,55 @@ session_start();
           <!--<script src="js/create.js"></script>-->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="JS/create.js"></script>
+  <script>
+
+        function ilosc(wartosc){
+            var element = document.getElementById("wartosc").value;
+            var i;
+            document.getElementById("puste").innerHTML='';
+            document.getElementById("puste").innerHTML='<br>Podaj adresy email<br>';
+            for(i=0;i<element;i++)
+            {
+              
+                
+                var input=document.createElement('input');
+                var x = document.createElement("INPUT");
+                x.setAttribute("type", "submit");
+                x.setAttribute("id", "przycisk");
+                 x.setAttribute('class', 'btn btn-dark');
+                var mybr = document.createElement('br');
+                input.setAttribute('name', 'm'+i);
+                document.getElementById("puste").appendChild(mybr);
+                document.getElementById("puste").appendChild(input);
+                document.getElementById("puste").appendChild(mybr);
+                if(i==element-1){
+                  document.getElementById("puste").appendChild(x);
+                 }
+            }
+
+            $(document).ready(function () {
+                createCookie("wartosc", element, "100");
+            });
+            function createCookie(name, value, days) {
+            var expires;
+              
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toGMTString();
+            }
+            else {
+                expires = "";
+            }
+              
+            document.cookie = escape(name) + "=" + 
+                escape(value) + expires + "; path=/";
+        }
+
+        }
+
+
+</script>
   <style>
     label {
   margin: 10px 0;
@@ -133,7 +182,18 @@ input[type=radio], input[type=checkbox] {
         <div class="panel-heading">Stwórz nową ankietę:</div>
         <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
           <form action="php/insert.php" method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
+            <?php 
+  
+
+                 $wartosc=$_COOKIE["wartosc"];
+                 
+                 $user = $_SESSION['name'];
+                 $i =0;
+
+                 
+            ?>
             <label>Nazwa ankiety: </label>
+            <input type="hidden" name="wartosc" value="<?=$wartosc?>">
             <input name="survey_title" id="survey_title" ng-model="createData.survey_title" type="text" class="form-control input-group" />
             <input name="qnum" id="qnum" type="hidden" value="" />
             <input name="choicenum" id="choicenum" type="hidden" value="" />
@@ -141,11 +201,10 @@ input[type=radio], input[type=checkbox] {
             <input name="survey_opis" id="survey_opis" ng-model="createData.survey_opis" type="text" class="form-control input-group" />
             <input name="qnum" id="qnum" type="hidden" value="" />
             <input name="choicenum" id="choicenum" type="hidden" value="" />   
-            <button class="btn btn-success" type="submit" id="uploadsurvey"  name="uploadsurvey" value="Upload" style="display: block; margin-top: 10px">Stwórz ankietę</button>
-           
+            <button class="btn btn-dark" type="submit" id="uploadsurvey"  name="uploadsurvey" value="Upload" style="display: block; margin-top: 10px">Stwórz ankietę</button>
+            
           </form>
-
-          <div>
+          
           
             </div>
           </div>

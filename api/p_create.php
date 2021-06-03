@@ -32,15 +32,46 @@
         function ilosc(wartosc){
             var element = document.getElementById("wartosc").value;
             var i;
-            k = new Array();
-            
+            document.getElementById("puste").innerHTML='';
+            document.getElementById("puste").innerHTML='<br>Podaj adresy email<br>';
             for(i=0;i<element;i++)
             {
-                k[i] = document.createTextNode("Nowy tekst");
+              
                 
+                var input=document.createElement('input');
+                var x = document.createElement("INPUT");
+                x.setAttribute("type", "submit");
+                x.setAttribute("id", "przycisk");
+                 x.setAttribute('class', 'btn btn-dark');
+                var mybr = document.createElement('br');
+                input.setAttribute('name', 'm'+i);
+                document.getElementById("puste").appendChild(mybr);
+                document.getElementById("puste").appendChild(input);
+                document.getElementById("puste").appendChild(mybr);
+                if(i==element-1){
+                  document.getElementById("puste").appendChild(x);
+                 }
             }
 
-            document.getElementById("puste").appendChild(k[1]);
+            $(document).ready(function () {
+                createCookie("wartosc", element, "100");
+            });
+            function createCookie(name, value, days) {
+            var expires;
+              
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toGMTString();
+            }
+            else {
+                expires = "";
+            }
+              
+            document.cookie = escape(name) + "=" + 
+                escape(value) + expires + "; path=/";
+        }
+
         }
 
 
@@ -79,6 +110,10 @@ input[type=radio], input[type=checkbox] {
 .row {
     margin-right: 1%;
     margin-left: 1%;
+}
+#przycisk{
+
+  margin: 2%;
 }
 #sedno{
   margin:0 auto;
@@ -147,13 +182,14 @@ input[type=radio], input[type=checkbox] {
             <div class="panel panel-default">
                 <div class="panel-heading">Ankiety udostępnione użytkownikowi do odpowiedzi</div>
                 <div class="panel-group">
-                 <div id="sedno">
+                 <div id="sedno"> 
+                 <p> Podaj ilość użytkowników, którzy mają wziąć udział w ankiecie </p>
                     <form>
 
                                 <input id="wartosc"/>
-                                <button onclick="ilosc('wartosc');">Wysun</button>
+                                <button class="btn btn-dark" onclick="ilosc('wartosc');" type="button">Wysun</button>
                         </form>
-                        <form id="puste">
+                        <form id="puste" action="create.php" method="POST" >
                     
                         </form>
                 </div></div>
