@@ -6,10 +6,13 @@ $(document).ready(function() {
       smLib.surveyForms.addQuestion( $("#questions") );
     });
   });
-  // function myFunction() {
-  //   var q = document.getElementById("myDIV");
-  //   q.remove();
-  // }
+
+  function myFunction() {
+
+    var x = document.getElementById(zliczanie);
+    x.style.display = "none";
+
+  }
   
   
   var choiceX = 0;
@@ -18,17 +21,17 @@ $(document).ready(function() {
   $(function() {
     window.smLib = window.smLib || {};
     smLib.forms = smLib.forms || {
-      anchorEl: $("<a>"),
+      anchorEl: $("<a >"),
       buttonEl: $("<input>").prop("type", "button"),
       checkboxEl: $("<input>").prop("type", "checkbox"),
       radioEl: $("<input >").prop("type", "radio"),
-      textEl: $("<input>").prop("type", "text"),
+      textEl: $("<input >").prop("type", "text"),
       textareaEl: $("<textarea>"),
-      fieldsetEl: $("<fieldset>"),
-      labelEl: $("<label>"),
-      spanEl: $("<span >"),
-      divEl: $("<div > "),
-      divElRemove: $("<div id='myDIV'> "),
+      fieldsetEl: $("<fieldset >"),
+      labelEl: $("<label >"),
+      spanEl: $("<span>"),
+      divEl: $("<div>"),
+      divElRemove: $("<div id='myDIV'>"),
       divElName: $("<div name='question'>"),
       
     };
@@ -59,7 +62,7 @@ $(document).ready(function() {
          *   three options for an answer, whether text, radio or checkbox, as well as allowing
          *   the creation of labels for the radio/checkbox options.
          ***/
-  
+        
         // First we create the question element, simply a text input wrapped in a label.
         var newQuestionEl = smLib.forms.textEl.clone().prop({
           "name": "q" + i,
@@ -93,7 +96,7 @@ $(document).ready(function() {
           smLib.surveyForms.showOptionsPane(checkboxOptions);
         });
        // newQTypeArr[1] = smLib.forms.labelEl.clone().append(newQTypeCheckEl, "Checkbox");
-  
+        
         var newQTypeTextEl = smLib.forms.radioEl.clone().prop({
           name: "qType" + i,
           id: "qType" + i,
@@ -164,10 +167,12 @@ $(document).ready(function() {
         // The question container pane will contain both the question and the answer container.
         //   The whole point of this is to create a logical structure for the entire question,
         //   making it a discrete logical piece.
+        zliczanie = 'dd' + i;
+        
         var newQContainerEl = smLib.forms.divElRemove.clone().prop({
           class: "question-container",
+          id: zliczanie
         }).append(newQuestion, newAnswer, previewContainerEl);
-  
         this.container.append(newQContainerEl);
         i = i -1;
         var licznik = 'q'+i;
@@ -242,6 +247,7 @@ $(document).ready(function() {
         //   'i': 'resp'
         //  });
         //  window.alert(zlicz);
+
       },
       
       addTextOptions: function(textPane) {
