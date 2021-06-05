@@ -108,7 +108,7 @@
 
 
     <div class="profile">
-        <div id="r_p" class="right-panel">          
+        <!-- <div id="r_p" class="right-panel">           -->
             <!--<p class="lead" id="email-profile">No data.</p>-->
             <?php if (isset($_SESSION['success'])) : ?>
                 <div class="error success" >
@@ -136,7 +136,7 @@ $connect = new mysqli($servername, $username, $password, $dbname);
 $validation_error = '';
 $z="";
 $key= $_POST['key'];
-echo $key;
+// echo $key;
 $zmienna="SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id INNER JOIN hash ON hash.h_id = polacz_hash.ph_h_id WHERE hash.hash='$key'";
 $result = mysqli_query($connect,$zmienna);
 if ($result->num_rows > 0) {

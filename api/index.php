@@ -31,8 +31,8 @@ session_start();
     background:#366d7e;
   }
   .panel-body{
-    padding: 15px;
-    padding-bottom: 0px;
+    padding: 18px;
+    padding-bottom: 18px;
   }
   </style>
  </head>

@@ -13,17 +13,18 @@
     box-shadow: 0 0 2px silver; 
 }
 #panel2 {
-	width: 400px; 
-	margin: auto; 
-	padding: 0; 
-	background: #fff;
-	border: 1px solid silver;
-	font: 16px calibri;
-	letter-spacing: -1px;
-	padding: 15px;
-	-webkit-box-shadow: 0 0 2px silver; 
-    -moz-box-shadow: 0 0 2px silver; 
-    box-shadow: 0 0 2px silver; 
+    text-align: center;
+    width: 600px;
+    margin: auto;
+    padding: 0;
+    background: #fff;
+    border: 1px solid silver;
+    font: 16px calibri;
+    letter-spacing: -1px;
+    padding: 15px;
+    -webkit-box-shadow: 0 0 2px silver;
+    -moz-box-shadow: 0 0 2px silver;
+    box-shadow: 0 0 2px silver;
 }
 #send{
     width: 105px;

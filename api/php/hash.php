@@ -71,6 +71,6 @@ for($k=1;$k<$wynik+1;$k++){
          $result1 = $connect->query($sql5);
     }
 }
-echo (."Zapisz hash w celu weryfikacji odpowiedzi: ".$hash);
+echo ("Hash: ".$hash);
 $connect->close();
 ?>

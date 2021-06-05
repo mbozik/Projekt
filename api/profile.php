@@ -108,7 +108,7 @@
 
 
     <div class="profile">
-        <div id="r_p" class="right-panel">          
+        <!-- <div id="r_p" class="right-panel">           -->
             <!--<p class="lead" id="email-profile">No data.</p>-->
             <?php if (isset($_SESSION['success'])) : ?>
                 <div class="error success" >
