@@ -65,7 +65,7 @@ if ($result->num_rows > 0) {
     <html>
     <head>
     <script>
-    
+    <?php if($tab=[]!=NULL){ ?>
     window.onload = function() {
     var chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
@@ -85,6 +85,7 @@ if ($result->num_rows > 0) {
     chart.render();
      
     }
+    <?php }?>
     </script>
     </head>
     <body>
@@ -92,7 +93,7 @@ if ($result->num_rows > 0) {
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </body>
     
-    </html>   ";   <?php
+    </html>     <?php
     
   //  echo" </tr>
   //   </table>";

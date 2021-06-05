@@ -36,8 +36,7 @@
             document.getElementById("puste").innerHTML='<br>Podaj adresy email<br>';
             for(i=0;i<element;i++)
             {
-              
-                
+                           
                 var input=document.createElement('input');
                 var x = document.createElement("INPUT");
                 x.setAttribute("type", "submit");
@@ -52,6 +51,12 @@
                   document.getElementById("puste").appendChild(x);
                  }
             }
+            var c = document.createElement("INPUT");
+            c.setAttribute("id", "war");
+            c.setAttribute("name", "war");
+            c.setAttribute('value', element);
+            c.setAttribute('style', "display:none");
+            document.getElementById("puste").appendChild(c);
 
             $(document).ready(function () {
                 createCookie("wartosc", element, "100");
@@ -189,8 +194,8 @@ input[type=radio], input[type=checkbox] {
                                 <input id="wartosc"/>
                                 <button class="btn btn-dark" onclick="ilosc('wartosc');" type="button">Wysun</button>
                         </form>
-                        <form id="puste" action="create.php" method="POST" >
-                    
+                        <form id="puste" action="php/insertMail.php" method="POST" >
+                              
                         </form>
                 </div></div>
             </div>
