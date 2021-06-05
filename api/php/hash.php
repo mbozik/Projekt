@@ -66,7 +66,7 @@ while($row = $result->fetch_assoc()) {
     $hashId=$row["h_id"];
 }
 
-for($k=1;$k<$wynik;$k++){
+for($k=1;$k<$wynik+1;$k++){
     $odp=$_POST['q'.$k];
     $name=$_POST['nazwa_t'];
     $sql4 ="SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta ON ankieta.a_id=pytania.p_a_id WHERE tworca='$user' AND a_temat='$name' AND odpowiedz='$odp'";

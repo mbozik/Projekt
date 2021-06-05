@@ -23,10 +23,12 @@ if ($result->num_rows > 0) {
     $id=$row["a_id"];
     $tem = $row["a_temat"];
     // $sql2 = "SELECT * from pytania where p_a_id='$id'";
-    $sql2 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id and p_a_id='$id'";
+    //$sql2 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id and p_a_id='$id'";
+    $sql2 = "SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id INNER JOIN pytania on odpowiedzi.o_p_id = pytania.p_id";
     $result2 = $connect->query($sql2);
     
-//SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_h_id INNER JOIN hash WHERE hash.h_id=ph_id
+    // SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id
+
 
     $zmienna="";
     if ($result2->num_rows > 0) {
@@ -43,7 +45,7 @@ if ($result->num_rows > 0) {
         
         while($row = $result3->fetch_assoc()) {
           $xx = $row["COUNT(con_o_id)"];
-          echo"<li>"." ".$row["odpowiedz"]." Udzielono ".$row["COUNT(con_o_id)"]." takich odpowiedz."."</li>";
+          echo"<li>"." ".$row["odpowiedz"]." Udzielono ".$row["COUNT(con_o_id)"]." takich odpowiedzi."."</li>";
         }
       }
         
@@ -65,7 +67,7 @@ if ($result->num_rows > 0) {
     <html>
     <head>
     <script>
-    <?php if($tab=[]!=NULL){ ?>
+    
     window.onload = function() {
     var chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
@@ -85,7 +87,7 @@ if ($result->num_rows > 0) {
     chart.render();
      
     }
-    <?php }?>
+
     </script>
     </head>
     <body>
