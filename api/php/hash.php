@@ -33,28 +33,28 @@ for($k=1;$k<$wynik+1;$k++){
         while($row = $result->fetch_assoc()) {
                 $a_id=$row['a_id'];
                 $o_id=$row['o_id'];
-                
+               
                 // echo $o_id;
         }
     }
     // echo $a_id;
      //echo $o_id."<Br>";
-    $sql1 = "INSERT INTO polacz(con_id, con_a_id, con_o_id) VALUES ('','$a_id','$o_id')";
-    $result = $connect->query($sql1);
-
-
+     $sql1 = "INSERT INTO polacz(con_id, con_a_id, con_o_id) VALUES ('','$a_id','$o_id')";
+     $result = $connect->query($sql1);
+    
     $join = $join." ".$odp;
 
-    $sql3="SELECT * FROM odpowiedzi WHERE odpowiedzi.odpowiedz='$odp' AND odpowiedzi.o_p_id=(SELECT p_id from pytania where p_a_id='$a_id')";
+    //$sql3="SELECT * FROM odpowiedzi WHERE odpowiedzi.odpowiedz='$odp' AND odpowiedzi.o_p_id=(SELECT p_id from pytania where p_a_id='$a_id')";
     // $sql4 = "INSERT INTO polacz(con_id, con_a_id, con_o_id) VALUES ('','$a_id','$o_id')";
     // $result = $connect->query($sql4);
 
-    $sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user' AND m_a_id='$a_id'";
-    $result = $connect->query($sql2) or die($connect->error);
+    // $sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user' AND m_a_id='$a_id'";
+    // $result = $connect->query($sql2);
 
 }
-//$sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user'";
-//$result = $connect->query($sql2);
+$sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user'";
+$result = $connect->query($sql2);
+
 $join = $join." " . $user. " ". $a_id;
 $hash = md5($join);
 $sql2 = "INSERT INTO hash(h_id, hash) VALUES ('','$hash')";
