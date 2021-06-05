@@ -18,9 +18,10 @@ include('connect.php');
   $sql = "INSERT INTO ankieta(a_id, a_temat, a_opis, tworca) VALUES ('','$title','$description','$user')";
   $result = $connect->query($sql);
   $connect->close();
+  }
 
   $zap = "SELECT a_id FROM ankieta WHERE a_temat = '$title'";
-  $result3 = mysqli_query($connect,$zapytanie);
+  $result3 = mysqli_query($connect,$zap);
   if(mysqli_num_rows($result3) ==NULL){
 
   $sql = "INSERT INTO mail(mail_id, mail, odpowiedz, m_a_id) VALUES ('','$title','$description','$user')";
