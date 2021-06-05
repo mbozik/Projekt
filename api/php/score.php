@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $tytul=$row["a_temat"];
     
-    echo "<h1><a href='".$row["a_temat"]. "'>".$row["a_temat"]."</a></h1><br><p> <h3>Opis</h3>" . $row["a_opis"]. "</p><br><ul>";
+    echo "<h1><p>".$row["a_temat"]."</a></h1><br><p> <h3>Opis</h3>" . $row["a_opis"]. "</p><br><ul>";
     $id=$row["a_id"];
     $tem = $row["a_temat"];
     // $sql2 = "SELECT * from pytania where p_a_id='$id'";

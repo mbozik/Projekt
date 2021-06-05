@@ -15,6 +15,8 @@ $user= $_SESSION['name'];
 $hash="";
 $join="";
 $hashId="";
+
+
 for($k=1;$k<$wynik+1;$k++){
     $odp=$_POST['q'.$k];
     $que=$_POST['p'.$k];
@@ -36,15 +38,19 @@ for($k=1;$k<$wynik+1;$k++){
         }
     }
     // echo $a_id;
-    // echo $o_id;
+     //echo $o_id."<Br>";
     $sql1 = "INSERT INTO polacz(con_id, con_a_id, con_o_id) VALUES ('','$a_id','$o_id')";
     $result = $connect->query($sql1);
+
+
     $join = $join." ".$odp;
 
-   //sql3="SELECT * FROM odpowiedzi WHERE odpowiedzi.odpowiedz='$odp' AND odpowiedzi.o_p_id=(SELECT p_id from pytania where p_a_id='$a_id')"
-    //$sql = "INSERT INTO polacz(con_id, con_a_id, con_o_id) VALUES ('','$a_id','$o_id')";
-    // $sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user' AND m_a_id='$a_id'";
-    // $result = $connect->query($sql2);
+    $sql3="SELECT * FROM odpowiedzi WHERE odpowiedzi.odpowiedz='$odp' AND odpowiedzi.o_p_id=(SELECT p_id from pytania where p_a_id='$a_id')";
+    // $sql4 = "INSERT INTO polacz(con_id, con_a_id, con_o_id) VALUES ('','$a_id','$o_id')";
+    // $result = $connect->query($sql4);
+
+    $sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user' AND m_a_id='$a_id'";
+    $result = $connect->query($sql2) or die($connect->error);
 
 }
 //$sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user'";
@@ -60,7 +66,7 @@ while($row = $result->fetch_assoc()) {
     $hashId=$row["h_id"];
 }
 
-for($k=1;$k<$wynik+1;$k++){
+for($k=1;$k<$wynik;$k++){
     $odp=$_POST['q'.$k];
     $name=$_POST['nazwa_t'];
     $sql4 ="SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta ON ankieta.a_id=pytania.p_a_id WHERE tworca='$user' AND a_temat='$name' AND odpowiedz='$odp'";

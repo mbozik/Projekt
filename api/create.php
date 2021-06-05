@@ -106,7 +106,7 @@ input[type=radio], input[type=checkbox] {
 
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="index.php">Ankiety</a>
+      <span class="glyphicon glyphicon-list-alt" aria-hidden ="true"></span><a class="navbar-brand" href="index.php">Ankiety</a>
 
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent"

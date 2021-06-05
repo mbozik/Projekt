@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
   // output data of each row
   
   while($row = $result->fetch_assoc()) {
-        echo "<h3>Ankieta ".$row['a_temat']." </h3><p>Opis ankiety:".$row['a_opis']."</p>";
+        echo "<h3>Ankieta ".$row['a_temat']." </h3><p>Opis ankiety:".$row['a_opis']."</p><hr><p>Pytania</p>";
         $nazwa=$row['a_temat'];
         
   }}
@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
                
             while($row = $result3->fetch_assoc()) {
                 if($wypisz != $row["pytanie"]){
-                    echo "<p name='".$row['p_id']."'>".$row["pytanie"]."</p><br>";
+                    echo "<p name='".$row['p_id']."'>".$row["pytanie"]."</p>";
                     $wypisz=$row["pytanie"];
                     $q++;
               

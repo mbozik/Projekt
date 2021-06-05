@@ -20,9 +20,4 @@ include('connect.php');
  
 
 ?>
-<script>
-function myFunction() {
-  document.getElementById("demo").style.color = "red";
-}
-</script>
 
