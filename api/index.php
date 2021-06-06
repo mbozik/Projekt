@@ -92,7 +92,7 @@ session_start();
               <?php  if (isset($_SESSION['name'])) : ?>
       
       <p class="nav-item" style="text-align:right;margin:auto"> 
-          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+         <strong><?php echo $_SESSION['name']; ?></strong>
           </p>
         
    <?php endif ?>
@@ -124,11 +124,11 @@ session_start();
     <div class="panel-body">
      <form method="post" ng-submit="submitLogin()">
       <div class="form-group">
-       <label>Enter Your Email</label>
+       <label>Podaj email</label>
        <input type="text" name="email" ng-model="loginData.email" class="form-control" />
       </div>
       <div class="form-group">
-       <label>Enter Your Password</label>
+       <label>Podaj hasło</label>
        <input type="password" name="password" ng-model="loginData.password" class="form-control" />
       </div>
       <div class="form-group" align="center">
