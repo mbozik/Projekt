@@ -1,15 +1,15 @@
 <?php 
   session_start(); 
 
-  if (!isset($_SESSION["name"])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
+//   if (!isset($_SESSION["name"])) {
+//   	$_SESSION['msg'] = "You must log in first";
+//   	header('location: login.php');
+//   }
+//   if (isset($_GET['logout'])) {
+//   	session_destroy();
+//   	unset($_SESSION['username']);
+//   	header("location: login.php");
+//   }
 
 
 
@@ -96,7 +96,7 @@
             <?php  if (isset($_SESSION['name'])) : ?>
       
       <p class="nav-item" style="text-align:right;margin:auto"> 
-          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+           <strong><?php echo $_SESSION['name']; ?></strong>
           </p>
         
    <?php endif ?>
