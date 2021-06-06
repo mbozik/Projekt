@@ -100,14 +100,19 @@ input[type=radio], input[type=checkbox] {
 .text-answer-options {
   background-color: #cff;
 }
+#logo{
+  background-image: url("images/ANKIETY.png");
+  width:100px;
+  height:100px;
+}
 
     </style>
 <header>
 
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <span class="glyphicon glyphicon-list-alt" aria-hidden ="true"></span><a class="navbar-brand" href="index.php">Ankiety</a>
-
+      <!-- <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-list-alt" aria-hidden ="true"></span><span>Ankiety</span></a> -->
+      <div id="logo"></div><a href="images/ANKIETY.png"></a>
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent"
                   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -178,7 +183,7 @@ input[type=radio], input[type=checkbox] {
 <div class="container" style="margin-top: 5%">
   <div class="row">
     <div class="col-md-12">
-      <div class="panel panel-default">
+      <div class="panel panel-info">
         <div class="panel-heading">Stwórz nową ankietę:</div>
         <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
           <form action="php/insert.php" method="POST" ng-submit="submitUpload()" class="form-control" style="height: 700px; border: none" id="survey-form">
