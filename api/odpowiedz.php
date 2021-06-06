@@ -58,8 +58,8 @@ input[type=radio], input[type=checkbox] {
   background-color: #cff;
 }
 .row {
-    margin-right: 1%;
-    margin-left: 1%;
+    margin-right: 25%;
+    margin-left: 25%;
 }
 #sedno{
   margin:0 auto;
@@ -79,7 +79,7 @@ input[type=radio], input[type=checkbox] {
 <script src="js/auth.js"></script>
 <div class="menu">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <span class="glyphicon glyphicon-list-alt" aria-hidden ="true"></span><a class="navbar-brand active" href="index.php">Ankiety</a>
+    <a class="navbar-brand" href="index.php" style="border-right: solid #366d7e 1px;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><span id="logo_naw">Ankiety</span></a>
 
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
@@ -129,7 +129,7 @@ input[type=radio], input[type=checkbox] {
         <div class="row">
             <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Ankiety udostępnione użytkownikowi do odpowiedzi</div>
+                <div class="panel-heading" id="panelek">Ankiety udostępnione użytkownikowi do odpowiedzi</div>
                 <div class="panel-group">
                  <div id="sedno">
                         <?php

@@ -58,7 +58,7 @@
 <script src="js/auth.js"></script>
 <div class="menu">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <span class="glyphicon glyphicon-list-alt" aria-hidden ="true"></span><a class="navbar-brand active" href="index.php">Ankiety</a>
+    <a class="navbar-brand" href="index.php" style="border-right: solid #366d7e 1px;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><span id="logo_naw">Ankiety</span></a>
 
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
@@ -96,7 +96,7 @@
             <?php  if (isset($_SESSION['name'])) : ?>
       
       <p class="nav-item" style="text-align:right;margin:auto"> 
-          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+         <strong><?php echo $_SESSION['name']; ?></strong>
           </p>
         
    <?php endif ?>
@@ -124,12 +124,12 @@
     <div  id="panel2" >
         <div class="form-group">
             <!-- <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label> -->
-            <h3 id="txt" class="panel-title">Aby uzyskać odpowiedzi podaj klucz:</h3>
+            <h3 id="txt" class="panel-title">Aby uzyskać odpowiedzi podaj klucz:</h3><br>
             <form action="prof.php" method="post">
             <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
             
         </div>
-        <button type="submit" class="btn btn-dark" onclick="" style="width:31%;">Pobierz ankiete</button>
+        <button type="submit" class="btn btn-dark" onclick="" style="width: 26%;left: 0px;margin: 0 auto;">Pobierz ankiete</button>
         </form>
     
     </div>

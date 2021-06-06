@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $tytul=$row["a_temat"];
     
-    echo "<h1><p>".$row["a_temat"]."</a></h1><br><p> <h3>Opis</h3>" . $row["a_opis"]. "</p><br><ul>";
+    echo "<div><h1><p>".$row["a_temat"]."</a></h1><p>" . $row["a_opis"]. "</p><br><ul>";
     $id=$row["a_id"];
     $tem = $row["a_temat"];
     // $sql2 = "SELECT * from pytania where p_a_id='$id'";
@@ -29,44 +29,52 @@ if ($result->num_rows > 0) {
     
     // SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id
 
-
+    // $k=0;
     $zmienna="";
     if ($result2->num_rows > 0) {
-      
       while($row = $result2->fetch_assoc()) {
         
         if($zmienna!=$row["pytanie"]){
-          echo"<br><p>"."Pytanie: ".$row["pytanie"]."</p>"; 
+          // if($k%2==0)
+          echo"<div style='background-color:#366d7ea1; padding: 8px; border-radius: 6px;'><p>"."Pytanie: ".$row["pytanie"]."</p><div style='background-color: #ffffff59; border-radius: 8px;     padding: 6px;'><p>Odpowiedzi</p>"; 
+          // else
+          // echo"<div style='background-color:#f3f3f36e; padding: 8px; border-radius: 6px;'><p>"."Pytanie: ".$row["pytanie"]."</p><div style='background-color: #ffffff59; border-radius: 8px;     padding: 6px;'><p>Odpowiedzi</p>"; 
+          
           $zmienna=$row["pytanie"];
           $pyt = $row["pytanie"];
+          // $k++;
 
           $sql3="SELECT COUNT(con_o_id), odpowiedz FROM polacz INNER JOIN odpowiedzi ON odpowiedzi.o_id=polacz.con_o_id INNER JOIN ankieta on ankieta.a_id=polacz.con_a_id INNER JOIN pytania ON pytania.p_a_id=ankieta.a_id WHERE tworca='$user' AND a_temat='$tem' AND pytanie='$pyt' AND odpowiedzi.o_p_id=pytania.p_id GROUP BY con_o_id";
           $result3 = $connect->query($sql3);
         
         while($row = $result3->fetch_assoc()) {
           $xx = $row["COUNT(con_o_id)"];
-          echo"<li>"." ".$row["odpowiedz"]." Udzielono ".$row["COUNT(con_o_id)"]." takich odpowiedzi."."</li>";
+          echo"<li style='border-bottom: 1px dotted #00000030; list-style:none;'>"." <span>".$row["odpowiedz"]."</span><br><div><span style='float:left;'>Liczba odpowiedzi: </span><div style='background-color:#284c57; border-radius: 15px; color:white;margin-left: 120px; padding-left: 5px;width:".$row["COUNT(con_o_id)"]."9px; margin-bottom: 2px;height: 19px;'>".$row["COUNT(con_o_id)"]."</div></div></li>";
         }
-      }
         
+      }
+      echo"</div>";
+      echo"</div><br>";
+      
   }
 
  
   
   $tab=[];
-  echo "</ul>";
+  echo "</ul></div>";
   $sql3="SELECT COUNT(con_o_id), odpowiedz FROM polacz INNER JOIN odpowiedzi ON odpowiedzi.o_id=polacz.con_o_id INNER JOIN ankieta on ankieta.a_id=polacz.con_a_id INNER JOIN pytania ON pytania.p_a_id=ankieta.a_id WHERE tworca='Bozik.kizob@gmail.com' AND a_temat='Motoryzacyjna' AND odpowiedzi.o_p_id=pytania.p_id GROUP BY con_o_id";
   $result3 = $connect->query($sql3);
   while($row = $result3->fetch_assoc()) {
    // echo"<li>"."pytanie: ".$row["pytanie"]." odpowiedz :".$row["odpowiedz"]." ile :".$row["COUNT(odpowiedz)"]."</li>";
     array_push($tab,array("y" => $row["COUNT(con_o_id)"], "label" => $row["odpowiedz"] ));
+    
     }
     
     ?>
     <!DOCTYPE HTML>
     <html>
     <head>
-    <script>
+    <!-- <script>
     
     window.onload = function() {
     var chart = new CanvasJS.Chart("chartContainer", {
@@ -88,11 +96,11 @@ if ($result->num_rows > 0) {
      
     }
 
-    </script>
+    </script> -->
     </head>
     <body>
-    <div id="chartContainer" style="height: 370px; width: 98%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- <div id="chartContainer" style="height: 370px; width: 98%;"></div> -->
+    <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
     </body>
     
     </html>     <?php

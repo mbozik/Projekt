@@ -27,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wyniki</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
+  
 </head>
 <style>
     label {
@@ -76,10 +76,11 @@ input[type=radio], input[type=checkbox] {
 </script>
 <script src="js/app.js"></script>
 <script src="js/profile.js"></script>
+
 <script src="js/auth.js"></script>
 <div class="menu">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <span class="glyphicon glyphicon-list-alt" aria-hidden ="true"></span><a class="navbar-brand active" href="index.php">Ankiety</a>
+    <a class="navbar-brand" href="index.php" style="border-right: solid #366d7e 1px;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><span id="logo_naw">Ankiety</span></a>
 
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
@@ -129,7 +130,7 @@ input[type=radio], input[type=checkbox] {
         <div class="row">
             <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Ankiety stworzone przez użytkownika</div>
+                <div class="panel-heading" id="panelek">Ankiety stworzone przez użytkownika</div>
                 <div class="panel-group">
                  <div id="sedno">
                 <?php

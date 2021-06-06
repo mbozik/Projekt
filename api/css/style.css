@@ -12,6 +12,14 @@
     -moz-box-shadow: 0 0 2px silver; 
     box-shadow: 0 0 2px silver; 
 }
+#panelek {
+    color: #fff;
+    background-color: #284c57;
+    border-color: #000;
+}
+#logo_naw{
+    padding: 5px;
+    }
 #panel2 {
     text-align: center;
     width: 600px;
