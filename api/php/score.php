@@ -23,8 +23,8 @@ if ($result->num_rows > 0) {
     $id=$row["a_id"];
     $tem = $row["a_temat"];
     // $sql2 = "SELECT * from pytania where p_a_id='$id'";
-    //$sql2 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id and p_a_id='$id'";
-    $sql2 = "SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id INNER JOIN pytania on odpowiedzi.o_p_id = pytania.p_id";
+    $sql2 = "SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta WHERE pytania.p_a_id=ankieta.a_id and p_a_id='$id'";
+    // $sql2 = "SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id INNER JOIN pytania on odpowiedzi.o_p_id = pytania.p_id";
     $result2 = $connect->query($sql2);
     
     // SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id
@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
         
         if($zmienna!=$row["pytanie"]){
           // if($k%2==0)
-          echo"<div style='background-color:#366d7ea1; padding: 8px; border-radius: 6px;'><p>"."Pytanie: ".$row["pytanie"]."</p><div style='background-color: #ffffff59; border-radius: 8px;     padding: 6px;'><p>Odpowiedzi</p>"; 
+          echo"<div style='margin-top:2%;'><div style='background-color:#366d7ea1; padding: 8px; border-radius: 6px;'><p>"."Pytanie: ".$row["pytanie"]."</p><div style='background-color: #ffffff59; border-radius: 8px;     padding: 6px;'><p>Odpowiedzi</p>"; 
           // else
           // echo"<div style='background-color:#f3f3f36e; padding: 8px; border-radius: 6px;'><p>"."Pytanie: ".$row["pytanie"]."</p><div style='background-color: #ffffff59; border-radius: 8px;     padding: 6px;'><p>Odpowiedzi</p>"; 
           
@@ -49,26 +49,28 @@ if ($result->num_rows > 0) {
         
         while($row = $result3->fetch_assoc()) {
           $xx = $row["COUNT(con_o_id)"];
-          echo"<li style='border-bottom: 1px dotted #00000030; list-style:none;'>"." <span>".$row["odpowiedz"]."</span><br><div><span style='float:left;'>Liczba odpowiedzi: </span><div style='background-color:#284c57; border-radius: 15px; color:white;margin-left: 120px; padding-left: 5px;width:".$row["COUNT(con_o_id)"]."9px; margin-bottom: 2px;height: 19px;'>".$row["COUNT(con_o_id)"]."</div></div></li>";
+          echo"<li style='border-bottom: 1px dotted #00000030; list-style:none;'>"." <span>".$row["odpowiedz"]."</span><br><div><span style='float:left;'>Liczba odpowiedzi: </span><div style='background-color:black; border-radius: 15px; color:white;margin-left: 120px; padding-left: 5px;width:".$row["COUNT(con_o_id)"]."9px; margin-bottom: 2px;height: 19px;'>".$row["COUNT(con_o_id)"]."</div></div></li>";
         }
-        
+        echo"</div>";
+        echo"</div>";
       }
-      echo"</div>";
-      echo"</div><br>";
+      
+      // echo"</div>";
+      //  echo"</div>";
       
   }
 
  
   
-  $tab=[];
-  echo "</ul></div>";
-  $sql3="SELECT COUNT(con_o_id), odpowiedz FROM polacz INNER JOIN odpowiedzi ON odpowiedzi.o_id=polacz.con_o_id INNER JOIN ankieta on ankieta.a_id=polacz.con_a_id INNER JOIN pytania ON pytania.p_a_id=ankieta.a_id WHERE tworca='Bozik.kizob@gmail.com' AND a_temat='Motoryzacyjna' AND odpowiedzi.o_p_id=pytania.p_id GROUP BY con_o_id";
-  $result3 = $connect->query($sql3);
-  while($row = $result3->fetch_assoc()) {
-   // echo"<li>"."pytanie: ".$row["pytanie"]." odpowiedz :".$row["odpowiedz"]." ile :".$row["COUNT(odpowiedz)"]."</li>";
-    array_push($tab,array("y" => $row["COUNT(con_o_id)"], "label" => $row["odpowiedz"] ));
+  // $tab=[];
+  // echo "</ul></div>";
+  // $sql3="SELECT COUNT(con_o_id), odpowiedz FROM polacz INNER JOIN odpowiedzi ON odpowiedzi.o_id=polacz.con_o_id INNER JOIN ankieta on ankieta.a_id=polacz.con_a_id INNER JOIN pytania ON pytania.p_a_id=ankieta.a_id WHERE tworca='Bozik.kizob@gmail.com' AND a_temat='Motoryzacyjna' AND odpowiedzi.o_p_id=pytania.p_id GROUP BY con_o_id";
+  // $result3 = $connect->query($sql3);
+  // while($row = $result3->fetch_assoc()) {
+  //  // echo"<li>"."pytanie: ".$row["pytanie"]." odpowiedz :".$row["odpowiedz"]." ile :".$row["COUNT(odpowiedz)"]."</li>";
+  //   array_push($tab,array("y" => $row["COUNT(con_o_id)"], "label" => $row["odpowiedz"] ));
     
-    }
+  //   }
     
     ?>
     <!DOCTYPE HTML>
@@ -110,6 +112,7 @@ if ($result->num_rows > 0) {
    //    echo "</ul>";}else {
   //  echo "</ul>Brak pytań.";
   }
+
   echo "</ul>";
 
 }

@@ -160,10 +160,10 @@ input[type=radio], input[type=checkbox] {
                     <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a id="create" class="nav-link" href="create.php">Stwórz</a>
+                    <a id="create" class="nav-link active" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
-                    <a id="create" class="nav-link active" href="odpowiedz.php">Odpowiedz</a>
+                    <a id="create" class="nav-link" href="odpowiedz.php">Odpowiedz</a>
                 </li>
                 <li class="nav-item">
                       <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>

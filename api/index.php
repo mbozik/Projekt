@@ -4,15 +4,15 @@
 
 session_start();
 
-if (!isset($_SESSION["name"])) {
-  $_SESSION['msg'] = "You must log in first";
-  header('location: login.php');
-}
-if (isset($_GET['logout'])) {
-  session_destroy();
-  unset($_SESSION['username']);
-  header("location: login.php");
-}
+// if (!isset($_SESSION["name"])) {
+//   $_SESSION['msg'] = "You must log in first";
+//   header('location: login.php');
+// }
+// if (isset($_GET['logout'])) {
+//   session_destroy();
+//   unset($_SESSION['username']);
+//   header("location: login.php");
+// }
 
 
 
@@ -52,7 +52,7 @@ if (isset($_GET['logout'])) {
  <header>
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <span class="glyphicon glyphicon-list-alt" aria-hidden ="true"></span><a class="navbar-brand " href="index.php">Ankiety</a>
+      <a class="navbar-brand" href="index.php" style="border-right: solid #366d7e 1px;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><span id="logo_naw">Ankiety</span></a>
       
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent"

@@ -153,9 +153,11 @@ input[type=radio], input[type=checkbox] {
                       <a id="logout" class="nav-link" href="wyniki.php">Wyniki</a>
                   </li> 
                   <li class="nav-item">
-                      <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
+                      <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
                   </li> 
-                  <?php }else {
+                  <?php }else { session_destroy();
+                                    unset($_SESSION['username']);
+                                    header("location: index.php");
                       ?> 
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
