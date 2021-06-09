@@ -23,6 +23,6 @@ for ($i = 0; $i < $wartosc; $i++) {
     $zp = "INSERT INTO mail(mail_id, mail, odpowiedz, m_a_id) VALUES ('','$tab[$i]','0','$a')";
     $result = $connect->query($zp);
 }
-header("Location: http://127.0.0.1/Projekt/api/create.php");
+header("Location: http://127.0.0.1/Projekt-1/api/create.php");
 $connect->close();
 

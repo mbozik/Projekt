@@ -1,25 +1,27 @@
-<?php
-/**
- * Plik odpowiada za weryfikację swoich odpowiedzi za pomocą  kodu hash
- */
-session_start();
+<?php 
+  session_start(); 
 
-if (!isset($_SESSION["name"])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header("location: login.php");
-}
+//   if (!isset($_SESSION["name"])) {
+//   	$_SESSION['msg'] = "You must log in first";
+//   	header('location: login.php');
+//   }
+//   if (isset($_GET['logout'])) {
+//   	session_destroy();
+//   	unset($_SESSION['username']);
+//   	header("location: login.php");
+//   }
+
+
+
+
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -67,7 +69,7 @@ if (isset($_GET['logout'])) {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
+        
           <!--      <li class="nav-item">
                     <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                 </li>
@@ -85,70 +87,109 @@ if (isset($_GET['logout'])) {
                 </li>
                 <li class="nav-item">
                       <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>
-                  </li>
+                  </li> 
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
-                  </li>
+                  </li> 
             </ul>
-
-            <?php if (isset($_SESSION['name'])): ?>
-
-      <p class="nav-item" style="text-align:right;margin:auto">
-          Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
+            
+            <?php  if (isset($_SESSION['name'])) : ?>
+      
+      <p class="nav-item" style="text-align:right;margin:auto"> 
+           <strong><?php echo $_SESSION['name']; ?></strong>
           </p>
-
-   <?php endif?>
-
+        
+   <?php endif ?>
+      
         </div>
     </nav>
 </div>
-
+  
 
 
     <div class="profile">
-
-            <?php if (isset($_SESSION['success'])): ?>
+        <!-- <div id="r_p" class="right-panel">           -->
+            <!--<p class="lead" id="email-profile">No data.</p>-->
+            <?php if (isset($_SESSION['success'])) : ?>
                 <div class="error success" >
                     <h3>
-                    <?php
-
-echo $_SESSION['success'];
-unset($_SESSION['success']);
-?>
+                    <?php 
+                    
+                        echo $_SESSION['success']; 
+                        unset($_SESSION['success']);
+          ?>
         </div>
     </div>
-    <?php endif?>
+    <?php endif ?>
     <div  id="panel2" >
         <div class="form-group">
+            <!-- <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label> -->
             <?php
+// include('testowe.php');
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "baza";
+$user= $_SESSION['name'];
+$join="";
+$tab1[] = "";
+$tab2[] = "";
+$hash ="";
 // Create connection
 $connect = new mysqli($servername, $username, $password, $dbname);
+   // $a=$tab[0];
 $validation_error = '';
-$z = "";
-$key = $_POST['key'];
-$zmienna = "SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id INNER JOIN hash ON hash.h_id = polacz_hash.ph_h_id WHERE hash.hash='$key'";
-$result = mysqli_query($connect, $zmienna);
+$z="";
+$a_id="";
+$key= $_POST['key'];
+// echo $key;
+$zmienna="SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id INNER JOIN hash ON hash.h_id = polacz_hash.ph_h_id WHERE hash.hash='$key'";
+$result = mysqli_query($connect,$zmienna);
 if ($result->num_rows > 0) {
-    while ($row = mysqli_fetch_array($result)) {
-        $z = $row['o_p_id'];
-        $zmienna2 = "SELECT * FROM pytania where p_id='$z'";
-        $result2 = mysqli_query($connect, $zmienna2);
-        while ($row2 = mysqli_fetch_array($result2)) {
-            echo "Pytanie " . $row2['pytanie'] . "<br>";}
-        echo "Odpowiedz " . $row['odpowiedz'] . "<br>";}
+while($row = mysqli_fetch_array($result)){
+    $z=$row['o_p_id'];
+    $zmienna2="SELECT * FROM pytania where p_id='$z'";
+    $result2 = mysqli_query($connect,$zmienna2);
+    
+    while($row2 = mysqli_fetch_array($result2)){
+            $join = $join." " .$row['odpowiedz'];
+            $a_id=$row2['p_a_id'];
+        // echo $join;
+                // echo "Pytanie ".$row2['pytanie']."<br>";}
+                // echo "Odpowiedz ".$row['odpowiedz']."<br>";
+                $tab1[]=$row2['pytanie'];
+                }
+            $tab2[]=$row['odpowiedz'];
 
-} else {
-    echo "<p style='text-align: center;'>Błędny hash lub zostały zmienione odpowiedzi w bazie</p>";
+            }
+            $join = $join." " . $user. " ". $a_id;
+            $hash = md5($join);
+
+            if($hash==$key){
+                echo "Twój hash zgadza się z hashem w bazie danych <br>";
+                echo "<br>"."Hash wygenerowany: ".$hash;
+                echo "<br>"."Hash w bazie: ".$key."<br>"."<br>";
+                for( $x = 1, $cnt = count($tab1); $x < $cnt; $x++ ){
+                    
+                    echo "Pytanie: ".$tab1[$x]."<br>";
+                    echo "Odpowiedz: ".$tab2[$x]."<br>";
+                 } 
+                
+            }else {
+                echo"ODPOWIEDZI ZOSAŁY ZMIENIONE!<br>";
+                echo "<br>"."Hash wygenerowany: ".$hash;
+                echo "<br>"."Hash w bazie: ".$key;
+
+                $hash="";
+            }
+            
 }
-
+else
+echo "<p style='text-align: center;'>Błędny hash lub zostały zmienione odpowiedzi w bazie</p>";
 ?>
-
+            
         </div>
-
+    
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -158,5 +199,4 @@ if ($result->num_rows > 0) {
         crossorigin="anonymous"></script>
 </body>
 </html>
-
 
