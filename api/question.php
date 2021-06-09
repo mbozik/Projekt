@@ -141,11 +141,11 @@ input[type=radio], input[type=checkbox] {
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-heading">Create New Questions:</div>
+        <div class="panel-heading">Stwórz nowe pytanie:</div>
         <div class="panel-group" ng-app="myapp" ng-controller="usercontroller">
             <div id="questions">
             </div>
-            <button  class="btn btn-primary" type="button" style="display: block; margin-top: 5px; margin-left: 5px;" id="addq" onclick="myFunction()" ><span class="glyphicon glyphicon-plus"></span>Add a question</button>
+            <button  class="btn btn-primary" type="button" style="display: block; margin-top: 5px; margin-left: 5px;" id="addq" onclick="myFunction()" ><span class="glyphicon glyphicon-plus"></span>Dodaj pytanie</button>
             <br><button class="btn btn-primary"  style="display: block; margin-top: 5px; margin-left: 5px;" onclick="window.location.href='p_create.php'"> Stwórz ankietę </button>
           <div>        
             </div>

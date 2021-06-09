@@ -215,14 +215,7 @@ $(document).ready(function() {
         
       }, //end addQuestion()
       addRadioOptions: function(radioPane) {
-        /***
-         * Another DOM element creation function. This creates the radio
-         *   button text option, and if it's the first, a button to add
-         *   more options. 
-         ***/
-  
-        // We want to get the length of the current choices, 
-        //  as this will give us an index for the new option
+        3
         
         var radioChoice = radioPane.find(".radio-choice");
         var choice_c = radioChoice.length;
@@ -238,8 +231,7 @@ $(document).ready(function() {
         });
         choiceX = choiceX + 2;
         var radioChoiceEl = smLib.forms.labelEl.clone().append(radioTempEl, radioChoiceTextEl);
-        // Make sure to add the new text element BEFORE the 
-        //    add more button.
+      
         radioPane.find(".add-radio-choice").before(radioChoiceEl);
         
         // var resp1 = document.getElementById("radiochoice0").value;
@@ -263,9 +255,7 @@ $(document).ready(function() {
         
       },
       addCheckboxOptions: function(checkboxPane) {
-        // We want to get the length of the current choices, 
-        //  as this will give us an index for the new option
-        
+       
         var checkboxChoice = checkboxPane.find(".checkbox-choice");
         var choice_c = checkboxChoice.length;
         
@@ -283,8 +273,7 @@ $(document).ready(function() {
         
   
         var checkboxChoiceEl = smLib.forms.labelEl.clone().append(checkboxTempEl, checkboxChoiceTextEl);
-        // Make sure to add the new text element BEFORE the 
-        //    add more button.
+        
         checkboxPane.find(".add-checkbox-choice").before(checkboxChoiceEl);
       },
       

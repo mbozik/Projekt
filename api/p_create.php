@@ -193,7 +193,7 @@ input[type=radio], input[type=checkbox] {
                  <div id="sedno"> 
                  <p> Podaj ilość użytkowników, którzy mają wziąć udział w ankiecie </p>
                     <form>
-
+              
                                 <input id="wartosc"/>
                                 <button class="btn btn-dark" onclick="ilosc('wartosc');" type="button">Wysun</button>
                         </form>

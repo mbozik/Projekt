@@ -21,7 +21,7 @@ for($k=1;$k<$wynik+1;$k++){
     $odp=$_POST['q'.$k];
     $que=$_POST['p'.$k];
     $name=$_POST['nazwa_t'];
-    // echo $odp;
+    echo $odp;
     // echo $que;
     //echo $name;
     //$sql ="SELECT a_id FROM ankieta WHERE ankieta.a_temat='$name'";
@@ -56,6 +56,7 @@ $sql2 = "UPDATE mail SET odpowiedz='1' WHERE mail='$user'";
 $result = $connect->query($sql2);
 
 $join = $join." " . $user. " ". $a_id;
+echo $join;
 $hash = md5($join);
 $sql2 = "INSERT INTO hash(h_id, hash) VALUES ('','$hash')";
 $result = $connect->query($sql2);
@@ -64,17 +65,20 @@ $sql4 = "SELECT h_id FROM hash WHERE hash='$hash'";
 $result = $connect->query($sql4);
 while($row = $result->fetch_assoc()) {
     $hashId=$row["h_id"];
+    
 }
 
 for($k=1;$k<$wynik+1;$k++){
     $odp=$_POST['q'.$k];
     $name=$_POST['nazwa_t'];
-    $sql4 ="SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta ON ankieta.a_id=pytania.p_a_id WHERE tworca='$user' AND a_temat='$name' AND odpowiedz='$odp'";
+    $sql4 ="SELECT * FROM odpowiedzi INNER JOIN pytania ON odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta ON ankieta.a_id=pytania.p_a_id WHERE a_temat='$name' AND odpowiedz='$odp'";
     $result = $connect->query($sql4);
+    $oId="";
     while($row = $result->fetch_assoc()) {
+        if($oId!=$row["o_id"]){
         $oId = $row["o_id"];
          $sql5 = "INSERT INTO polacz_hash(ph_id, ph_h_id, ph_o_id) VALUES ('','$hashId','$oId')";
-         $result1 = $connect->query($sql5);
+         $result1 = $connect->query($sql5);}
     }
 }
 echo ("Hash: ".$hash);

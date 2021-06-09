@@ -130,11 +130,14 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "baza";
+$user= $_SESSION['name'];
+$join="";
 // Create connection
 $connect = new mysqli($servername, $username, $password, $dbname);
    // $a=$tab[0];
 $validation_error = '';
 $z="";
+$a_id="";
 $key= $_POST['key'];
 // echo $key;
 $zmienna="SELECT * FROM odpowiedzi INNER join polacz_hash on odpowiedzi.o_id=polacz_hash.ph_o_id INNER JOIN hash ON hash.h_id = polacz_hash.ph_h_id WHERE hash.hash='$key'";
@@ -144,10 +147,22 @@ while($row = mysqli_fetch_array($result)){
     $z=$row['o_p_id'];
     $zmienna2="SELECT * FROM pytania where p_id='$z'";
     $result2 = mysqli_query($connect,$zmienna2);
-    while($row2 = mysqli_fetch_array($result2)){
-        echo "Pytanie ".$row2['pytanie']."<br>";}
-                  echo "Odpowiedz ".$row['odpowiedz']."<br>";}
     
+    while($row2 = mysqli_fetch_array($result2)){
+            $join = $join." " .$row['odpowiedz'];
+            $a_id=$row2['p_a_id'];
+        // echo $join;
+                // echo "Pytanie ".$row2['pytanie']."<br>";}
+                // echo "Odpowiedz ".$row['odpowiedz']."<br>";
+                
+                }
+
+            }
+            $join = $join." " . $user. " ". $a_id;
+            echo $join."<br>";
+            $hash = md5($join);
+            echo $hash;
+            echo "<br>".$key;
 }
 else
 echo "<p style='text-align: center;'>Błędny hash lub zostały zmienione odpowiedzi w bazie</p>";
