@@ -1,18 +1,10 @@
-<?php
 
-//index.php
+<?php
+/**
+ * Plik zawiera skrypt tworzący główną strone wityny
+ */
 
 session_start();
-
-// if (!isset($_SESSION["name"])) {
-//   $_SESSION['msg'] = "You must log in first";
-//   header('location: login.php');
-// }
-// if (isset($_GET['logout'])) {
-//   session_destroy();
-//   unset($_SESSION['username']);
-//   header("location: login.php");
-// }
 
 
 
@@ -53,26 +45,20 @@ session_start();
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.php" style="border-right: solid #366d7e 1px;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><span id="logo_naw">Ankiety</span></a>
-      
+
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent"
                   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
           <?php
-   if(isset($_SESSION["name"]))
-   {
-   ?>
+if (isset($_SESSION["name"])) {
+    ?>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-           <!--       <li class="nav-item active">
-                      <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
-                  </li>
-                  <li class="nav-item">
-                      <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
-                  </li> -->
-                   
+
+
                  <li class="nav-item">
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li>
@@ -84,24 +70,24 @@ session_start();
                 </li>
                 <li class="nav-item">
                       <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>
-                  </li> 
+                  </li>
                   <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
                   </li>    <?php }?>
               </ul>
-              <?php  if (isset($_SESSION['name'])) : ?>
-      
-      <p class="nav-item" style="text-align:right;margin:auto"> 
+              <?php if (isset($_SESSION['name'])): ?>
+
+      <p class="nav-item" style="text-align:right;margin:auto">
           Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
           </p>
-        
-   <?php endif ?>
-      
+
+   <?php endif?>
+
           </div>
       </nav>
   </div>
-    
-    
+
+
     </header>
   <br />
    <h3 align="center">Projekt inżynierski ankiety</h3>
@@ -109,9 +95,8 @@ session_start();
 
   <div id="l_r" ng-app="login_register_app" ng-controller="login_register_controller" class="container form_style">
    <?php
-   if(!isset($_SESSION["name"]))
-   {
-   ?>
+if (!isset($_SESSION["name"])) {
+    ?>
    <div class="alert {{alertClass}} alert-dismissible" ng-show="alertMsg">
     <a href="#" class="close" ng-click="closeMsg()" aria-label="close">&times;</a>
     {{alertMessage}}
@@ -167,16 +152,14 @@ session_start();
     </div>
    </div>
    <?php
-   }
-   else
-   {
-   ?>
+} else {
+    ?>
    <div class="panel panel-default">
     <div class="panel-heading">
      <h3 class="panel-title">Witaj w systemie ankiet</h3>
     </div>
     <div class="panel-body">
- 
+
        <h1> Nasz system oferuje </h1>
        <ul>
        <li>tworzenie ankiet</li>
@@ -189,8 +172,8 @@ session_start();
     </div>
    </div>
    <?php
-   }
-   ?>
+}
+?>
 
   </div>
  </body>

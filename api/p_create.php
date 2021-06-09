@@ -1,23 +1,25 @@
-<?php 
-  session_start(); 
+<?php
+/**
+ * Plik wyswietla interfejs w celu zapisania maili użytkowniów którzy mogą udzielić odpowiedzi na ankietę
+ */
+session_start();
 
-  if (!isset($_SESSION["name"])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-
+if (!isset($_SESSION["name"])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -36,7 +38,7 @@
             document.getElementById("puste").innerHTML='<br>Podaj adresy email<br>';
             for(i=0;i<element;i++)
             {
-                           
+
                 var input=document.createElement('input');
                 var x = document.createElement("INPUT");
                 x.setAttribute("type", "submit");
@@ -63,7 +65,7 @@
             });
             function createCookie(name, value, days) {
             var expires;
-              
+
             if (days) {
                 var date = new Date();
                 date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -72,8 +74,8 @@
             else {
                 expires = "";
             }
-              
-            document.cookie = escape(name) + "=" + 
+
+            document.cookie = escape(name) + "=" +
                 escape(value) + expires + "; path=/";
         }
 
@@ -93,7 +95,7 @@ body{
  }
 .question-container .question-label {
   border: none;
-  
+
 }
 .answer-option {
   width: 200px;
@@ -149,7 +151,7 @@ input[type=radio], input[type=checkbox] {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        
+
           <!--      <li class="nav-item">
                     <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                 </li>
@@ -167,27 +169,27 @@ input[type=radio], input[type=checkbox] {
                 </li>
                 <li class="nav-item">
                       <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>
-                  </li> 
+                  </li>
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
-                  </li> 
-                
-            </ul>
-            <?php  if (isset($_SESSION['name'])) : ?>
-      
+                  </li>
 
-   <?php endif ?>
-      
+            </ul>
+            <?php if (isset($_SESSION['name'])): ?>
+
+
+   <?php endif?>
+
         </div>
     </nav>
 </div>
- 
+
         <div class="row">
             <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Ankiety udostępnione użytkownikowi do odpowiedzi</div>
                 <div class="panel-group">
-                 <div id="sedno"> 
+                 <div id="sedno">
                  <p> Podaj ilość użytkowników, którzy mają wziąć udział w ankiecie </p>
                     <form>
 
@@ -195,7 +197,7 @@ input[type=radio], input[type=checkbox] {
                                 <button class="btn btn-dark" onclick="ilosc('wartosc');" type="button">Wysun</button>
                         </form>
                         <form id="puste" action="php/insertMail.php" method="POST" >
-                              
+
                         </form>
                 </div></div>
             </div>
