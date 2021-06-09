@@ -1,27 +1,25 @@
-<?php 
-  session_start(); 
+<?php
+/**
+ * Plik odpowiada za wyświetlenie interfejsu do wprowadzeniu kodu hash w celu weryfikacji odpowiedzi
+ */
+session_start();
 
-  if (!isset($_SESSION["name"])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-
-
-
-
-
+if (!isset($_SESSION["name"])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -69,7 +67,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        
+
           <!--      <li class="nav-item">
                     <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                 </li>
@@ -87,51 +85,51 @@
                 </li>
                 <li class="nav-item">
                       <a id="score" class="nav-link" href="wyniki.php">Wyniki</a>
-                  </li> 
+                  </li>
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
-                  </li> 
+                  </li>
             </ul>
-            
-            <?php  if (isset($_SESSION['name'])) : ?>
-      
-      <p class="nav-item" style="text-align:right;margin:auto"> 
+
+            <?php if (isset($_SESSION['name'])): ?>
+
+      <p class="nav-item" style="text-align:right;margin:auto">
          <strong><?php echo $_SESSION['name']; ?></strong>
           </p>
-        
-   <?php endif ?>
-      
+
+   <?php endif?>
+
         </div>
     </nav>
 </div>
-  
+
 
 
     <div class="profile">
         <!-- <div id="r_p" class="right-panel">           -->
             <!--<p class="lead" id="email-profile">No data.</p>-->
-            <?php if (isset($_SESSION['success'])) : ?>
+            <?php if (isset($_SESSION['success'])): ?>
                 <div class="error success" >
                     <h3>
-                    <?php 
-                    
-                        echo $_SESSION['success']; 
-                        unset($_SESSION['success']);
-          ?>
+                    <?php
+
+echo $_SESSION['success'];
+unset($_SESSION['success']);
+?>
         </div>
     </div>
-    <?php endif ?>
+    <?php endif?>
     <div  id="panel2" >
         <div class="form-group">
             <!-- <label for="key">Aby uzyskać odpowiedzi podaj klucz:</label> -->
             <h3 id="txt" class="panel-title">Aby uzyskać odpowiedzi podaj klucz:</h3><br>
             <form action="prof.php" method="post">
             <input id="key" type="text" class="form-control" placeholder="Klucz" name="key">
-            
+
         </div>
         <button type="submit" class="btn btn-dark" onclick="" style="width: 26%;left: 0px;margin: 0 auto;">Pobierz ankiete</button>
         </form>
-    
+
     </div>
 
 </body>

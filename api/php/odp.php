@@ -1,4 +1,7 @@
 <?php
+/**
+ * Plik odpowiada 
+ */
 include 'connect.php';
 
 $validation_error = '';

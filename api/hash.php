@@ -1,23 +1,25 @@
-<?php 
-  session_start(); 
+<?php
+/**
+ * Strona odpowiadająca za wyświetlanie kodu hash po udzieleniu odpowidzi na ankiete
+ */
+session_start();
 
-  if (!isset($_SESSION["name"])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-
+if (!isset($_SESSION["name"])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -38,7 +40,7 @@ body{
  }
 .question-container .question-label {
   border: none;
-  
+
 }
 .answer-option {
   width: 200px;
@@ -90,13 +92,8 @@ input[type=radio], input[type=checkbox] {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        
-          <!--      <li class="nav-item">
-                    <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
-                </li>
-               <li class="nav-item">
-                    <a id="logout" class="nav-link logout" onclick="logout()">Wyloguj</a>
-                </li>  -->
+
+
                 <li class="nav-item">
                     <a id="profile" class="nav-link" href="profile.php">Profil</a>
                 </li>
@@ -108,24 +105,24 @@ input[type=radio], input[type=checkbox] {
                 </li>
                 <li class="nav-item">
                       <a id="score" class="nav-link active" href="wyniki.php">Wyniki</a>
-                  </li> 
+                  </li>
                 <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
-                  </li> 
-                
+                  </li>
+
             </ul>
-            <?php  if (isset($_SESSION['name'])) : ?>
-      
-      <p class="nav-item" style="text-align:right;margin:auto"> 
+            <?php if (isset($_SESSION['name'])): ?>
+
+      <p class="nav-item" style="text-align:right;margin:auto">
           Zalogowany: <strong><?php echo $_SESSION['name']; ?></strong>
           </p>
-        
-   <?php endif ?>
-      
+
+   <?php endif?>
+
         </div>
     </nav>
 </div>
- 
+
         <div class="row">
             <div class="col-md-12">
             <div class="panel panel-default">
@@ -135,8 +132,7 @@ input[type=radio], input[type=checkbox] {
                  <div id="sedno">
                      <p> Zapisz podany Hash będzie Ci on potrzebny do zobaczenia swoich odpowiedzi. </p>
                 <?php
-        include('php/hash.php');
-
+include 'php/hash.php';
 
 ?>
                 </div></div>

@@ -1,22 +1,19 @@
 <?php
-
-//create.php
+/**
+ * Plik wyświetla panel służacy do dowania pytań oraz odpowiedzi
+ */
 
 session_start();
 
-// if (!isset($_SESSION["name"])) {
-//   $_SESSION['msg'] = "You must log in first";
-//   header('location: login.php');
-// }
-// if (isset($_GET['logout'])) {
-//   session_destroy();
-//   unset($_SESSION['username']);
-//   header("location: login.php");
-// }
-
-
-
-
+if (!isset($_SESSION["name"])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -46,7 +43,7 @@ body{
  }
 .question-container .question-label {
   border: none;
-  
+
 }
 .answer-option {
   width: 200px;
@@ -79,9 +76,8 @@ input[type=radio], input[type=checkbox] {
               <span class="navbar-toggler-icon"></span>
           </button>
           <?php
-   if(isset($_SESSION["name"]))
-   {
-   ?>
+if (isset($_SESSION["name"])) {
+    ?>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -91,21 +87,21 @@ input[type=radio], input[type=checkbox] {
                   <li class="nav-item">
                       <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
                   </li> -->
-                  
+
                  <li class="nav-item">
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
-                  </li> 
+                  </li>
                   <li class="nav-item">
                     <a id="create" class="nav-link active" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
                       <a id="logout" class="nav-link" href="wyniki.php">Wyniki</a>
-                  </li> 
+                  </li>
                   <li class="nav-item">
                       <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
-                  </li> 
-                  <?php }else {
-                      ?> 
+                  </li>
+                  <?php } else {
+    ?>
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                           <li class="nav-item active">
@@ -113,13 +109,13 @@ input[type=radio], input[type=checkbox] {
                           </li>
                           <li class="nav-item">
                               <a id="nav-register" class="nav-link" href="index.php">Rejestracja</a>
-                          </li> 
+                          </li>
                       <!--   <li class="nav-item">
                               <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
-                          </li>   
+                          </li>
                          <li class="nav-item">
                               <a id="profile" class="nav-link" href="profile.php">Profil</a>-->
-                              <?php   }?> 
+                              <?php }?>
               </ul>
               <?php  if (isset($_SESSION['name'])) : ?>
               <p class="nav-item" style="text-align:right;margin:auto"> 
@@ -132,9 +128,8 @@ input[type=radio], input[type=checkbox] {
       </nav>
   </div>
   <?php
-  // var zmienna='elo';
-  // echo zmienna;
-  
+// var zmienna='elo';
+// echo zmienna;
 
 ?>
 <div class="container" style="margin-top: 5%">
@@ -147,7 +142,7 @@ input[type=radio], input[type=checkbox] {
             </div>
             <button  class="btn btn-primary" type="button" style="display: block; margin-top: 5px; margin-left: 5px;" id="addq" onclick="myFunction()" ><span class="glyphicon glyphicon-plus"></span>Dodaj pytanie</button>
             <br><button class="btn btn-primary"  style="display: block; margin-top: 5px; margin-left: 5px;" onclick="window.location.href='p_create.php'"> Stwórz ankietę </button>
-          <div>        
+          <div>
             </div>
           </div>
         </div>
