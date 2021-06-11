@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plik odpowiad za wylogowanie użytkownika z witryny
+ * Plik odpowiada za wylogowanie użytkownika z witryny
  */
 
 session_start();
