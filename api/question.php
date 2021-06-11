@@ -5,15 +5,15 @@
 
 session_start();
 
-if (!isset($_SESSION["name"])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header("location: login.php");
-}
+// if (!isset($_SESSION["name"])) {
+//     $_SESSION['msg'] = "You must log in first";
+//     header('location: login.php');
+// }
+// if (isset($_GET['logout'])) {
+//     session_destroy();
+//     unset($_SESSION['username']);
+//     header("location: login.php");
+// }
 
 ?>
 <!DOCTYPE html>
@@ -81,13 +81,6 @@ if (isset($_SESSION["name"])) {
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-           <!--       <li class="nav-item active">
-                      <a id="nav-login" class="nav-link" href="login.php">Logowanie</a>
-                  </li>
-                  <li class="nav-item">
-                      <a id="nav-register" class="nav-link" href="signup.php">Rejestracja</a>
-                  </li> -->
-
                  <li class="nav-item">
                       <a id="profile" class="nav-link" href="profile.php">Profil</a>
                   </li>
@@ -95,12 +88,17 @@ if (isset($_SESSION["name"])) {
                     <a id="create" class="nav-link active" href="create.php">Stwórz</a>
                 </li>
                 <li class="nav-item">
+                    <a id="create" class="nav-link" href="odpowiedz.php">Odpowiedz</a>
+                </li>
+                <li class="nav-item">
                       <a id="logout" class="nav-link" href="wyniki.php">Wyniki</a>
                   </li>
                   <li class="nav-item">
-                      <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
+                      <a id="logout" class="nav-link logout" href="php/logout.php">Wyloguj</a>
                   </li>
-                  <?php } else {
+                  <?php } else {session_destroy();
+    unset($_SESSION['username']);
+    header("location: index.php");
     ?>
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -110,12 +108,15 @@ if (isset($_SESSION["name"])) {
                           <li class="nav-item">
                               <a id="nav-register" class="nav-link" href="index.php">Rejestracja</a>
                           </li>
-                      <!--   <li class="nav-item">
-                              <a id="logout" class="nav-link logout" href="logout.php">Wyloguj</a>
-                          </li>
-                         <li class="nav-item">
-                              <a id="profile" class="nav-link" href="profile.php">Profil</a>-->
                               <?php }?>
+              </ul>
+              <?php if (isset($_SESSION['name'])): ?>
+
+      <p class="nav-item" style="text-align:right;margin:auto">
+          <strong><?php echo $_SESSION['name']; ?></strong>
+          </p>
+
+   <?php endif?>
               </ul>
           </div>
       </nav>
