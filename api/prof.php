@@ -168,7 +168,7 @@ while($row = mysqli_fetch_array($result)){
             if($hash==$key){
                 echo "Twój hash zgadza się z hashem w bazie danych <br>";
                 echo "<br>"."Hash wygenerowany: ".$hash;
-                echo "<br>"."Hash w bazie:  ".$key."<br>"."<br>";
+                echo "<br>"."Hash w bazie: ".$key."<br>"."<br>";
                 for( $x = 1, $cnt = count($tab1); $x < $cnt; $x++ ){
                     
                     echo "Pytanie: ".$tab1[$x]."<br>";
