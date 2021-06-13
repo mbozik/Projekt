@@ -1,0 +1,673 @@
+<html>
+<head><meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+span.cls_002{font-family:Arial,serif;font-size:24.8px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_002{font-family:Arial,serif;font-size:24.8px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_003{font-family:Arial,serif;font-size:17.3px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_003{font-family:Arial,serif;font-size:17.3px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_004{font-family:Arial,serif;font-size:12.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_004{font-family:Arial,serif;font-size:12.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_005{font-family:Arial,serif;font-size:8.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_005{font-family:Arial,serif;font-size:8.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_006{font-family:Arial,serif;font-size:12.0px;color:rgb(77,130,51);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_006{font-family:Arial,serif;font-size:12.0px;color:rgb(77,130,51);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_007{font-family:Arial,serif;font-size:12.0px;color:rgb(246,163,12);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_007{font-family:Arial,serif;font-size:12.0px;color:rgb(246,163,12);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_008{font-family:Arial,serif;font-size:12.0px;color:rgb(227,31,37);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_008{font-family:Arial,serif;font-size:12.0px;color:rgb(227,31,37);font-weight:normal;font-style:normal;text-decoration: none}
+-->
+</style>
+<script type="text/javascript" src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/wz_jsgraphics.js"></script>
+</head>
+<body>
+<div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background01.jpg" width=595 height=841></div>
+<div style="position:absolute;left:85.04px;top:163.39px" class="cls_002"><span class="cls_002">Rozdział 1</span></div>
+<div style="position:absolute;left:85.04px;top:222.17px" class="cls_002"><span class="cls_002">Dokumentacja</span></div>
+<div style="position:absolute;left:85.04px;top:298.09px" class="cls_003"><span class="cls_003">1.1</span></div>
+<div style="position:absolute;left:129.15px;top:298.09px" class="cls_003"><span class="cls_003">Połączenie z bazą danych</span></div>
+<div style="position:absolute;left:102.60px;top:333.97px" class="cls_004"><span class="cls_004">Kod realizujący połączenie z bazą danych, wykorzystywany na wszystkich stronach</span></div>
+<div style="position:absolute;left:85.04px;top:352.75px" class="cls_004"><span class="cls_004">php.</span></div>
+<div style="position:absolute;left:87.75px;top:400.27px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:103.73px;top:396.28px" class="cls_004"><span class="cls_004">$servername</span></div>
+<div style="position:absolute;left:191.81px;top:396.28px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "localhost"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:419.05px" class="cls_005"><span class="cls_005">2</span></div>
+<div style="position:absolute;left:103.71px;top:415.06px" class="cls_004"><span class="cls_004">$username</span></div>
+<div style="position:absolute;left:177.03px;top:415.06px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "root"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:437.83px" class="cls_005"><span class="cls_005">3</span></div>
+<div style="position:absolute;left:103.71px;top:433.84px" class="cls_004"><span class="cls_004">$password</span></div>
+<div style="position:absolute;left:177.03px;top:433.84px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> ""</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:456.61px" class="cls_005"><span class="cls_005">4</span></div>
+<div style="position:absolute;left:103.68px;top:452.62px" class="cls_004"><span class="cls_004">$dbname</span></div>
+<div style="position:absolute;left:162.27px;top:452.62px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "baza"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:475.39px" class="cls_005"><span class="cls_005">5</span></div>
+<div style="position:absolute;left:103.69px;top:471.40px" class="cls_004"><span class="cls_004">$connect</span></div>
+<div style="position:absolute;left:169.66px;top:471.40px" class="cls_004"><span class="cls_004">= new mysqli($servername,</span></div>
+<div style="position:absolute;left:361.99px;top:471.40px" class="cls_004"><span class="cls_004">$username,</span></div>
+<div style="position:absolute;left:443.19px;top:471.40px" class="cls_004"><span class="cls_004">$password,</span></div>
+<div style="position:absolute;left:87.75px;top:494.17px" class="cls_005"><span class="cls_005">6</span></div>
+<div style="position:absolute;left:280.85px;top:490.18px" class="cls_004"><span class="cls_004">$dbname);</span></div>
+<div style="position:absolute;left:247.56px;top:511.95px" class="cls_004"><span class="cls_004">Rys. 1.1: Laczenie z baza</span></div>
+<div style="position:absolute;left:85.04px;top:539.70px" class="cls_004"><span class="cls_004">servername - adres serwera</span></div>
+<div style="position:absolute;left:85.04px;top:558.48px" class="cls_004"><span class="cls_004">username - nazwa użytkownika</span></div>
+<div style="position:absolute;left:85.04px;top:577.26px" class="cls_004"><span class="cls_004">password - hasło</span></div>
+<div style="position:absolute;left:85.04px;top:596.03px" class="cls_004"><span class="cls_004">dbname - nazwa bazy danych</span></div>
+<div style="position:absolute;left:85.04px;top:614.81px" class="cls_004"><span class="cls_004">connect - otwiera nowe połączenie z serwerem MySQL.</span></div>
+<div style="position:absolute;left:308.89px;top:772.35px" class="cls_004"><span class="cls_004">1</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:851px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background02.jpg" width=595 height=841></div>
+<div style="position:absolute;left:85.04px;top:82.46px" class="cls_003"><span class="cls_003">1.2</span></div>
+<div style="position:absolute;left:129.15px;top:82.46px" class="cls_003"><span class="cls_003">Generowanie kodu hash</span></div>
+<div style="position:absolute;left:102.60px;top:118.34px" class="cls_004"><span class="cls_004">Kod pobiera dane z bazy MySQL, generuje kod hash oraz przesyła dane spowrotem</span></div>
+<div style="position:absolute;left:85.04px;top:137.12px" class="cls_004"><span class="cls_004">do bazy. Jeżeli użytkownik udzielił odpowiedzi na ankietę aktualizuje pole w tabeli mail</span></div>
+<div style="position:absolute;left:85.04px;top:155.89px" class="cls_004"><span class="cls_004">w celu zablokowania możliwości ponownego udzielenia odpowiedzi.</span></div>
+<div style="position:absolute;left:87.75px;top:183.06px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:103.65px;top:179.08px" class="cls_004"><span class="cls_004">$wynik</span></div>
+<div style="position:absolute;left:154.89px;top:179.08px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:170.09px;top:179.08px" class="cls_004"><span class="cls_004">$_POST[</span><span class="cls_006">’wynik’</span><span class="cls_004">];</span></div>
+<div style="position:absolute;left:87.75px;top:201.84px" class="cls_005"><span class="cls_005">2</span></div>
+<div style="position:absolute;left:103.62px;top:197.85px" class="cls_004"><span class="cls_004">$a_id</span></div>
+<div style="position:absolute;left:147.51px;top:197.85px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> ""</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:220.62px" class="cls_005"><span class="cls_005">3</span></div>
+<div style="position:absolute;left:103.62px;top:216.63px" class="cls_004"><span class="cls_004">$o_id</span></div>
+<div style="position:absolute;left:147.51px;top:216.63px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> ""</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:239.40px" class="cls_005"><span class="cls_005">4</span></div>
+<div style="position:absolute;left:103.62px;top:235.41px" class="cls_004"><span class="cls_004">$user</span></div>
+<div style="position:absolute;left:147.51px;top:235.41px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:162.76px;top:235.41px" class="cls_004"><span class="cls_004">$_SESSION[</span><span class="cls_006">’name’</span><span class="cls_004">];</span></div>
+<div style="position:absolute;left:87.75px;top:258.18px" class="cls_005"><span class="cls_005">5</span></div>
+<div style="position:absolute;left:103.62px;top:254.19px" class="cls_004"><span class="cls_004">$hash</span></div>
+<div style="position:absolute;left:147.51px;top:254.19px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> ""</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:276.96px" class="cls_005"><span class="cls_005">6</span></div>
+<div style="position:absolute;left:103.62px;top:272.97px" class="cls_004"><span class="cls_004">$join</span></div>
+<div style="position:absolute;left:147.51px;top:272.97px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> ""</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:295.74px" class="cls_005"><span class="cls_005">7</span></div>
+<div style="position:absolute;left:87.75px;top:314.52px" class="cls_005"><span class="cls_005">8</span></div>
+<div style="position:absolute;left:103.52px;top:310.53px" class="cls_007"><span class="cls_007">for</span></div>
+<div style="position:absolute;left:132.75px;top:310.53px" class="cls_004"><span class="cls_004">($k</span></div>
+<div style="position:absolute;left:162.28px;top:310.53px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:177.24px;top:310.53px" class="cls_004"><span class="cls_004">1;</span></div>
+<div style="position:absolute;left:199.39px;top:310.53px" class="cls_004"><span class="cls_004">$k</span></div>
+<div style="position:absolute;left:221.54px;top:310.53px" class="cls_004"><span class="cls_004">&lt;</span></div>
+<div style="position:absolute;left:236.54px;top:310.53px" class="cls_004"><span class="cls_004">$wynik</span></div>
+<div style="position:absolute;left:287.77px;top:310.53px" class="cls_004"><span class="cls_004">+</span></div>
+<div style="position:absolute;left:302.75px;top:310.53px" class="cls_004"><span class="cls_004">1;</span></div>
+<div style="position:absolute;left:324.89px;top:310.53px" class="cls_004"><span class="cls_004">$k++)</span></div>
+<div style="position:absolute;left:368.98px;top:310.53px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:333.30px" class="cls_005"><span class="cls_005">9</span></div>
+<div style="position:absolute;left:133.11px;top:329.31px" class="cls_004"><span class="cls_004">$odp</span></div>
+<div style="position:absolute;left:169.65px;top:329.31px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:184.85px;top:329.31px" class="cls_004"><span class="cls_004">$_POST[</span><span class="cls_006">’q’</span></div>
+<div style="position:absolute;left:280.60px;top:329.31px" class="cls_004"><span class="cls_004">$k];</span></div>
+<div style="position:absolute;left:82.87px;top:352.08px" class="cls_005"><span class="cls_005">10</span></div>
+<div style="position:absolute;left:133.11px;top:348.09px" class="cls_004"><span class="cls_004">$que</span></div>
+<div style="position:absolute;left:169.65px;top:348.09px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:184.85px;top:348.09px" class="cls_004"><span class="cls_004">$_POST[</span><span class="cls_006">’p’</span></div>
+<div style="position:absolute;left:280.60px;top:348.09px" class="cls_004"><span class="cls_004">$k];</span></div>
+<div style="position:absolute;left:82.87px;top:370.86px" class="cls_005"><span class="cls_005">11</span></div>
+<div style="position:absolute;left:133.15px;top:366.87px" class="cls_004"><span class="cls_004">$name</span></div>
+<div style="position:absolute;left:177.04px;top:366.87px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:192.24px;top:366.87px" class="cls_004"><span class="cls_004">$_POST[</span><span class="cls_006">’nazwa_t’</span><span class="cls_004">];</span></div>
+<div style="position:absolute;left:82.87px;top:389.64px" class="cls_005"><span class="cls_005">12</span></div>
+<div style="position:absolute;left:82.87px;top:408.42px" class="cls_005"><span class="cls_005">13</span></div>
+<div style="position:absolute;left:133.11px;top:404.43px" class="cls_004"><span class="cls_004">$sql</span></div>
+<div style="position:absolute;left:169.65px;top:404.43px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "SELECT</span></div>
+<div style="position:absolute;left:243.48px;top:404.43px" class="cls_006"><span class="cls_006">* FROM odpowiedzi INNER JOIN pytania ON</span></div>
+<div style="position:absolute;left:82.87px;top:427.20px" class="cls_005"><span class="cls_005">14</span></div>
+<div style="position:absolute;left:133.25px;top:423.21px" class="cls_006"><span class="cls_006">odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta ON</span></div>
+<div style="position:absolute;left:82.87px;top:445.97px" class="cls_005"><span class="cls_005">15</span></div>
+<div style="position:absolute;left:133.21px;top:441.99px" class="cls_006"><span class="cls_006">ankieta.a_id=pytania.p_a_id WHERE tworca=’$user’ AND</span></div>
+<div style="position:absolute;left:82.87px;top:464.75px" class="cls_005"><span class="cls_005">16</span></div>
+<div style="position:absolute;left:133.21px;top:460.77px" class="cls_006"><span class="cls_006">a_temat=’$name’ AND odpowiedz=’$odp’"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:483.53px" class="cls_005"><span class="cls_005">17</span></div>
+<div style="position:absolute;left:82.87px;top:502.31px" class="cls_005"><span class="cls_005">18</span></div>
+<div style="position:absolute;left:133.21px;top:498.33px" class="cls_004"><span class="cls_004">$result</span></div>
+<div style="position:absolute;left:191.80px;top:498.33px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:206.94px;top:498.33px" class="cls_004"><span class="cls_004">$connect->query($sql);</span></div>
+<div style="position:absolute;left:82.87px;top:521.09px" class="cls_005"><span class="cls_005">19</span></div>
+<div style="position:absolute;left:132.95px;top:517.11px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:154.89px;top:517.11px" class="cls_004"><span class="cls_004">($result->num_rows</span></div>
+<div style="position:absolute;left:295.36px;top:517.11px" class="cls_004"><span class="cls_004">></span></div>
+<div style="position:absolute;left:310.13px;top:517.11px" class="cls_004"><span class="cls_004">0)</span></div>
+<div style="position:absolute;left:332.07px;top:517.11px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:539.87px" class="cls_005"><span class="cls_005">20</span></div>
+<div style="position:absolute;left:82.87px;top:558.65px" class="cls_005"><span class="cls_005">21</span></div>
+<div style="position:absolute;left:162.68px;top:554.67px" class="cls_007"><span class="cls_007">while</span></div>
+<div style="position:absolute;left:206.57px;top:554.67px" class="cls_004"><span class="cls_004">($row</span></div>
+<div style="position:absolute;left:250.86px;top:554.67px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:265.97px;top:554.67px" class="cls_004"><span class="cls_004">$result->fetch_assoc())</span></div>
+<div style="position:absolute;left:442.81px;top:554.67px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:577.43px" class="cls_005"><span class="cls_005">22</span></div>
+<div style="position:absolute;left:192.21px;top:573.45px" class="cls_004"><span class="cls_004">$a_id</span></div>
+<div style="position:absolute;left:236.10px;top:573.45px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:251.23px;top:573.45px" class="cls_004"><span class="cls_004">$row[</span><span class="cls_006">’a_id’</span><span class="cls_004">];</span></div>
+<div style="position:absolute;left:82.87px;top:596.21px" class="cls_005"><span class="cls_005">23</span></div>
+<div style="position:absolute;left:192.21px;top:592.23px" class="cls_004"><span class="cls_004">$o_id</span></div>
+<div style="position:absolute;left:236.10px;top:592.23px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:251.23px;top:592.23px" class="cls_004"><span class="cls_004">$row[</span><span class="cls_006">’o_id’</span><span class="cls_004">];</span></div>
+<div style="position:absolute;left:82.87px;top:614.99px" class="cls_005"><span class="cls_005">24</span></div>
+<div style="position:absolute;left:82.87px;top:633.77px" class="cls_005"><span class="cls_005">25</span></div>
+<div style="position:absolute;left:162.27px;top:629.79px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:652.55px" class="cls_005"><span class="cls_005">26</span></div>
+<div style="position:absolute;left:132.74px;top:648.57px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:671.33px" class="cls_005"><span class="cls_005">27</span></div>
+<div style="position:absolute;left:82.87px;top:690.11px" class="cls_005"><span class="cls_005">28</span></div>
+<div style="position:absolute;left:133.15px;top:686.12px" class="cls_004"><span class="cls_004">$sql1</span></div>
+<div style="position:absolute;left:177.04px;top:686.12px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "INSERT INTO polacz(con_id, con_a_id, con_o_id)</span></div>
+<div style="position:absolute;left:82.87px;top:708.89px" class="cls_005"><span class="cls_005">29</span></div>
+<div style="position:absolute;left:133.18px;top:704.90px" class="cls_006"><span class="cls_006">VALUES</span></div>
+<div style="position:absolute;left:184.42px;top:704.90px" class="cls_006"><span class="cls_006">(’’,’$a_id’,’$o_id’)"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:727.67px" class="cls_005"><span class="cls_005">30</span></div>
+<div style="position:absolute;left:133.21px;top:723.68px" class="cls_004"><span class="cls_004">$result</span></div>
+<div style="position:absolute;left:191.80px;top:723.68px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:206.94px;top:723.68px" class="cls_004"><span class="cls_004">$connect->query($sql1);</span></div>
+<div style="position:absolute;left:82.87px;top:746.45px" class="cls_005"><span class="cls_005">31</span></div>
+<div style="position:absolute;left:308.88px;top:772.35px" class="cls_004"><span class="cls_004">2</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:1702px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background03.jpg" width=595 height=841></div>
+<div style="position:absolute;left:82.87px;top:92.73px" class="cls_005"><span class="cls_005">32</span></div>
+<div style="position:absolute;left:133.15px;top:88.75px" class="cls_004"><span class="cls_004">$join</span></div>
+<div style="position:absolute;left:177.04px;top:88.75px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:192.21px;top:88.75px" class="cls_004"><span class="cls_004">$join</span></div>
+<div style="position:absolute;left:236.09px;top:88.75px" class="cls_004"><span class="cls_004">.</span><span class="cls_006"> " "</span></div>
+<div style="position:absolute;left:295.53px;top:88.75px" class="cls_004"><span class="cls_004">$odp;</span></div>
+<div style="position:absolute;left:82.87px;top:111.51px" class="cls_005"><span class="cls_005">33</span></div>
+<div style="position:absolute;left:82.87px;top:130.29px" class="cls_005"><span class="cls_005">34</span></div>
+<div style="position:absolute;left:103.21px;top:126.31px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:149.07px" class="cls_005"><span class="cls_005">35</span></div>
+<div style="position:absolute;left:103.62px;top:145.09px" class="cls_004"><span class="cls_004">$sql2</span></div>
+<div style="position:absolute;left:147.51px;top:145.09px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "UPDATE mail SET odpowiedz=’1’</span></div>
+<div style="position:absolute;left:82.87px;top:167.85px" class="cls_005"><span class="cls_005">36</span></div>
+<div style="position:absolute;left:162.68px;top:163.87px" class="cls_006"><span class="cls_006">WHERE mail=’$user’"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:186.63px" class="cls_005"><span class="cls_005">37</span></div>
+<div style="position:absolute;left:103.68px;top:182.65px" class="cls_004"><span class="cls_004">$result</span></div>
+<div style="position:absolute;left:162.27px;top:182.65px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:177.41px;top:182.65px" class="cls_004"><span class="cls_004">$connect->query($sql2);</span></div>
+<div style="position:absolute;left:82.87px;top:205.41px" class="cls_005"><span class="cls_005">38</span></div>
+<div style="position:absolute;left:82.87px;top:224.19px" class="cls_005"><span class="cls_005">39</span></div>
+<div style="position:absolute;left:103.62px;top:220.21px" class="cls_004"><span class="cls_004">$join</span></div>
+<div style="position:absolute;left:147.51px;top:220.21px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:162.68px;top:220.21px" class="cls_004"><span class="cls_004">$join</span></div>
+<div style="position:absolute;left:206.57px;top:220.21px" class="cls_004"><span class="cls_004">.</span><span class="cls_006"> " "</span></div>
+<div style="position:absolute;left:266.04px;top:220.21px" class="cls_004"><span class="cls_004">$user</span></div>
+<div style="position:absolute;left:309.92px;top:220.21px" class="cls_004"><span class="cls_004">.</span><span class="cls_006"> " "</span></div>
+<div style="position:absolute;left:369.39px;top:220.21px" class="cls_004"><span class="cls_004">$a_id;</span></div>
+<div style="position:absolute;left:82.87px;top:242.97px" class="cls_005"><span class="cls_005">40</span></div>
+<div style="position:absolute;left:103.62px;top:238.98px" class="cls_004"><span class="cls_004">$hash</span></div>
+<div style="position:absolute;left:147.51px;top:238.98px" class="cls_004"><span class="cls_004">=</span><span class="cls_007"> md5</span><span class="cls_004">($join);</span></div>
+<div style="position:absolute;left:82.87px;top:261.75px" class="cls_005"><span class="cls_005">41</span></div>
+<div style="position:absolute;left:103.62px;top:257.76px" class="cls_004"><span class="cls_004">$sql2</span></div>
+<div style="position:absolute;left:147.51px;top:257.76px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "INSERT INTO hash(h_id, hash)</span></div>
+<div style="position:absolute;left:82.87px;top:280.53px" class="cls_005"><span class="cls_005">42</span></div>
+<div style="position:absolute;left:162.71px;top:276.54px" class="cls_006"><span class="cls_006">VALUES</span></div>
+<div style="position:absolute;left:213.95px;top:276.54px" class="cls_006"><span class="cls_006">(’’,’$hash’)"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:299.31px" class="cls_005"><span class="cls_005">43</span></div>
+<div style="position:absolute;left:103.68px;top:295.32px" class="cls_004"><span class="cls_004">$result</span></div>
+<div style="position:absolute;left:162.27px;top:295.32px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:177.41px;top:295.32px" class="cls_004"><span class="cls_004">$connect->query($sql2);</span></div>
+<div style="position:absolute;left:241.80px;top:317.09px" class="cls_004"><span class="cls_004">Rys. 1.2: Przesylania hasha</span></div>
+<div style="position:absolute;left:102.60px;top:344.84px" class="cls_004"><span class="cls_004">wynik - pobranie wyniku za pomocą metody POST</span></div>
+<div style="position:absolute;left:85.04px;top:363.62px" class="cls_004"><span class="cls_004">a-id - id ankiety</span></div>
+<div style="position:absolute;left:85.04px;top:382.40px" class="cls_004"><span class="cls_004">o-id - id odpowiedzi</span></div>
+<div style="position:absolute;left:85.04px;top:401.18px" class="cls_004"><span class="cls_004">user - pobanie nazwy użytkownika za pomocą sesji</span></div>
+<div style="position:absolute;left:85.04px;top:419.96px" class="cls_004"><span class="cls_004">join - ciąg odpowiedzi, nazwy użytkownika oraz id ankiety</span></div>
+<div style="position:absolute;left:85.04px;top:438.74px" class="cls_004"><span class="cls_004">hash - ciąg join zamieniony na kod hash za pomocą metody md5</span></div>
+<div style="position:absolute;left:85.04px;top:457.52px" class="cls_004"><span class="cls_004">odp - odpowiedz przesana metodą POST</span></div>
+<div style="position:absolute;left:85.04px;top:476.30px" class="cls_004"><span class="cls_004">que - pytanie przesłane metodą POST</span></div>
+<div style="position:absolute;left:85.04px;top:495.08px" class="cls_004"><span class="cls_004">name - nazwa przesłana metodą POST</span></div>
+<div style="position:absolute;left:85.04px;top:513.85px" class="cls_004"><span class="cls_004">for( k = 1; k ¡ wynik + 1; k++)... - pętla odpowiada za połączenie ankiety z udzielonymi</span></div>
+<div style="position:absolute;left:85.04px;top:532.63px" class="cls_004"><span class="cls_004">odpowiedziami przez użytkownika oraz wpisaniu odpowiedzi do łańcucha join</span></div>
+<div style="position:absolute;left:308.88px;top:772.35px" class="cls_004"><span class="cls_004">3</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:2553px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background04.jpg" width=595 height=841></div>
+<div style="position:absolute;left:85.04px;top:82.46px" class="cls_003"><span class="cls_003">1.3</span></div>
+<div style="position:absolute;left:129.15px;top:82.46px" class="cls_003"><span class="cls_003">Zapytania do bazy danych</span></div>
+<div style="position:absolute;left:102.60px;top:118.34px" class="cls_004"><span class="cls_004">Kod odpowiada za realiowanie zapytań na bazie danych.</span></div>
+<div style="position:absolute;left:87.75px;top:146.47px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:103.58px;top:142.49px" class="cls_004"><span class="cls_004">$sql</span></div>
+<div style="position:absolute;left:140.12px;top:142.49px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "SELECT</span></div>
+<div style="position:absolute;left:213.96px;top:142.49px" class="cls_006"><span class="cls_006">* FROM odpowiedzi INNER JOIN pytania ON</span></div>
+<div style="position:absolute;left:87.75px;top:165.25px" class="cls_005"><span class="cls_005">2</span></div>
+<div style="position:absolute;left:103.72px;top:161.27px" class="cls_006"><span class="cls_006">odpowiedzi.o_p_id=pytania.p_id INNER JOIN ankieta</span></div>
+<div style="position:absolute;left:87.75px;top:184.03px" class="cls_005"><span class="cls_005">3</span></div>
+<div style="position:absolute;left:103.42px;top:180.05px" class="cls_006"><span class="cls_006">ON ankieta.a_id=pytania.p_a_id WHERE tworca=’$user’</span></div>
+<div style="position:absolute;left:87.75px;top:202.81px" class="cls_005"><span class="cls_005">4</span></div>
+<div style="position:absolute;left:103.52px;top:198.83px" class="cls_006"><span class="cls_006">AND a_temat=’$name’ AND odpowiedz=’$odp’"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:221.59px" class="cls_005"><span class="cls_005">5</span></div>
+<div style="position:absolute;left:87.75px;top:240.37px" class="cls_005"><span class="cls_005">6</span></div>
+<div style="position:absolute;left:133.21px;top:236.38px" class="cls_004"><span class="cls_004">$result</span></div>
+<div style="position:absolute;left:191.80px;top:236.38px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:206.94px;top:236.38px" class="cls_004"><span class="cls_004">$connect->query($sql);</span></div>
+<div style="position:absolute;left:87.75px;top:259.15px" class="cls_005"><span class="cls_005">7</span></div>
+<div style="position:absolute;left:132.95px;top:255.16px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:154.89px;top:255.16px" class="cls_004"><span class="cls_004">($result->num_rows</span></div>
+<div style="position:absolute;left:295.36px;top:255.16px" class="cls_004"><span class="cls_004">></span></div>
+<div style="position:absolute;left:310.13px;top:255.16px" class="cls_004"><span class="cls_004">0)</span></div>
+<div style="position:absolute;left:332.07px;top:255.16px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:277.93px" class="cls_005"><span class="cls_005">8</span></div>
+<div style="position:absolute;left:87.75px;top:296.71px" class="cls_005"><span class="cls_005">9</span></div>
+<div style="position:absolute;left:162.68px;top:292.72px" class="cls_007"><span class="cls_007">while</span></div>
+<div style="position:absolute;left:206.57px;top:292.72px" class="cls_004"><span class="cls_004">($row</span></div>
+<div style="position:absolute;left:250.86px;top:292.72px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:265.97px;top:292.72px" class="cls_004"><span class="cls_004">$result->fetch_assoc())</span></div>
+<div style="position:absolute;left:442.81px;top:292.72px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:315.49px" class="cls_005"><span class="cls_005">10</span></div>
+<div style="position:absolute;left:192.21px;top:311.50px" class="cls_004"><span class="cls_004">$a_id</span></div>
+<div style="position:absolute;left:236.10px;top:311.50px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:251.23px;top:311.50px" class="cls_004"><span class="cls_004">$row[</span><span class="cls_006">’a_id’</span><span class="cls_004">];</span></div>
+<div style="position:absolute;left:82.87px;top:334.27px" class="cls_005"><span class="cls_005">11</span></div>
+<div style="position:absolute;left:192.21px;top:330.28px" class="cls_004"><span class="cls_004">$o_id</span></div>
+<div style="position:absolute;left:236.10px;top:330.28px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:251.23px;top:330.28px" class="cls_004"><span class="cls_004">$row[</span><span class="cls_006">’o_id’</span><span class="cls_004">];</span></div>
+<div style="position:absolute;left:82.87px;top:353.05px" class="cls_005"><span class="cls_005">12</span></div>
+<div style="position:absolute;left:82.87px;top:371.83px" class="cls_005"><span class="cls_005">13</span></div>
+<div style="position:absolute;left:162.27px;top:367.84px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:390.61px" class="cls_005"><span class="cls_005">14</span></div>
+<div style="position:absolute;left:132.74px;top:386.62px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:409.39px" class="cls_005"><span class="cls_005">15</span></div>
+<div style="position:absolute;left:103.62px;top:405.40px" class="cls_004"><span class="cls_004">$sql1</span></div>
+<div style="position:absolute;left:147.51px;top:405.40px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "INSERT INTO polacz(con_id, con_a_id,</span></div>
+<div style="position:absolute;left:443.28px;top:405.40px" class="cls_006"><span class="cls_006">con_o_id)</span></div>
+<div style="position:absolute;left:82.87px;top:428.17px" class="cls_005"><span class="cls_005">16</span></div>
+<div style="position:absolute;left:133.18px;top:424.18px" class="cls_006"><span class="cls_006">VALUES</span></div>
+<div style="position:absolute;left:184.42px;top:424.18px" class="cls_006"><span class="cls_006">(’’,’$a_id’,’$o_id’)"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:446.95px" class="cls_005"><span class="cls_005">17</span></div>
+<div style="position:absolute;left:103.68px;top:442.96px" class="cls_004"><span class="cls_004">$result</span></div>
+<div style="position:absolute;left:162.27px;top:442.96px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:177.41px;top:442.96px" class="cls_004"><span class="cls_004">$connect->query($sql1);</span></div>
+<div style="position:absolute;left:220.00px;top:464.43px" class="cls_004"><span class="cls_004">Rys. 1.3: Zapytania do bazy danych</span></div>
+<div style="position:absolute;left:85.04px;top:491.26px" class="cls_004"><span class="cls_004">sql - treść zapytania</span></div>
+<div style="position:absolute;left:85.04px;top:510.04px" class="cls_004"><span class="cls_004">result - rezultat dla zapytania</span></div>
+<div style="position:absolute;left:85.04px;top:528.82px" class="cls_004"><span class="cls_004">a-id - wartosc dla id ankiety</span></div>
+<div style="position:absolute;left:85.04px;top:547.60px" class="cls_004"><span class="cls_004">o-id - wartosc dla id odpowiedzi</span></div>
+<div style="position:absolute;left:85.04px;top:566.38px" class="cls_004"><span class="cls_004">if(result -num-rows 0) - sprawdza czy coś znajduje się w zmiennejresult</span></div>
+<div style="position:absolute;left:85.04px;top:585.16px" class="cls_004"><span class="cls_004">while ( row = result fetch-assoc ( ))... - pętla przechodząca po tablicy asocjacyjnej</span></div>
+<div style="position:absolute;left:85.04px;top:644.88px" class="cls_003"><span class="cls_003">1.4</span></div>
+<div style="position:absolute;left:129.15px;top:644.88px" class="cls_003"><span class="cls_003">Sprawdzenie poprawności logowania</span></div>
+<div style="position:absolute;left:102.60px;top:680.75px" class="cls_004"><span class="cls_004">Kod odpowiada za logowanie do aplikacji.</span></div>
+<div style="position:absolute;left:87.75px;top:708.89px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:103.72px;top:704.90px" class="cls_004"><span class="cls_004">$form_data</span></div>
+<div style="position:absolute;left:184.41px;top:704.90px" class="cls_004"><span class="cls_004">= json_decode(</span><span class="cls_007">file_get_contents</span><span class="cls_004">(</span><span class="cls_006">"php://input"</span><span class="cls_004">));</span></div>
+<div style="position:absolute;left:87.75px;top:727.67px" class="cls_005"><span class="cls_005">2</span></div>
+<div style="position:absolute;left:87.75px;top:746.45px" class="cls_005"><span class="cls_005">3</span></div>
+<div style="position:absolute;left:103.76px;top:742.46px" class="cls_004"><span class="cls_004">$validation_error</span></div>
+<div style="position:absolute;left:236.09px;top:742.46px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:251.07px;top:742.46px" class="cls_006"><span class="cls_006">’’</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:308.89px;top:772.35px" class="cls_004"><span class="cls_004">4</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:3404px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background05.jpg" width=595 height=841></div>
+<div style="position:absolute;left:87.75px;top:92.73px" class="cls_005"><span class="cls_005">4</span></div>
+<div style="position:absolute;left:103.42px;top:88.75px" class="cls_008"><span class="cls_008">//zabezpiecznie przed błędnym wprowadzeniem danych</span></div>
+<div style="position:absolute;left:87.75px;top:111.51px" class="cls_005"><span class="cls_005">5</span></div>
+<div style="position:absolute;left:103.42px;top:107.53px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:125.36px;top:107.53px" class="cls_004"><span class="cls_004">(</span><span class="cls_007">empty</span><span class="cls_004">($form_data->email))</span></div>
+<div style="position:absolute;left:324.68px;top:107.53px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:130.29px" class="cls_005"><span class="cls_005">6</span></div>
+<div style="position:absolute;left:133.18px;top:126.31px" class="cls_004"><span class="cls_004">$error[]</span></div>
+<div style="position:absolute;left:199.19px;top:126.31px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:214.16px;top:126.31px" class="cls_006"><span class="cls_006">’Email is Required’</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:87.75px;top:149.07px" class="cls_005"><span class="cls_005">7</span></div>
+<div style="position:absolute;left:103.21px;top:145.09px" class="cls_004"><span class="cls_004">}</span><span class="cls_007"> else</span></div>
+<div style="position:absolute;left:154.90px;top:145.09px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:167.85px" class="cls_005"><span class="cls_005">8</span></div>
+<div style="position:absolute;left:132.95px;top:163.87px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:155.09px;top:163.87px" class="cls_004"><span class="cls_004">(!filter_var($form_data->email,</span></div>
+<div style="position:absolute;left:87.75px;top:186.63px" class="cls_005"><span class="cls_005">9</span></div>
+<div style="position:absolute;left:192.36px;top:182.65px" class="cls_004"><span class="cls_004">FILTER_VALIDATE_EMAIL))</span></div>
+<div style="position:absolute;left:368.99px;top:182.65px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:205.41px" class="cls_005"><span class="cls_005">10</span></div>
+<div style="position:absolute;left:162.71px;top:201.43px" class="cls_004"><span class="cls_004">$error[]</span></div>
+<div style="position:absolute;left:228.71px;top:201.43px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:243.69px;top:201.43px" class="cls_006"><span class="cls_006">’Invalid Email Format’</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:224.19px" class="cls_005"><span class="cls_005">11</span></div>
+<div style="position:absolute;left:132.74px;top:220.21px" class="cls_004"><span class="cls_004">}</span><span class="cls_007"> else</span></div>
+<div style="position:absolute;left:184.43px;top:220.21px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:242.97px" class="cls_005"><span class="cls_005">12</span></div>
+<div style="position:absolute;left:162.68px;top:238.98px" class="cls_004"><span class="cls_004">$data[</span><span class="cls_006">’:email’</span><span class="cls_004">]</span></div>
+<div style="position:absolute;left:280.39px;top:238.98px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:295.57px;top:238.98px" class="cls_004"><span class="cls_004">$form_data->email;</span></div>
+<div style="position:absolute;left:82.87px;top:261.75px" class="cls_005"><span class="cls_005">13</span></div>
+<div style="position:absolute;left:132.74px;top:257.76px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:280.53px" class="cls_005"><span class="cls_005">14</span></div>
+<div style="position:absolute;left:103.21px;top:276.54px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:299.31px" class="cls_005"><span class="cls_005">15</span></div>
+<div style="position:absolute;left:82.87px;top:318.09px" class="cls_005"><span class="cls_005">16</span></div>
+<div style="position:absolute;left:103.42px;top:314.10px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:125.36px;top:314.10px" class="cls_004"><span class="cls_004">(</span><span class="cls_007">empty</span><span class="cls_004">($form_data->password))</span></div>
+<div style="position:absolute;left:346.83px;top:314.10px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:336.87px" class="cls_005"><span class="cls_005">17</span></div>
+<div style="position:absolute;left:133.18px;top:332.88px" class="cls_004"><span class="cls_004">$error[]</span></div>
+<div style="position:absolute;left:199.19px;top:332.88px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:214.16px;top:332.88px" class="cls_006"><span class="cls_006">’Password is Required’</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:355.65px" class="cls_005"><span class="cls_005">18</span></div>
+<div style="position:absolute;left:103.21px;top:351.66px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:374.43px" class="cls_005"><span class="cls_005">19</span></div>
+<div style="position:absolute;left:103.42px;top:370.44px" class="cls_008"><span class="cls_008">//jeśli dane są poprawne następuje zalogowanie</span></div>
+<div style="position:absolute;left:82.87px;top:393.21px" class="cls_005"><span class="cls_005">20</span></div>
+<div style="position:absolute;left:103.42px;top:389.22px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:125.36px;top:389.22px" class="cls_004"><span class="cls_004">(</span><span class="cls_007">empty</span><span class="cls_004">($error))</span></div>
+<div style="position:absolute;left:243.48px;top:389.22px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:411.99px" class="cls_005"><span class="cls_005">21</span></div>
+<div style="position:absolute;left:133.18px;top:408.00px" class="cls_004"><span class="cls_004">$query</span></div>
+<div style="position:absolute;left:184.42px;top:408.00px" class="cls_004"><span class="cls_004">=</span><span class="cls_006"> "</span></div>
+<div style="position:absolute;left:82.87px;top:430.77px" class="cls_005"><span class="cls_005">22</span></div>
+<div style="position:absolute;left:111.04px;top:426.78px" class="cls_006"><span class="cls_006">SELECT</span></div>
+<div style="position:absolute;left:162.27px;top:426.78px" class="cls_006"><span class="cls_006">* FROM users WHERE email</span></div>
+<div style="position:absolute;left:346.83px;top:426.78px" class="cls_006"><span class="cls_006">=</span></div>
+<div style="position:absolute;left:361.59px;top:426.78px" class="cls_006"><span class="cls_006">:email</span></div>
+<div style="position:absolute;left:82.87px;top:449.55px" class="cls_005"><span class="cls_005">23</span></div>
+<div style="position:absolute;left:110.60px;top:445.56px" class="cls_006"><span class="cls_006">"</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:468.33px" class="cls_005"><span class="cls_005">24</span></div>
+<div style="position:absolute;left:133.25px;top:464.34px" class="cls_004"><span class="cls_004">$statement</span></div>
+<div style="position:absolute;left:213.94px;top:464.34px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:229.09px;top:464.34px" class="cls_004"><span class="cls_004">$connect->prepare($query);</span></div>
+<div style="position:absolute;left:82.87px;top:487.10px" class="cls_005"><span class="cls_005">25</span></div>
+<div style="position:absolute;left:132.95px;top:483.12px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:154.89px;top:483.12px" class="cls_004"><span class="cls_004">($statement->execute($data))</span></div>
+<div style="position:absolute;left:368.98px;top:483.12px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:505.88px" class="cls_005"><span class="cls_005">26</span></div>
+<div style="position:absolute;left:162.73px;top:501.90px" class="cls_004"><span class="cls_004">$result</span></div>
+<div style="position:absolute;left:221.33px;top:501.90px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:236.51px;top:501.90px" class="cls_004"><span class="cls_004">$statement->fetchAll();</span></div>
+<div style="position:absolute;left:82.87px;top:524.66px" class="cls_005"><span class="cls_005">27</span></div>
+<div style="position:absolute;left:162.48px;top:520.68px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:184.42px;top:520.68px" class="cls_004"><span class="cls_004">($statement->rowCount()</span></div>
+<div style="position:absolute;left:361.81px;top:520.68px" class="cls_004"><span class="cls_004">></span></div>
+<div style="position:absolute;left:376.57px;top:520.68px" class="cls_004"><span class="cls_004">0)</span></div>
+<div style="position:absolute;left:398.51px;top:520.68px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:543.44px" class="cls_005"><span class="cls_005">28</span></div>
+<div style="position:absolute;left:192.26px;top:539.46px" class="cls_007"><span class="cls_007">foreach</span></div>
+<div style="position:absolute;left:250.86px;top:539.46px" class="cls_004"><span class="cls_004">($result as</span></div>
+<div style="position:absolute;left:339.82px;top:539.46px" class="cls_004"><span class="cls_004">$row)</span></div>
+<div style="position:absolute;left:383.74px;top:539.46px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:562.22px" class="cls_005"><span class="cls_005">29</span></div>
+<div style="position:absolute;left:221.54px;top:558.24px" class="cls_007"><span class="cls_007">if</span></div>
+<div style="position:absolute;left:243.48px;top:558.24px" class="cls_004"><span class="cls_004">(password_verify($form_data->password,</span></div>
+<div style="position:absolute;left:82.87px;top:581.00px" class="cls_005"><span class="cls_005">30</span></div>
+<div style="position:absolute;left:339.82px;top:577.02px" class="cls_004"><span class="cls_004">$row[</span><span class="cls_006">"password"</span><span class="cls_004">]))</span></div>
+<div style="position:absolute;left:479.72px;top:577.02px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:599.78px" class="cls_005"><span class="cls_005">31</span></div>
+<div style="position:absolute;left:251.35px;top:595.80px" class="cls_004"><span class="cls_004">$_SESSION[</span><span class="cls_006">"name"</span><span class="cls_004">]</span></div>
+<div style="position:absolute;left:383.75px;top:595.80px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:398.88px;top:595.80px" class="cls_004"><span class="cls_004">$row[</span><span class="cls_006">"email"</span><span class="cls_004">];</span></div>
+<div style="position:absolute;left:82.87px;top:618.56px" class="cls_005"><span class="cls_005">32</span></div>
+<div style="position:absolute;left:221.33px;top:614.58px" class="cls_004"><span class="cls_004">}</span><span class="cls_007"> else</span></div>
+<div style="position:absolute;left:273.01px;top:614.58px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:637.34px" class="cls_005"><span class="cls_005">33</span></div>
+<div style="position:absolute;left:251.41px;top:633.36px" class="cls_004"><span class="cls_004">$validation_error</span></div>
+<div style="position:absolute;left:383.74px;top:633.36px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:398.72px;top:633.36px" class="cls_006"><span class="cls_006">’Wrong Password’</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:656.12px" class="cls_005"><span class="cls_005">34</span></div>
+<div style="position:absolute;left:221.33px;top:652.14px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:674.90px" class="cls_005"><span class="cls_005">35</span></div>
+<div style="position:absolute;left:191.80px;top:670.92px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:693.68px" class="cls_005"><span class="cls_005">36</span></div>
+<div style="position:absolute;left:162.27px;top:689.70px" class="cls_004"><span class="cls_004">}</span><span class="cls_007"> else</span></div>
+<div style="position:absolute;left:213.96px;top:689.70px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:712.46px" class="cls_005"><span class="cls_005">37</span></div>
+<div style="position:absolute;left:192.35px;top:708.48px" class="cls_004"><span class="cls_004">$validation_error</span></div>
+<div style="position:absolute;left:324.68px;top:708.48px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:339.66px;top:708.48px" class="cls_006"><span class="cls_006">’Wrong Email’</span><span class="cls_004">;</span></div>
+<div style="position:absolute;left:82.87px;top:731.24px" class="cls_005"><span class="cls_005">38</span></div>
+<div style="position:absolute;left:162.27px;top:727.25px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:308.89px;top:772.35px" class="cls_004"><span class="cls_004">5</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:4255px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background06.jpg" width=595 height=841></div>
+<div style="position:absolute;left:82.87px;top:92.73px" class="cls_005"><span class="cls_005">39</span></div>
+<div style="position:absolute;left:132.74px;top:88.75px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:111.51px" class="cls_005"><span class="cls_005">40</span></div>
+<div style="position:absolute;left:103.21px;top:107.53px" class="cls_004"><span class="cls_004">}</span><span class="cls_007"> else</span></div>
+<div style="position:absolute;left:154.90px;top:107.53px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:130.29px" class="cls_005"><span class="cls_005">41</span></div>
+<div style="position:absolute;left:133.29px;top:126.31px" class="cls_004"><span class="cls_004">$validation_error</span></div>
+<div style="position:absolute;left:265.62px;top:126.31px" class="cls_004"><span class="cls_004">=</span><span class="cls_007"> implode</span><span class="cls_004">(</span><span class="cls_006">", "</span><span class="cls_004">,</span></div>
+<div style="position:absolute;left:384.18px;top:126.31px" class="cls_004"><span class="cls_004">$error);</span></div>
+<div style="position:absolute;left:82.87px;top:149.07px" class="cls_005"><span class="cls_005">42</span></div>
+<div style="position:absolute;left:103.21px;top:145.09px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:167.85px" class="cls_005"><span class="cls_005">43</span></div>
+<div style="position:absolute;left:82.87px;top:186.63px" class="cls_005"><span class="cls_005">44</span></div>
+<div style="position:absolute;left:103.68px;top:182.65px" class="cls_004"><span class="cls_004">$output</span></div>
+<div style="position:absolute;left:162.27px;top:182.65px" class="cls_004"><span class="cls_004">=</span><span class="cls_007"> array</span><span class="cls_004">(</span></div>
+<div style="position:absolute;left:82.87px;top:205.41px" class="cls_005"><span class="cls_005">45</span></div>
+<div style="position:absolute;left:132.95px;top:201.43px" class="cls_006"><span class="cls_006">’error’</span></div>
+<div style="position:absolute;left:191.81px;top:201.43px" class="cls_004"><span class="cls_004">=></span></div>
+<div style="position:absolute;left:214.44px;top:201.43px" class="cls_004"><span class="cls_004">$validation_error,</span></div>
+<div style="position:absolute;left:82.87px;top:224.19px" class="cls_005"><span class="cls_005">46</span></div>
+<div style="position:absolute;left:103.42px;top:220.21px" class="cls_004"><span class="cls_004">);</span></div>
+<div style="position:absolute;left:82.87px;top:242.97px" class="cls_005"><span class="cls_005">47</span></div>
+<div style="position:absolute;left:82.87px;top:261.75px" class="cls_005"><span class="cls_005">48</span></div>
+<div style="position:absolute;left:103.58px;top:257.76px" class="cls_007"><span class="cls_007">echo</span><span class="cls_004"> json_encode($output);</span></div>
+<div style="position:absolute;left:260.89px;top:278.86px" class="cls_004"><span class="cls_004">Rys. 1.4: Logowanie</span></div>
+<div style="position:absolute;left:85.04px;top:304.59px" class="cls_004"><span class="cls_004">form-data - pobranie danych z inputa</span></div>
+<div style="position:absolute;left:85.04px;top:323.37px" class="cls_004"><span class="cls_004">if(empty( form-data-email )) - zabezpieczenie przed brakiem maila</span></div>
+<div style="position:absolute;left:85.04px;top:342.15px" class="cls_004"><span class="cls_004">if(empty( form-data-password )) - zabezpieczenie przed brakiem hasła</span></div>
+<div style="position:absolute;left:85.04px;top:360.93px" class="cls_004"><span class="cls_004">if</span></div>
+<div style="position:absolute;left:96.43px;top:360.93px" class="cls_004"><span class="cls_004">(empty( error )) - jeśli nie ma błędów zaloguj w przeciwnym razie podaje komunikat</span></div>
+<div style="position:absolute;left:85.04px;top:379.71px" class="cls_004"><span class="cls_004">błędu</span></div>
+<div style="position:absolute;left:85.04px;top:439.04px" class="cls_003"><span class="cls_003">1.5</span></div>
+<div style="position:absolute;left:129.15px;top:439.04px" class="cls_003"><span class="cls_003">Wykresy</span></div>
+<div style="position:absolute;left:102.60px;top:474.92px" class="cls_004"><span class="cls_004">Kod odpowiada za tworzenie wykresów z zebranych odpowiedzi.</span></div>
+<div style="position:absolute;left:87.75px;top:502.31px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:103.42px;top:498.33px" class="cls_004"><span class="cls_004">&lt;!</span><span class="cls_007">DOCTYPE HTML</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:87.75px;top:521.09px" class="cls_005"><span class="cls_005">2</span></div>
+<div style="position:absolute;left:132.95px;top:517.11px" class="cls_004"><span class="cls_004">&lt;</span><span class="cls_007">html</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:87.75px;top:539.87px" class="cls_005"><span class="cls_005">3</span></div>
+<div style="position:absolute;left:132.95px;top:535.89px" class="cls_004"><span class="cls_004">&lt;</span><span class="cls_007">head</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:87.75px;top:558.65px" class="cls_005"><span class="cls_005">4</span></div>
+<div style="position:absolute;left:132.95px;top:554.67px" class="cls_004"><span class="cls_004">&lt;</span><span class="cls_007">script</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:87.75px;top:577.43px" class="cls_005"><span class="cls_005">5</span></div>
+<div style="position:absolute;left:87.75px;top:596.21px" class="cls_005"><span class="cls_005">6</span></div>
+<div style="position:absolute;left:133.18px;top:592.23px" class="cls_004"><span class="cls_004">window.onload</span></div>
+<div style="position:absolute;left:236.10px;top:592.23px" class="cls_004"><span class="cls_004">= function()</span></div>
+<div style="position:absolute;left:332.07px;top:592.23px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:614.99px" class="cls_005"><span class="cls_005">7</span></div>
+<div style="position:absolute;left:133.05px;top:611.01px" class="cls_004"><span class="cls_004">var chart</span></div>
+<div style="position:absolute;left:206.57px;top:611.01px" class="cls_004"><span class="cls_004">= new CanvasJS.Chart(</span><span class="cls_006">"chartContainer"</span><span class="cls_004">,</span></div>
+<div style="position:absolute;left:494.49px;top:611.01px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:633.77px" class="cls_005"><span class="cls_005">8</span></div>
+<div style="position:absolute;left:148.05px;top:629.79px" class="cls_004"><span class="cls_004">animationEnabled: true,</span></div>
+<div style="position:absolute;left:87.75px;top:652.55px" class="cls_005"><span class="cls_005">9</span></div>
+<div style="position:absolute;left:147.92px;top:648.57px" class="cls_004"><span class="cls_004">theme:</span><span class="cls_006"> "light2"</span><span class="cls_004">,</span></div>
+<div style="position:absolute;left:82.87px;top:671.33px" class="cls_005"><span class="cls_005">10</span></div>
+<div style="position:absolute;left:147.92px;top:667.35px" class="cls_004"><span class="cls_004">title:{</span></div>
+<div style="position:absolute;left:82.87px;top:690.11px" class="cls_005"><span class="cls_005">11</span></div>
+<div style="position:absolute;left:162.64px;top:686.12px" class="cls_004"><span class="cls_004">text:</span><span class="cls_006"> "Ankieta"</span></div>
+<div style="position:absolute;left:82.87px;top:708.89px" class="cls_005"><span class="cls_005">12</span></div>
+<div style="position:absolute;left:147.51px;top:704.90px" class="cls_004"><span class="cls_004">},</span></div>
+<div style="position:absolute;left:82.87px;top:727.67px" class="cls_005"><span class="cls_005">13</span></div>
+<div style="position:absolute;left:147.92px;top:723.68px" class="cls_004"><span class="cls_004">axisY:</span></div>
+<div style="position:absolute;left:199.19px;top:723.68px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:746.45px" class="cls_005"><span class="cls_005">14</span></div>
+<div style="position:absolute;left:162.68px;top:742.46px" class="cls_004"><span class="cls_004">title:</span><span class="cls_006"> "Ilość odpowiedzi"</span></div>
+<div style="position:absolute;left:308.88px;top:772.35px" class="cls_004"><span class="cls_004">6</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:5106px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background07.jpg" width=595 height=841></div>
+<div style="position:absolute;left:82.87px;top:92.73px" class="cls_005"><span class="cls_005">15</span></div>
+<div style="position:absolute;left:147.51px;top:88.75px" class="cls_004"><span class="cls_004">},</span></div>
+<div style="position:absolute;left:82.87px;top:111.51px" class="cls_005"><span class="cls_005">16</span></div>
+<div style="position:absolute;left:147.88px;top:107.53px" class="cls_004"><span class="cls_004">data:</span></div>
+<div style="position:absolute;left:192.00px;top:107.53px" class="cls_004"><span class="cls_004">[{</span></div>
+<div style="position:absolute;left:82.87px;top:130.29px" class="cls_005"><span class="cls_005">17</span></div>
+<div style="position:absolute;left:162.64px;top:126.31px" class="cls_004"><span class="cls_004">type:</span><span class="cls_006"> "column"</span><span class="cls_004">,</span></div>
+<div style="position:absolute;left:82.87px;top:149.07px" class="cls_005"><span class="cls_005">18</span></div>
+<div style="position:absolute;left:162.82px;top:145.09px" class="cls_004"><span class="cls_004">yValueFormatString:</span><span class="cls_006"> "#,##0.## odpowiedzi"</span><span class="cls_004">,</span></div>
+<div style="position:absolute;left:82.87px;top:167.85px" class="cls_005"><span class="cls_005">19</span></div>
+<div style="position:absolute;left:162.78px;top:163.87px" class="cls_004"><span class="cls_004">dataPoints:</span></div>
+<div style="position:absolute;left:251.07px;top:163.87px" class="cls_004"><span class="cls_004">&lt;?php echo json_encode($tab,</span></div>
+<div style="position:absolute;left:82.87px;top:186.63px" class="cls_005"><span class="cls_005">20</span></div>
+<div style="position:absolute;left:280.94px;top:182.65px" class="cls_004"><span class="cls_004">JSON_NUMERIC_CHECK);</span></div>
+<div style="position:absolute;left:435.43px;top:182.65px" class="cls_004"><span class="cls_004">?></span></div>
+<div style="position:absolute;left:82.87px;top:205.41px" class="cls_005"><span class="cls_005">21</span></div>
+<div style="position:absolute;left:147.71px;top:201.43px" class="cls_004"><span class="cls_004">}]</span></div>
+<div style="position:absolute;left:82.87px;top:224.19px" class="cls_005"><span class="cls_005">22</span></div>
+<div style="position:absolute;left:133.05px;top:220.21px" class="cls_004"><span class="cls_004">});</span></div>
+<div style="position:absolute;left:82.87px;top:242.97px" class="cls_005"><span class="cls_005">23</span></div>
+<div style="position:absolute;left:133.15px;top:238.98px" class="cls_004"><span class="cls_004">chart.render();</span></div>
+<div style="position:absolute;left:82.87px;top:261.75px" class="cls_005"><span class="cls_005">24</span></div>
+<div style="position:absolute;left:82.87px;top:280.53px" class="cls_005"><span class="cls_005">25</span></div>
+<div style="position:absolute;left:132.74px;top:276.54px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:82.87px;top:299.31px" class="cls_005"><span class="cls_005">26</span></div>
+<div style="position:absolute;left:132.95px;top:295.32px" class="cls_004"><span class="cls_004">&lt;/</span><span class="cls_007">script</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:82.87px;top:318.09px" class="cls_005"><span class="cls_005">27</span></div>
+<div style="position:absolute;left:132.95px;top:314.10px" class="cls_004"><span class="cls_004">&lt;/</span><span class="cls_007">head</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:82.87px;top:336.87px" class="cls_005"><span class="cls_005">28</span></div>
+<div style="position:absolute;left:132.95px;top:332.88px" class="cls_004"><span class="cls_004">&lt;</span><span class="cls_007">body</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:82.87px;top:355.65px" class="cls_005"><span class="cls_005">29</span></div>
+<div style="position:absolute;left:132.95px;top:351.66px" class="cls_004"><span class="cls_004">&lt;</span><span class="cls_007">div id</span><span class="cls_004">=</span><span class="cls_006">"chartContainer"</span><span class="cls_007"> style</span><span class="cls_004">=</span><span class="cls_006">"height:</span></div>
+<div style="position:absolute;left:428.35px;top:351.66px" class="cls_006"><span class="cls_006">370px;</span></div>
+<div style="position:absolute;left:82.87px;top:374.43px" class="cls_005"><span class="cls_005">30</span></div>
+<div style="position:absolute;left:310.33px;top:370.44px" class="cls_006"><span class="cls_006">width:</span></div>
+<div style="position:absolute;left:361.97px;top:370.44px" class="cls_006"><span class="cls_006">98%;"</span><span class="cls_004">>&lt;/</span><span class="cls_007">div</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:82.87px;top:393.21px" class="cls_005"><span class="cls_005">31</span></div>
+<div style="position:absolute;left:132.95px;top:389.22px" class="cls_004"><span class="cls_004">&lt;</span><span class="cls_007">script src</span><span class="cls_004">=</span><span class="cls_006">"<A HREF="https://canvasjs.com/assets/script/">https://canvasjs.com/assets/script/</A> </span></div>
+<div style="position:absolute;left:82.87px;top:411.99px" class="cls_005"><span class="cls_005">32</span></div>
+<div style="position:absolute;left:310.40px;top:408.00px" class="cls_006"><span class="cls_006">canvasjs.min.js"</span><span class="cls_004">>&lt;/</span><span class="cls_007">script</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:82.87px;top:430.77px" class="cls_005"><span class="cls_005">33</span></div>
+<div style="position:absolute;left:132.95px;top:426.78px" class="cls_004"><span class="cls_004">&lt;/</span><span class="cls_007">body</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:82.87px;top:449.55px" class="cls_005"><span class="cls_005">34</span></div>
+<div style="position:absolute;left:132.95px;top:445.56px" class="cls_004"><span class="cls_004">&lt;/</span><span class="cls_007">html</span><span class="cls_004">></span></div>
+<div style="position:absolute;left:268.75px;top:467.33px" class="cls_004"><span class="cls_004">Rys. 1.5: Wykres</span></div>
+<div style="position:absolute;left:85.04px;top:517.54px" class="cls_003"><span class="cls_003">1.6</span></div>
+<div style="position:absolute;left:129.15px;top:517.54px" class="cls_003"><span class="cls_003">Formularz pytań oraz odpowiedzi</span></div>
+<div style="position:absolute;left:102.60px;top:553.42px" class="cls_004"><span class="cls_004">Kod odpowiada za tworzenie pól potrzebnych do dodawania nowych pytań oraz od-</span></div>
+<div style="position:absolute;left:85.04px;top:572.20px" class="cls_004"><span class="cls_004">powiedzi.</span></div>
+<div style="position:absolute;left:87.75px;top:600.94px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:103.21px;top:596.96px" class="cls_004"><span class="cls_004">$(document).ready(function</span></div>
+<div style="position:absolute;left:302.74px;top:596.96px" class="cls_004"><span class="cls_004">()</span></div>
+<div style="position:absolute;left:324.68px;top:596.96px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:619.72px" class="cls_005"><span class="cls_005">2</span></div>
+<div style="position:absolute;left:87.75px;top:638.50px" class="cls_005"><span class="cls_005">3</span></div>
+<div style="position:absolute;left:117.98px;top:634.52px" class="cls_004"><span class="cls_004">$(</span><span class="cls_006">"#addq"</span><span class="cls_004">).click(function</span></div>
+<div style="position:absolute;left:310.12px;top:634.52px" class="cls_004"><span class="cls_004">()</span></div>
+<div style="position:absolute;left:332.07px;top:634.52px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:657.28px" class="cls_005"><span class="cls_005">4</span></div>
+<div style="position:absolute;left:87.75px;top:676.06px" class="cls_005"><span class="cls_005">5</span></div>
+<div style="position:absolute;left:133.15px;top:672.08px" class="cls_004"><span class="cls_004">smLib.surveyForms.addQuestion($(</span><span class="cls_006">"#questions"</span><span class="cls_004">));</span></div>
+<div style="position:absolute;left:87.75px;top:694.84px" class="cls_005"><span class="cls_005">6</span></div>
+<div style="position:absolute;left:118.29px;top:690.86px" class="cls_004"><span class="cls_004">});</span></div>
+<div style="position:absolute;left:87.75px;top:713.62px" class="cls_005"><span class="cls_005">7</span></div>
+<div style="position:absolute;left:103.52px;top:709.64px" class="cls_004"><span class="cls_004">});</span></div>
+<div style="position:absolute;left:241.06px;top:728.20px" class="cls_004"><span class="cls_004">Rys. 1.6: dodawanie pytaL„</span></div>
+<div style="position:absolute;left:308.88px;top:772.35px" class="cls_004"><span class="cls_004">7</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:5957px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background08.jpg" width=595 height=841></div>
+<div style="position:absolute;left:85.04px;top:87.56px" class="cls_004"><span class="cls_004">(”addq”).click(function () - Obsługuj użytkownika klikającego ”Add a question” poprzez</span></div>
+<div style="position:absolute;left:85.04px;top:106.34px" class="cls_004"><span class="cls_004">dodanie nowego pytania</span></div>
+<div style="position:absolute;left:85.04px;top:125.12px" class="cls_004"><span class="cls_004">smLib.surveyForms.addQuestion((”questions”)) - zagnieżdżona funkcja tworzy strukturę</span></div>
+<div style="position:absolute;left:85.04px;top:143.90px" class="cls_004"><span class="cls_004">HTML DOM.</span></div>
+<div style="position:absolute;left:102.60px;top:219.01px" class="cls_004"><span class="cls_004">Kod odpowiada za przekazywanie odpowiedzi oraz pytań z pliku JS do skryptu PHP</span></div>
+<div style="position:absolute;left:87.75px;top:247.76px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:110.60px;top:243.77px" class="cls_004"><span class="cls_004">i</span></div>
+<div style="position:absolute;left:125.36px;top:243.77px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:140.13px;top:243.77px" class="cls_004"><span class="cls_004">i</span></div>
+<div style="position:absolute;left:155.09px;top:243.77px" class="cls_004"><span class="cls_004">-</span></div>
+<div style="position:absolute;left:169.86px;top:243.77px" class="cls_004"><span class="cls_004">1;</span></div>
+<div style="position:absolute;left:87.75px;top:266.54px" class="cls_005"><span class="cls_005">2</span></div>
+<div style="position:absolute;left:147.82px;top:262.55px" class="cls_004"><span class="cls_004">var licznik</span></div>
+<div style="position:absolute;left:236.09px;top:262.55px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:251.07px;top:262.55px" class="cls_006"><span class="cls_006">’q’</span></div>
+<div style="position:absolute;left:280.39px;top:262.55px" class="cls_004"><span class="cls_004">+ i;</span></div>
+<div style="position:absolute;left:87.75px;top:285.32px" class="cls_005"><span class="cls_005">3</span></div>
+<div style="position:absolute;left:147.82px;top:281.33px" class="cls_004"><span class="cls_004">var zlicz</span></div>
+<div style="position:absolute;left:221.34px;top:281.33px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:236.30px;top:281.33px" class="cls_006"><span class="cls_006">’radiochoice’</span></div>
+<div style="position:absolute;left:339.45px;top:281.33px" class="cls_004"><span class="cls_004">+ j;</span></div>
+<div style="position:absolute;left:87.75px;top:304.10px" class="cls_005"><span class="cls_005">4</span></div>
+<div style="position:absolute;left:147.82px;top:300.11px" class="cls_004"><span class="cls_004">var z</span></div>
+<div style="position:absolute;left:191.80px;top:300.11px" class="cls_004"><span class="cls_004">= j</span></div>
+<div style="position:absolute;left:221.34px;top:300.11px" class="cls_004"><span class="cls_004">+</span></div>
+<div style="position:absolute;left:236.30px;top:300.11px" class="cls_004"><span class="cls_004">2;</span></div>
+<div style="position:absolute;left:87.75px;top:322.88px" class="cls_005"><span class="cls_005">5</span></div>
+<div style="position:absolute;left:147.82px;top:318.89px" class="cls_004"><span class="cls_004">var resp</span></div>
+<div style="position:absolute;left:213.95px;top:318.89px" class="cls_004"><span class="cls_004">= document.getElementById(licznik).value;</span></div>
+<div style="position:absolute;left:87.75px;top:341.66px" class="cls_005"><span class="cls_005">6</span></div>
+<div style="position:absolute;left:147.82px;top:337.67px" class="cls_004"><span class="cls_004">var resp1</span></div>
+<div style="position:absolute;left:221.34px;top:337.67px" class="cls_004"><span class="cls_004">= document.getElementById(zlicz).value;</span></div>
+<div style="position:absolute;left:87.75px;top:360.43px" class="cls_005"><span class="cls_005">7</span></div>
+<div style="position:absolute;left:147.51px;top:356.45px" class="cls_004"><span class="cls_004">$.post(</span><span class="cls_006">’php/insertquestion.php’</span><span class="cls_004">,</span></div>
+<div style="position:absolute;left:391.13px;top:356.45px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:87.75px;top:379.21px" class="cls_005"><span class="cls_005">8</span></div>
+<div style="position:absolute;left:162.48px;top:375.23px" class="cls_006"><span class="cls_006">’pyt’</span><span class="cls_004">: resp</span></div>
+<div style="position:absolute;left:87.75px;top:397.99px" class="cls_005"><span class="cls_005">9</span></div>
+<div style="position:absolute;left:147.82px;top:394.01px" class="cls_004"><span class="cls_004">});</span></div>
+<div style="position:absolute;left:82.87px;top:416.77px" class="cls_005"><span class="cls_005">10</span></div>
+<div style="position:absolute;left:82.87px;top:435.55px" class="cls_005"><span class="cls_005">11</span></div>
+<div style="position:absolute;left:147.92px;top:431.57px" class="cls_007"><span class="cls_007">while</span></div>
+<div style="position:absolute;left:191.81px;top:431.57px" class="cls_004"><span class="cls_004">(z</span></div>
+<div style="position:absolute;left:214.15px;top:431.57px" class="cls_004"><span class="cls_004">&lt; choiceX)</span></div>
+<div style="position:absolute;left:295.15px;top:431.57px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:454.33px" class="cls_005"><span class="cls_005">12</span></div>
+<div style="position:absolute;left:162.27px;top:450.35px" class="cls_004"><span class="cls_004">$.post(</span><span class="cls_006">’php/insertodpRadio.php’</span><span class="cls_004">,</span></div>
+<div style="position:absolute;left:405.90px;top:450.35px" class="cls_004"><span class="cls_004">{</span></div>
+<div style="position:absolute;left:82.87px;top:473.11px" class="cls_005"><span class="cls_005">13</span></div>
+<div style="position:absolute;left:177.24px;top:469.13px" class="cls_006"><span class="cls_006">’odp’</span><span class="cls_004">: resp1,</span></div>
+<div style="position:absolute;left:82.87px;top:491.89px" class="cls_005"><span class="cls_005">14</span></div>
+<div style="position:absolute;left:177.24px;top:487.91px" class="cls_006"><span class="cls_006">’pyt’</span><span class="cls_004">: resp</span></div>
+<div style="position:absolute;left:82.87px;top:510.67px" class="cls_005"><span class="cls_005">15</span></div>
+<div style="position:absolute;left:162.58px;top:506.69px" class="cls_004"><span class="cls_004">});</span></div>
+<div style="position:absolute;left:82.87px;top:529.45px" class="cls_005"><span class="cls_005">16</span></div>
+<div style="position:absolute;left:162.27px;top:525.47px" class="cls_004"><span class="cls_004">j</span></div>
+<div style="position:absolute;left:177.03px;top:525.47px" class="cls_004"><span class="cls_004">= j</span></div>
+<div style="position:absolute;left:206.56px;top:525.47px" class="cls_004"><span class="cls_004">+</span></div>
+<div style="position:absolute;left:221.54px;top:525.47px" class="cls_004"><span class="cls_004">2;</span></div>
+<div style="position:absolute;left:82.87px;top:548.23px" class="cls_005"><span class="cls_005">17</span></div>
+<div style="position:absolute;left:162.27px;top:544.25px" class="cls_004"><span class="cls_004">z</span></div>
+<div style="position:absolute;left:177.03px;top:544.25px" class="cls_004"><span class="cls_004">= z</span></div>
+<div style="position:absolute;left:206.56px;top:544.25px" class="cls_004"><span class="cls_004">+</span></div>
+<div style="position:absolute;left:221.54px;top:544.25px" class="cls_004"><span class="cls_004">2;</span></div>
+<div style="position:absolute;left:82.87px;top:567.01px" class="cls_005"><span class="cls_005">18</span></div>
+<div style="position:absolute;left:162.68px;top:563.03px" class="cls_004"><span class="cls_004">zlicz</span></div>
+<div style="position:absolute;left:206.57px;top:563.03px" class="cls_004"><span class="cls_004">=</span></div>
+<div style="position:absolute;left:221.53px;top:563.03px" class="cls_006"><span class="cls_006">’radiochoice’</span></div>
+<div style="position:absolute;left:324.68px;top:563.03px" class="cls_004"><span class="cls_004">+ j;</span></div>
+<div style="position:absolute;left:82.87px;top:585.79px" class="cls_005"><span class="cls_005">19</span></div>
+<div style="position:absolute;left:162.68px;top:581.81px" class="cls_004"><span class="cls_004">resp1</span></div>
+<div style="position:absolute;left:206.57px;top:581.81px" class="cls_004"><span class="cls_004">= document.getElementById(zlicz).value;</span></div>
+<div style="position:absolute;left:82.87px;top:604.57px" class="cls_005"><span class="cls_005">20</span></div>
+<div style="position:absolute;left:147.51px;top:600.58px" class="cls_004"><span class="cls_004">}</span></div>
+<div style="position:absolute;left:237.97px;top:622.35px" class="cls_004"><span class="cls_004">Rys. 1.7: przekazywanie z JS</span></div>
+<div style="position:absolute;left:85.04px;top:650.10px" class="cls_004"><span class="cls_004">document.getElementById().value; - bierze wartosc elementu na podstawie id</span></div>
+<div style="position:absolute;left:85.04px;top:668.88px" class="cls_004"><span class="cls_004">.post() ... - wysyla dane do okreslonego pliku w PHP</span></div>
+<div style="position:absolute;left:308.88px;top:772.35px" class="cls_004"><span class="cls_004">8</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:6808px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background09.jpg" width=595 height=841></div>
+<div style="position:absolute;left:102.60px;top:87.56px" class="cls_004"><span class="cls_004">Funkcja odpowiada za tworzenie struktury pytań oraz odpowiedzi.</span></div>
+<div style="position:absolute;left:87.75px;top:116.30px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:118.49px;top:112.31px" class="cls_004"><span class="cls_004">addQuestion: function</span></div>
+<div style="position:absolute;left:280.39px;top:112.31px" class="cls_004"><span class="cls_004">(container)</span></div>
+<div style="position:absolute;left:369.39px;top:112.31px" class="cls_004"><span class="cls_004">{...}</span></div>
+<div style="position:absolute;left:195.82px;top:134.08px" class="cls_004"><span class="cls_004">Rys. 1.8: struktuta pytan oraz odpowiedzi JS</span></div>
+<div style="position:absolute;left:102.60px;top:161.83px" class="cls_004"><span class="cls_004">Funkcja sprawdza dane użytkownika i w przypadku prawidlowych rozpoczyna sesję.</span></div>
+<div style="position:absolute;left:87.75px;top:190.57px" class="cls_005"><span class="cls_005">1</span></div>
+<div style="position:absolute;left:118.46px;top:186.59px" class="cls_004"><span class="cls_004">function</span><span class="cls_007"> register</span><span class="cls_004">(buttonId)</span></div>
+<div style="position:absolute;left:332.47px;top:186.59px" class="cls_004"><span class="cls_004">{...}</span></div>
+<div style="position:absolute;left:252.68px;top:208.35px" class="cls_004"><span class="cls_004">Rys. 1.9: Logowanie JS</span></div>
+<div style="position:absolute;left:308.89px;top:772.35px" class="cls_004"><span class="cls_004">9</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-297px;top:7659px;width:595px;height:841px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6c620838-cc5f-11eb-a980-0cc47a792c0a_id_6c620838-cc5f-11eb-a980-0cc47a792c0a_files/background10.jpg" width=595 height=841></div>
+<div style="position:absolute;left:85.04px;top:163.39px" class="cls_002"><span class="cls_002">Bibliografia</span></div>
+<div style="position:absolute;left:305.96px;top:772.35px" class="cls_004"><span class="cls_004">10</span></div>
+</div>
+
+</body>
+</html>
