@@ -7,6 +7,7 @@ $(document).ready(function () {
   });
 });
 
+
 function myFunction() {
 
   var x = document.getElementById(zliczanie);
@@ -17,7 +18,6 @@ function myFunction() {
 
 var choiceX = 0;
 var j = 0;
-// var k = 0;
 $(function () {
   window.smLib = window.smLib || {};
   smLib.forms = smLib.forms || {
