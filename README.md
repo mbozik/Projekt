@@ -7,7 +7,7 @@ w sposób umożliwiający zachowanie anonimowości użytkowników. W celu stworz
 3. Za pomocą otrzymanego hasha użytkownik może sprawdzić swoje odpowiedzi oraz czy zostały przekazane do bazy.
 
 # Dokumentacja
-https://github.com/mbozik/Projekt/tree/main/Dokumentacja
+https://github.com/mbozik/Projekt/blob/main/Dokumentacja/Dokumentacja%20(1).pdf
 
 # Autorzy
 Beniamin Bartusiak,
