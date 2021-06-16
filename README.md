@@ -7,5 +7,5 @@ w sposób umożliwiający zachowanie anonimowości użytkowników. W celu stworz
 3. Za pomocą otrzymanego hasha użytkownik może sprawdzić swoje odpowiedzi oraz czy zostały przekazane do bazy.
 
 Twórcy:
-Beniamin Bartusiak
+Beniamin Bartusiak,
 Mikołaj Bozik
