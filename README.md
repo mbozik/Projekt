@@ -6,6 +6,9 @@ w sposób umożliwiający zachowanie anonimowości użytkowników. W celu stworz
 2. Serwis jest w pełni anonimowy, nie ma możliwości powiązania użytkownika z odpowiedziami.
 3. Za pomocą otrzymanego hasha użytkownik może sprawdzić swoje odpowiedzi oraz czy zostały przekazane do bazy.
 
-Twórcy:
+# Dokumentacja
+https://github.com/mbozik/Projekt/tree/main/Dokumentacja
+
+# Autorzy
 Beniamin Bartusiak,
 Mikołaj Bozik
